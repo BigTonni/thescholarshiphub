@@ -45,6 +45,7 @@ if ( ! function_exists( 'thescholarshiphub_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'thescholarshiphub' ),
+			'footer-1' => esc_html__( 'Footer', 'thescholarshiphub' ),
 		) );
 
 		/*
@@ -121,10 +122,16 @@ add_action( 'widgets_init', 'thescholarshiphub_widgets_init' );
  */
 function thescholarshiphub_scripts() {
 	wp_enqueue_style( 'thescholarshiphub-style', get_stylesheet_uri() );
+        
+        $path_to_files = get_template_directory_uri();
 
-	wp_enqueue_script( 'thescholarshiphub-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'thescholarshiphub-navigation', $path_to_files . '/assets/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'thescholarshiphub-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'thescholarshiphub-skip-link-focus-fix', $path_to_files . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );        
+        
+	// Load the html5 shiv.
+	wp_enqueue_script( 'html5', $path_to_files . '/assets/js/html5.js', array(), '3.7.3' );
+	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -132,30 +139,33 @@ function thescholarshiphub_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'thescholarshiphub_scripts' );
 
+$path = get_template_directory();
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+require $path . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require $path . '/inc/template-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-functions.php';
+require $path . '/inc/template-functions.php';
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require $path . '/inc/customizer.php';
+
+require_once $path . '/inc/tsh_helpers.php';
 
 /**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+	require $path . '/inc/jetpack.php';
 }
 

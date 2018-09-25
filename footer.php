@@ -15,13 +15,13 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'thescholarshiphub' ) ); ?>">
+			<!--<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'thescholarshiphub' ) ); ?>">-->
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'thescholarshiphub' ), 'WordPress' );
+//				printf( esc_html__( 'Proudly powered by %s', 'thescholarshiphub' ), 'WordPress' );
 				?>
-			</a>
-			<span class="sep"> | </span>
+			<!--</a>-->
+			<!--<span class="sep"> | </span>-->
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
 				?>
