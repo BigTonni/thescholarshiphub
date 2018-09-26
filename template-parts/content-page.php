@@ -21,7 +21,7 @@
 		the_content();
 
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'thescholarshiphub' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', THEME_DOMAIN ),
 			'after'  => '</div>',
 		) );
 		?>
@@ -34,7 +34,7 @@
 //				sprintf(
 //					wp_kses(
 //						/* translators: %s: Name of current post. Only visible to screen readers */
-//						__( 'Edit <span class="screen-reader-text">%s</span>', 'thescholarshiphub' ),
+//						__( 'Edit <span class="screen-reader-text">%s</span>', THEME_DOMAIN ),
 //						array(
 //							'span' => array(
 //								'class' => array(),

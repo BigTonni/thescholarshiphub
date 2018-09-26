@@ -646,11 +646,26 @@ a:hover, a:active {
 
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 0 6px 6px;
 	float: left;
 	position: absolute;
 	top: 100%;
 	left: -999em;
 	z-index: 99999;
+        
+        color: #ffffff;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        background-color: #08c;
+        background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+        background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+        background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+        background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+        border-color: #0044cc #0044cc #002a80;
+        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
 .main-navigation ul ul ul {
@@ -662,9 +677,20 @@ a:hover, a:active {
 .main-navigation ul ul li.focus > ul {
 	left: 100%;
 }
-
+.main-navigation ul ul li {
+    line-height: 24px;}
 .main-navigation ul ul a {
 	width: 200px;
+        
+        color: #fff;
+        font-weight: 400;
+        padding-bottom: 4px;
+        padding-top: 4px;
+        text-transform: none;
+        position: relative;
+        padding: 8px 10px 8px 5px;
+        font-size: .9em;
+        border-bottom: 1px solid rgba(255,255,255,.2);
 }
 
 .main-navigation ul li:hover > ul,
@@ -680,6 +706,13 @@ a:hover, a:active {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+        color: #fff;        
+        padding: 10px 13px;
+}
+.main-navigation .menu-item-has-children > a:after {
+    font-family: 'FontAwesome';
+    content: "\f107";
+    margin-left: 5px;
 }
 
 /* Small menu. */
@@ -976,3 +1009,44 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+/*Header*/
+.site-branding img{
+    height: 100px;
+    width: auto;
+}
+.header_wrapper{
+    border: solid 2px #000;
+    min-height: 73px;
+    width: 100%; 
+    background: #0077b3;
+}
+header.site-header{    
+    margin: 0 auto;
+    width: 1170px;
+}
+.site-branding {
+    float: left;
+    width:20%;
+}
+header nav.main-navigation {
+    clear: none;
+    float: left;
+    margin: 25px 0 0;
+    width: 76%;
+    border: solid 1px;
+}
+nav.main-navigation .menu-mainmenu-container {
+/*    float: left;
+    width: 70%;*/
+}
+.searchicon{
+    float: right;
+    margin-top: 25px;
+    padding: 10px 13px;
+}
+.site-header .searchicon .fa{
+    color: #fff;
+    cursor: pointer;
+}
+header .search-form{display: none;}
