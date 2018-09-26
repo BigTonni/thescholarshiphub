@@ -52,7 +52,9 @@ function thescholarshiphub_setup() {
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus( array(
                 'primary' => esc_html__( 'Primary', THEME_DOMAIN ),
-                'footer-1' => esc_html__( 'Footer', THEME_DOMAIN ),
+                'footer_links' => esc_html__( 'Footer Links', THEME_DOMAIN ),
+                'footer_scholarship' => esc_html__( 'Footer Scholarship', THEME_DOMAIN ),
+                'footer_bottom' => esc_html__( 'Footer Bottom Bar', THEME_DOMAIN ),
                 'mobile_primary' => esc_html__( 'Mobile Primary', THEME_DOMAIN ),
         ) );
 
@@ -127,6 +129,48 @@ function thescholarshiphub_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+        register_sidebar( array(
+		'name'          => esc_html__( 'Home Sidebar', THEME_DOMAIN ),
+		'id'            => 'sidebar_home',
+		'description'   => esc_html__( 'Add widgets here.', THEME_DOMAIN ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+        register_sidebar( array( 
+            'name'  => __( 'Footer Sidebar 1', THEME_DOMAIN ),
+            'id'    => 'tsh_footer_1',
+            'class' => 'tsh_footer_1',
+            'before_widget' => '',
+            'after_widget'  => '',
+//		'before_title'  => '<h2 class="widget-title">',
+//		'after_title'   => '</h2>',
+        ) );
+        register_sidebar( array( 
+            'name'  => __( 'Footer Sidebar 2', THEME_DOMAIN ),
+            'id'    => 'tsh_footer_2',
+            'class' => 'tsh_footer_2',
+            'before_widget' => '',
+            'after_widget'  => '',
+        ) );
+        register_sidebar( array( 
+            'name'  => __( 'Footer Sidebar 3', THEME_DOMAIN ),
+            'id'    => 'tsh_footer_3',
+            'class' => 'tsh_footer_3',
+            'before_widget' => '',
+            'after_widget'  => '',
+        ) );
+        register_sidebar( array( 
+            'name'  => __( 'Footer Sidebar 4', THEME_DOMAIN ),
+            'id'    => 'tsh_footer_4',
+            'class' => 'tsh_footer_4',
+            'before_widget' => '',
+            'after_widget'  => '',
+        ) );
+        
+        // Register and load the widget for Recent Posts
+        register_widget( 'WP_TSH_Widget_Recent_Posts' );
 }
 add_action( 'widgets_init', 'thescholarshiphub_widgets_init' );
 
@@ -137,10 +181,15 @@ function thescholarshiphub_scripts() {
 	wp_enqueue_style( 'thescholarshiphub-style', get_stylesheet_uri() );
                 
 	wp_enqueue_style( 'fontawesome', THEME_DIR_URI . '/assets/css/font-awesome.min.css' );
+	wp_enqueue_style( 'mini-bootstrap', THEME_DIR_URI . '/assets/css/mini-bootstrap.css' );
+//	wp_enqueue_style( 'tsh_libs', THEME_DIR_URI . '/assets/css/libs.min.css' );
+	wp_enqueue_style( 'tsh_carousel', THEME_DIR_URI . '/assets/css/owl.carousel.min.css' );
 
 	wp_enqueue_script( 'thescholarshiphub-navigation', THEME_DIR_URI . '/assets/js/navigation.js', array(), '20180925', true );
 
 	wp_enqueue_script( 'thescholarshiphub-skip-link-focus-fix', THEME_DIR_URI . '/assets/js/skip-link-focus-fix.js', array(), '20180925', true );        
+        
+        wp_enqueue_script( 'tsh_libs', THEME_DIR_URI . '/assets/js/libs.min.js', array(), '', true );
         
 	// Load the html5 shiv.
 	wp_enqueue_script( 'html5', THEME_DIR_URI . '/assets/js/html5.js', array(), '3.7.3' );
@@ -150,7 +199,7 @@ function thescholarshiphub_scripts() {
 //                'ajax_url'          => admin_url( 'admin-ajax.php' ),
         );
 
-        wp_enqueue_script( 'tsh_front', THEME_DIR_URI . '/assets/js/front.js', array('jquery'), '', true );
+        wp_enqueue_script( 'tsh_front', THEME_DIR_URI . '/assets/js/front.js', array('jquery', 'tsh_libs'), '', true );
         wp_localize_script( 'tsh_front', 'TSHParams', $params );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -183,6 +232,8 @@ require_once THEME_INCLUDES . '/customizer.php';
  * Helpers.
  */
 require_once THEME_INCLUDES . '/tsh_helpers.php';
+
+require_once THEME_INCLUDES . '/class-wp-tsh-widget-recent-posts.php';
 
 /**
  * Theme options.
