@@ -1024,22 +1024,18 @@ object {
 }
 header.site-header{    
     margin: 0 auto;
-    width: 1170px;
+    max-width: 1170px;
 }
 .site-branding {
     float: left;
-    width:20%;
+    width:15%;
 }
 header nav.main-navigation {
     clear: none;
     float: left;
     margin: 25px 0 0;
-    width: 76%;
+    width: 80%;
     border: solid 1px;
-}
-nav.main-navigation .menu-mainmenu-container {
-/*    float: left;
-    width: 70%;*/
 }
 .searchicon{
     float: right;
@@ -1124,65 +1120,4 @@ footer .menu a{
 }
 #footer_menu_bottom li:last-of-type a{
     border-right:none;
-}
-
-/*Homepage*/
-.slider_1 {
-    position: relative;
-    cursor: pointer;
-    max-height: 720px;
-    overflow: hidden;
-}
-.slider_1 .slider-text {
-    position: absolute;
-    color: #fff;
-    z-index: 10;
-    left: 50%;
-    top: 45%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 100%;
-    background-position-x: 50%;
-}
-.slider_1 .slider-text_mod {
-    max-width: 740px;
-    margin: 0 auto 30px;
-    overflow: hidden;
-    text-align: left;
-}
-.slider_1 .slider-text .tagline_1 {
-    letter-spacing: 0;
-    text-transform: uppercase;
-    /*font-size: 90px;*/
-    font-weight: bold;
-    max-height: 270px;
-    line-height: 1;
-    margin: 10px auto !important;
-}
-.slider_1 .slider-text .tagline_2 {
-    max-height: 145px;
-    letter-spacing: 0;
-    font-size: 30px;
-    font-weight: 600;
-    line-height: 36px;
-}
-.slider_1 .slider-text .jumpButton {
-    background: inherit;
-    display: inline-block;
-    -webkit-border-radius: 0 !important;
-    border-radius: 0 !important;
-    color: #fff !important;
-    letter-spacing: 0px !important;
-    outline: none;
-    display: inline-block;
-    text-transform: uppercase !important;
-    font-size: 24px !important;
-    -webkit-transition: .3s ease !important;
-    -o-transition: .3s ease !important;
-    transition: .3s ease !important;
-    padding: 12px 10px !important;
-    font-weight: bold;
-    text-align: center;
-    line-height: 20px;
 }

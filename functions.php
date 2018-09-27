@@ -182,8 +182,12 @@ function thescholarshiphub_scripts() {
                 
 	wp_enqueue_style( 'fontawesome', THEME_DIR_URI . '/assets/css/font-awesome.min.css' );
 	wp_enqueue_style( 'mini-bootstrap', THEME_DIR_URI . '/assets/css/mini-bootstrap.css' );
-//	wp_enqueue_style( 'tsh_libs', THEME_DIR_URI . '/assets/css/libs.min.css' );
-	wp_enqueue_style( 'tsh_carousel', THEME_DIR_URI . '/assets/css/owl.carousel.min.css' );
+	wp_enqueue_style( 'tsh_carousel', THEME_DIR_URI . '/assets/css/owl.carousel.min.css' );        
+	wp_enqueue_style( 'responsive', THEME_DIR_URI . '/assets/css/responsive.css' );
+        
+        if( is_front_page() ){
+            wp_enqueue_style( 'home', THEME_DIR_URI . '/assets/css/home.css' );
+        }
 
 	wp_enqueue_script( 'thescholarshiphub-navigation', THEME_DIR_URI . '/assets/js/navigation.js', array(), '20180925', true );
 

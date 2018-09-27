@@ -14,7 +14,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-        <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
 	<?php wp_head(); ?>
 </head>
@@ -27,15 +26,6 @@
                     <div class="site-branding">
                             <?php
                             the_custom_logo();
-                            if ( is_front_page() || is_home() ) {
-                                    ?>
-                                    <!--<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>-->
-                                    <?php
-                            } else {
-                                    ?>
-                                    <!--<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>-->
-                                    <?php
-                            }
                             $thescholarshiphub_description = get_bloginfo( 'description', 'display' );
                             if ( $thescholarshiphub_description || is_customize_preview() ) {
                                     ?>
@@ -52,7 +42,6 @@
                             ) );
                             ?>
                     </nav><!-- #site-navigation -->
-                    <!--<i class="far fa-search"></i>-->
                     <div class="searchicon">
                             <i class="fa fa-search"></i>
                     </div>

@@ -1,0 +1,8 @@
+@media screen and (max-width: 400px) {
+    .site-branding { width: 30%; }
+    header nav.main-navigation{ 
+        width: 55%;
+        border:none;
+        padding: 10px 13px;
+    }
+}

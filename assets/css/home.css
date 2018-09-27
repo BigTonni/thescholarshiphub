@@ -1,0 +1,102 @@
+/*Section slider*/
+.slider_1 {
+    position: relative;
+    cursor: pointer;
+    max-height: 720px;
+    overflow: hidden;
+}
+.slider_1 .slider-text {
+    position: absolute;
+    color: #fff;
+    z-index: 10;
+    left: 50%;
+    top: 45%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    background-position-x: 50%;
+}
+.slider_1 .slider-text_mod {
+    max-width: 740px;
+    margin: 0 auto 30px;
+    overflow: hidden;
+    text-align: left;
+}
+.slider_1 .slider-text .tagline_1 {
+    letter-spacing: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    max-height: 270px;
+    line-height: 1;
+    margin: 10px auto !important;
+}
+.slider_1 .slider-text .tagline_2 {
+    max-height: 145px;
+    letter-spacing: 0;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 36px;
+}
+.slider_1 .slider-text .jumpButton {
+    background: inherit;
+    display: inline-block;
+    -webkit-border-radius: 0 !important;
+    border-radius: 0 !important;
+    color: #fff !important;
+    letter-spacing: 0px !important;
+    outline: none;
+    display: inline-block;
+    text-transform: uppercase !important;
+    font-size: 24px !important;
+    -webkit-transition: .3s ease !important;
+    -o-transition: .3s ease !important;
+    transition: .3s ease !important;
+    padding: 12px 10px !important;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+}
+/* End section slider*/
+/* Section user_status*/
+.user_status{
+    margin: 15px 0;
+}
+.user_status .user_status_image img {
+    width: 100%;
+    vertical-align: middle;
+}
+.user_status .user_status_text {
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid #f6f6f6;
+    border-top: none;
+    text-align: center;
+}
+.user_status .user_status_text a{
+    text-decoration: none;
+    color:#000;
+}
+.user_status .user_status_text div{
+    padding: 20px 0;
+}
+/* End section user_status*/
+/* Section home_content_wrap */
+.home_content_wrap{
+    margin: 40px 0;
+}
+.featured_post_image img{
+    width:100%;
+    vertical-align: middle;
+}
+.featured_post_text{
+    border:2px solid #f6f6f6;
+    padding: 20px 15px;
+}
+.home_content_wrap .read_more{
+    text-align: right;
+}
+.home_content_wrap .read_more a{
+    text-decoration: none;    
+}
+/* End section home_content_wrap*/

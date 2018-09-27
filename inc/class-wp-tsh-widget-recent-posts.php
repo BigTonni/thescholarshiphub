@@ -56,6 +56,13 @@ class WP_TSH_Widget_Recent_Posts extends WP_Widget {
 			'no_found_rows'       => true,
 			'post_status'         => 'publish',
 			'ignore_sticky_posts' => true,
+                        'meta_query' => array(
+                            array(
+                                    'key'     => '_tsh_featured',
+                                    'value'   => 'yes',
+                                    'compare' => '!=',
+                            )
+                        )
 		), $instance ) );
 
 		if ( ! $r->have_posts() ) {

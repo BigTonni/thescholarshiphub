@@ -36,7 +36,14 @@ function tsh_pingback_header() {
 }
 add_action( 'wp_head', 'tsh_pingback_header' );
 
-function tsh_login_logout_register_menu($items, $args) {
+/**
+ * Change menu.
+ *
+ * @param string $items.
+ * @param object $args.
+ * @return string
+ */
+function tsh_change_menu($items, $args) {
     if ($args->theme_location != 'primary') {
         return $items;
     }
@@ -50,5 +57,45 @@ function tsh_login_logout_register_menu($items, $args) {
 
     return $items;
 }
+add_filter('wp_nav_menu_items', 'tsh_change_menu', 199, 2);
 
-add_filter('wp_nav_menu_items', 'tsh_login_logout_register_menu', 199, 2);
+/**
+ * Add custom metabox
+ */
+function tsh_metabox_add() {
+    add_meta_box( 'tsh_meta', __( 'Featured Posts', THEME_DOMAIN ), 'tsh_meta_callback', 'post' );
+}
+function tsh_meta_callback( $post ) {
+    $featured = get_post_meta( $post->ID, '_tsh_featured', true );
+    
+    wp_nonce_field( plugin_basename(__FILE__), 'tsh_metabox_featuredpost' );
+    ?> 
+    
+            <label for="meta-checkbox">
+                <input type="checkbox" name="tsh_featured" id="tsh_featured" value="yes" <?php if ( isset ( $featured ) ) checked( $featured, 'yes' ); ?> />
+                <?php _e( 'Featured this post', THEME_DOMAIN )?>
+            </label>        
+       
+    <?php
+}
+add_action( 'add_meta_boxes', 'tsh_metabox_add' );
+
+/**
+ * Saves custom metabox
+ */
+function tsh_metabox_save( $post_id ) {    
+	if ( isset($_POST['tsh_metabox_featuredpost']) && ! wp_verify_nonce( $_POST['tsh_metabox_featuredpost'], plugin_basename(__FILE__) ) ){
+		return;
+        }
+	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ){
+		return;
+        }
+
+	$value = isset( $_POST[ 'tsh_featured' ] ) ? 'yes' : '';
+
+	update_post_meta( $post_id, '_tsh_featured', $value );
+ 
+}
+add_action( 'save_post', 'tsh_metabox_save' );
+
+remove_filter( 'the_excerpt', 'wpautop' );
