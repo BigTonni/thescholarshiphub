@@ -154,18 +154,37 @@ if ( ! function_exists( 'thescholarshiphub_comments' ) ) {
 	function thescholarshiphub_comments() {
 		$num_comments = get_comments_number();
 
+                $icon = '<i class="fa fa-comment"></i>';
                 if ( comments_open() ) {
                         if ( $num_comments == 0 ) {
                                 $comments = __('No Comments', THEME_DOMAIN);
                         } elseif ( $num_comments > 1 ) {
-                                $comments = $num_comments . __(' Comments', THEME_DOMAIN);
+                                $comments =  $num_comments . '<br/>' . __(' view comments', THEME_DOMAIN);
                         } else {
-                                $comments = __('1 Comment', THEME_DOMAIN);
+                                $comments = '1<br/>' . __('Comment', THEME_DOMAIN);
                         }
-                        $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
+                        $write_comments = $icon .' <a class="view_comments" href="' . get_comments_link() .'">'. $comments.'</a>';
                 } else {
                         $write_comments =  __('Comments are off for this post.', THEME_DOMAIN);
                 }
                 echo $write_comments;
 	}
+}
+
+if ( ! function_exists( 'thescholarshiphub_advanced' ) ) {
+    function thescholarshiphub_advanced(){
+        ?>
+            <div class="entry-advanced">
+                <div class="row">
+                    <div class="col-md-1">Share</div>
+                    <div class="col-md-9">
+                        <?php echo do_shortcode('[addthis tool="addthis_inline_share_toolbox_hsbh"]'); ?>
+                    </div>
+                    <div class="col-md-2" style="padding-left: 0px;padding-right: 0px;">
+                        <?php thescholarshiphub_comments(); ?>
+                    </div>                        
+                </div>
+            </div>
+        <?php
+    }
 }

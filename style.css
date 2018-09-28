@@ -1190,6 +1190,7 @@ footer .menu a{
 }
 #content .single_sidebar_wrap{
     padding-left: 25px;
+    margin-top: 20px;
 }
 .single_sidebar_wrap #custom_recent_post_list .post-title{
     color: #000;
@@ -1198,8 +1199,26 @@ footer .menu a{
 .single_sidebar_wrap #custom_recent_post_list .post-excerpt{
     margin: 0;
 }
+.entry-advanced{
+    border-top: 1px solid #f6f6f6;
+    border-bottom: 1px solid #f6f6f6;
+    padding: 10px 0;
+    margin-bottom: 5px;
+}
+.fa-comment{
+    font-size: 20px;
+}
+.view_comments{
+    text-decoration: none;
+    color: #000;
+}
 /*End*/
 /*For sidebar*/
+.widget_categories .widget-title,
+.custom_widget_recent_entries .widget-title{
+    border: 2px solid #f6f6f6;
+    text-align: center;
+}
 .widget_categories ul{
     list-style: none;
     margin-left: 0px;
@@ -1207,4 +1226,26 @@ footer .menu a{
 }
 .widget_categories ul a{    
     text-decoration: none;
+}
+
+.widget_find_scholarship{
+    border:2px solid #f6f6f6;
+    padding: 15px 15px;
+    margin-bottom: 20px;
+}
+.widget_find_scholarship .widget-title{
+    margin-top: 0px;
+    text-align: center;
+}
+#scholarship_list{
+    width: 100%;
+    padding: 10px;
+}
+#scholarship_form_btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+#scholarship_form_btn input{
+    font-size: 20px;
 }

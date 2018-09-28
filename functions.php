@@ -153,8 +153,6 @@ function thescholarshiphub_widgets_init() {
             'class' => 'tsh_footer_1',
             'before_widget' => '',
             'after_widget'  => '',
-//		'before_title'  => '<h2 class="widget-title">',
-//		'after_title'   => '</h2>',
         ) );
         register_sidebar( array( 
             'name'  => __( 'Footer Sidebar 2', THEME_DOMAIN ),
@@ -180,6 +178,8 @@ function thescholarshiphub_widgets_init() {
         
         // Register and load the widget for Recent Posts
         register_widget( 'WP_TSH_Widget_Recent_Posts' );
+        
+        register_widget( 'WP_TSH_Widget_Find_Scholarship' );
 }
 add_action( 'widgets_init', 'thescholarshiphub_widgets_init' );
 
@@ -247,6 +247,7 @@ require_once THEME_INCLUDES . '/customizer.php';
 require_once THEME_INCLUDES . '/tsh_helpers.php';
 
 require_once THEME_INCLUDES . '/class-wp-tsh-widget-recent-posts.php';
+require_once THEME_INCLUDES . '/class-wp-tsh-widget-find-scholarship.php';
 
 /**
  * Theme options.

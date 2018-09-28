@@ -16,11 +16,10 @@
                 <div class="entry-meta">
                         <?php
                         thescholarshiphub_posted_on();
-                        thescholarshiphub_posted_by();
-                        echo ' ';
-                        thescholarshiphub_comments();                        
+                        thescholarshiphub_posted_by();                       
                         ?>
                 </div><!-- .entry-meta -->
+                <?php thescholarshiphub_advanced(); ?>
 	</header><!-- .entry-header -->
 
 	<?php thescholarshiphub_post_thumbnail(); ?>
@@ -35,6 +34,8 @@
 		) );
 		?>
 	</div><!-- .entry-content -->
+        
+        <?php thescholarshiphub_advanced(); ?>
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
