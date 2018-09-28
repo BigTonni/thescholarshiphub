@@ -709,6 +709,28 @@ a:hover, a:active {
 	text-decoration: none;
         color: #fff;        
         padding: 10px 13px;
+    /*margin-left: 3px;*/
+    margin-right: 3px;
+}
+/*.main-navigation>a {
+    padding: 10px 11px;
+}*/
+/*.main-navigation>li:first-child > a {
+    margin-left: 0;
+}*/
+.main-navigation li:last-child > a {
+    margin-right: 0;
+}
+.main-navigation a:hover,
+.main-navigation li.current-menu-item{
+    border-radius: 5px 5px 0 0;
+    background: #08c;
+}
+.main-navigation li:first-child a:hover{
+    border-radius: 0 5px 0 0;
+}
+.main-navigation .sub-menu a:hover{
+    border-radius: 0;
 }
 .main-navigation .menu-item-has-children > a:after {
     font-family: 'FontAwesome';
@@ -1048,6 +1070,41 @@ header nav.main-navigation {
 }
 header .search-form{display: none;}
 
+/*Extra funding*/
+#extra_degree_funding{
+    border: solid 2px #000;
+    background-color: #0077b3;
+}
+#extra_degree_funding h2{
+    color: #fff;
+    margin-bottom: .5em;
+}
+#extra_degree_funding p{
+    color: #fff;
+}
+#extra_degree_funding .jumpButton{
+    background: inherit;
+    display: inline-block;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    color: #fff;
+    letter-spacing: 0px;
+    outline: none;
+    display: inline-block;
+    font-size: 24px;
+    -webkit-transition: .3s ease;
+    -o-transition: .3s ease;
+    transition: .3s ease;
+    padding: 12px 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    text-decoration: none;    
+    border: 1px solid;
+    border-color: #ccc #ccc #bbb;
+}
+/*End*/
+
 /*Footer*/
 footer .site-info{
     background: #2c2c2c;
@@ -1120,4 +1177,34 @@ footer .menu a{
 }
 #footer_menu_bottom li:last-of-type a{
     border-right:none;
+}
+
+/*For single post*/
+.single_banner{
+    width:100%;
+    display: flex;
+    justify-content:center;
+    padding: 20px;
+    border: 2px solid #f6f6f6;
+    border-top:none;
+}
+#content .single_sidebar_wrap{
+    padding-left: 25px;
+}
+.single_sidebar_wrap #custom_recent_post_list .post-title{
+    color: #000;
+    font-weight: bold;
+}
+.single_sidebar_wrap #custom_recent_post_list .post-excerpt{
+    margin: 0;
+}
+/*End*/
+/*For sidebar*/
+.widget_categories ul{
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+.widget_categories ul a{    
+    text-decoration: none;
 }

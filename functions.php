@@ -121,8 +121,17 @@ add_action( 'after_setup_theme', 'thescholarshiphub_content_width', 0 );
  */
 function thescholarshiphub_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', THEME_DOMAIN ),
-		'id'            => 'sidebar-1',
+		'name'          => esc_html__( 'Post Sidebar', THEME_DOMAIN ),
+		'id'            => 'sidebar_single',
+		'description'   => esc_html__( 'Add widgets here.', THEME_DOMAIN ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Page Sidebar', THEME_DOMAIN ),
+		'id'            => 'page',
 		'description'   => esc_html__( 'Add widgets here.', THEME_DOMAIN ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',

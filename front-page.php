@@ -24,9 +24,7 @@ get_header(); ?>
                         <h2 class="slider-text_mod tagline_1">Find UK Scholarship Today</h2>
                         <p class="slider-text_mod tagline_2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         <div class="slider-text_mod">
-                            <button class="jumpButton" >
-                                Get started today
-                            </button>
+                            <a class="jumpButton" href="">Get started today</a>
                         </div>
                     </div>
                     <img src="<?php echo THEME_DIR_URI; ?>/assets/img/slider1_slide1.jpg" alt="slider">
@@ -36,7 +34,7 @@ get_header(); ?>
                         <h2 class="slider-text_mod tagline_1">Find UK Scholarship Today</h2>
                         <p class="slider-text_mod tagline_2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         <div class="slider-text_mod">
-                            <button class="jumpButton" >
+                            <button class="jumpButton" type="button">
                                 Get started today
                             </button>
                         </div>
@@ -146,20 +144,32 @@ get_header(); ?>
                                 ?>
                             </div>
                             
-                            <div class="col-md-12">
+                            <div class="col-md-12" id="university_funding">
                                 <h2>University Funding</h2>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h2>Degree Apprenticeships</h2>
+                                    </div>                                    
+                                    <div class="col-md-6">
+                                        <h2>Fundraise your university costs</h2>
+                                    </div>
+                                </div>                                
                             </div>
                             
                         </div>
                     </div>
                     
-                    <div class="col-md-4">
+                    <div class="col-md-4 home_sidebar_wrap">
                         <?php dynamic_sidebar( 'sidebar_home' ); ?>
                     </div>
+                    
                 </div>
+                
             </div>
-        </section><!-- .home_content_wrap -->
-        
+        </section><!-- .home_content_wrap -->                
         
 </div><!-- #primary -->
 <?php get_footer();

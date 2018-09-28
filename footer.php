@@ -9,6 +9,25 @@
  * @package thescholarshiphub
  */
 ?>
+            <section id="extra_degree_funding">
+                <div class="container">
+                    <div class="row">                    
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h2>Are you looking for extra funding for your degree?</h2>
+                                    <p>Find scholarships, grants, bursaries for university and more by searching our website. Millions of pounds worth of free money available. Don’t miss out!</p>
+                                </div>
+                                <div class="col-md-3">                                    
+                                    <p style="margin-top: 50px;">
+                                        <a class="jumpButton" href="<?php echo ! is_user_logged_in() ? wp_registration_url() : '/'; ?>">Register Now</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- #extra_degree_funding -->
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">

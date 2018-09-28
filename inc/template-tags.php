@@ -7,7 +7,7 @@
  * @package thescholarshiphub
  */
 
-if ( ! function_exists( 'thescholarshiphub_posted_on' ) ) :
+if ( ! function_exists( 'thescholarshiphub_posted_on' ) ) {
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
@@ -19,23 +19,23 @@ if ( ! function_exists( 'thescholarshiphub_posted_on' ) ) :
 
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
+			esc_html( get_the_date('d/m/Y') ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
 			esc_html( get_the_modified_date() )
 		);
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', THEME_DOMAIN ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			esc_html_x( 'Published %s', 'post date', THEME_DOMAIN ),
+			$time_string
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
 	}
-endif;
+}
 
-if ( ! function_exists( 'thescholarshiphub_posted_by' ) ) :
+if ( ! function_exists( 'thescholarshiphub_posted_by' ) ) {
 	/**
 	 * Prints HTML with meta information for the current author.
 	 */
@@ -43,15 +43,15 @@ if ( ! function_exists( 'thescholarshiphub_posted_by' ) ) :
 		$byline = sprintf(
 			/* translators: %s: post author. */
 			esc_html_x( 'by %s', 'post author', THEME_DOMAIN ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			'<span class="author vcard">' . esc_html( get_the_author() ) . '</span>'
 		);
 
 		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 	}
-endif;
+}
 
-if ( ! function_exists( 'thescholarshiphub_entry_footer' ) ) :
+if ( ! function_exists( 'thescholarshiphub_entry_footer' ) ) {
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
@@ -109,9 +109,9 @@ if ( ! function_exists( 'thescholarshiphub_entry_footer' ) ) :
 			'</span>'
 		);
 	}
-endif;
+}
 
-if ( ! function_exists( 'thescholarshiphub_post_thumbnail' ) ) :
+if ( ! function_exists( 'thescholarshiphub_post_thumbnail' ) ) {
 	/**
 	 * Displays an optional post thumbnail.
 	 *
@@ -123,14 +123,14 @@ if ( ! function_exists( 'thescholarshiphub_post_thumbnail' ) ) :
 			return;
 		}
 
-		if ( is_singular() ) :
+		if ( is_singular() ) {
 			?>
 
 			<div class="post-thumbnail">
 				<?php the_post_thumbnail(); ?>
 			</div><!-- .post-thumbnail -->
 
-		<?php else : ?>
+                <?php } else { ?>
 
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 			<?php
@@ -143,6 +143,29 @@ if ( ! function_exists( 'thescholarshiphub_post_thumbnail' ) ) :
 		</a>
 
 		<?php
-		endif; // End is_singular().
+                } // End is_singular().
 	}
-endif;
+}
+
+if ( ! function_exists( 'thescholarshiphub_comments' ) ) {
+	/**
+	 * Displays comments.
+	 */
+	function thescholarshiphub_comments() {
+		$num_comments = get_comments_number();
+
+                if ( comments_open() ) {
+                        if ( $num_comments == 0 ) {
+                                $comments = __('No Comments', THEME_DOMAIN);
+                        } elseif ( $num_comments > 1 ) {
+                                $comments = $num_comments . __(' Comments', THEME_DOMAIN);
+                        } else {
+                                $comments = __('1 Comment', THEME_DOMAIN);
+                        }
+                        $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
+                } else {
+                        $write_comments =  __('Comments are off for this post.', THEME_DOMAIN);
+                }
+                echo $write_comments;
+	}
+}

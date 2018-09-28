@@ -42,6 +42,7 @@ class WP_TSH_Widget_Recent_Posts extends WP_Widget {
 			$number = 5;
 		}
 		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
+		$show_content = isset( $instance['show_content'] ) ? $instance['show_content'] : false;
 
 		/**
 		 * Filters the arguments for the Recent Posts widget.
@@ -90,7 +91,10 @@ class WP_TSH_Widget_Recent_Posts extends WP_Widget {
 					<?php if ( $show_date ) : ?>
 						<span class="post-date"><?php echo get_the_date( 'd M Y', $recent_post->ID ); ?></span>
 					<?php endif; ?>
-                                        <?php // echo $recent_post->post_excerpt ? $recent_post->post_excerpt : ''; ?>
+                                        <?php if ( $show_content ) : ?>
+						<p class="post-excerpt"><?php echo $recent_post->post_excerpt ? $recent_post->post_excerpt : ''; ?></p>
+					<?php endif; ?>
+                                                
                                     </span>
 				</li>
 			<?php endforeach; ?>
@@ -112,6 +116,7 @@ class WP_TSH_Widget_Recent_Posts extends WP_Widget {
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['number'] = (int) $new_instance['number'];
 		$instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
+		$instance['show_content'] = isset( $new_instance['show_content'] ) ? (bool) $new_instance['show_content'] : false;
 		return $instance;
 	}
 
@@ -124,6 +129,7 @@ class WP_TSH_Widget_Recent_Posts extends WP_Widget {
 		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 		$show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
+		$show_content = isset( $instance['show_content'] ) ? (bool) $instance['show_content'] : false;
 ?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
@@ -133,6 +139,9 @@ class WP_TSH_Widget_Recent_Posts extends WP_Widget {
 
 		<p><input class="checkbox" type="checkbox"<?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
 		<label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?' ); ?></label></p>
+                
+                <p><input class="checkbox" type="checkbox"<?php checked( $show_content ); ?> id="<?php echo $this->get_field_id( 'show_content' ); ?>" name="<?php echo $this->get_field_name( 'show_content' ); ?>" />
+		<label for="<?php echo $this->get_field_id( 'show_content' ); ?>"><?php _e( 'Display post content?' ); ?></label></p>
 <?php
 	}
 }

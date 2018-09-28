@@ -7,11 +7,11 @@
  * @package thescholarshiphub
  */
 
-if ( ! is_active_sidebar( 'sidebar_single' ) ) {
+if ( ! is_active_sidebar( 'page' ) ) {
 	return;
 }
 ?>
 
 <aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar_single' ); ?>
+	<?php dynamic_sidebar( 'page' ); ?>
 </aside><!-- #secondary -->
