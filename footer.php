@@ -8,6 +8,8 @@
  *
  * @package thescholarshiphub
  */
+$options = get_option('TheScholarshipHub');
+
 ?>
             <section id="extra_degree_funding">
                 <div class="container">
@@ -15,7 +17,7 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <h2>Are you looking for extra funding for your degree?</h2>
+                                    <h2><?php echo !empty($options['21']) ? $options['21'] : ''; ?></h2>
                                     <p>Find scholarships, grants, bursaries for university and more by searching our website. Millions of pounds worth of free money available. Don’t miss out!</p>
                                 </div>
                                 <div class="col-md-3">                                    

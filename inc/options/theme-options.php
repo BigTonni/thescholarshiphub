@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 /*
-/* Last element's ID = 81, 92-96
+/* Last element's ID = 13, 21
  * 
  * Require the framework class before doing anything else, so we can use the defined urls and dirs
  * Also if running on windows you may have url problems, which can be fixed by defining the framework url first
@@ -80,7 +80,7 @@ $args['intro_text'] = __('<p>There are settings for your theme.</p>', 'nhp-opts'
 //$args['show_import_export'] = false;
 
 //Choose a custom option name for your theme options, the default is the theme name in lowercase with spaces replaced by underscores
-$args['opt_name'] = 'The Scholarship Hub';
+$args['opt_name'] = 'TheScholarshipHub';
 
 //Custom menu icon
 //$args['menu_icon'] = '';
@@ -131,49 +131,125 @@ $args['help_sidebar'] = __('<p>This is the sidebar content, HTML is allowed.</p>
 $sections = array();
 
 $sections[] = array(
-				'title' => __('Frontpage Section #1', 'nhp-opts'),
-				'desc' => __('<p class="description">Settings for the frontpage.</p>', 'nhp-opts'),
+				'title' => __('Homepage', 'nhp-opts'),
+				'desc' => __('<p class="description">Settings for the homepage.</p>', 'nhp-opts'),
 				//all the glyphicons are included in the options folder, so you can hook into them, or link to your own custom ones.
 				//You dont have to though, leave it blank for default.
-				'icon' => NHP_OPTIONS_URL.'img/glyphicons/glyphicons_062_attach.png',
+//				'icon' => NHP_OPTIONS_URL.'img/glyphicons/glyphicons_062_attach.png',
 				//Lets leave this as a blank section, no options just some intro text set above.
 				'fields' => array(
                                                 array(
                                                     'id' => '1', //must be unique
                                                     'type' => 'text', //builtin fields include:
     //text|textarea|editor|checkbox|multi_checkbox|radio|radio_img|button_set|select|multi_select|color|date|divide|info|upload
-                                                    'title' => __('Header', 'nhp-opts'),
+                                                    'title' => __('Slider#1 Header', 'nhp-opts'),
                                                     'desc' => '',
-                                                    'std' => __('', 'nhp-opts'),
+                                                    'std' => __('Find UK Scholarship Today', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '2',
+                                                    'type' => 'textarea',
+                                                    'title' => __('Slider#1 Text', 'nhp-opts'),
+                                                    'desc' => '',
+						),
+                                                array(
+                                                    'id' => '3',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#1 Button title', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> 'Get started today'
+						),
+                                                array(
+                                                    'id' => '4',
+                                                    'type' => 'upload',
+                                                    'title' => __('Slider#1 Image', 'nhp-opts'),
+						),
+                                    
+                                                array(
+                                                    'id' => '5',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#2 Header', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std' => __('Find UK Scholarship Today', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '6',
+                                                    'type' => 'textarea',
+                                                    'title' => __('Slider#2 Text', 'nhp-opts'),
+                                                    'desc' => '',
+						),
+                                                array(
+                                                    'id' => '7',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#2 Button title', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> 'Get started today'
+						),
+                                                array(
+                                                    'id' => '8',
+                                                    'type' => 'upload',
+                                                    'title' => __('Slider#2 Image', 'nhp-opts'),
+						),
+                                    
+                                                
+                                                array(
+                                                    'id' => '9',
+                                                    'type' => 'text',
+                                                    'title' => __('Header for section#2', 'nhp-opts'),
+                                                    'std'=> 'University Funding'
+						),
+                                    
+                                                array(
+                                                    'id' => '10',
+                                                    'type' => 'text',
+                                                    'title' => __('Header for section#3', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '12',
+                                                    'type' => 'upload',
+                                                    'title' => __('Iamge for section#3', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '13',
+                                                    'type' => 'text',
+                                                    'title' => __('Page Link for section#3', 'nhp-opts'),
+						),
+                                    
+                                                array(
+                                                    'id' => '11',
+                                                    'type' => 'text',
+                                                    'title' => __('Header for section#4', 'nhp-opts'),
 						),
                                         )
 				);
+
+
 $sections[] = array(
-				'title' => __('Frontpage Section #2', 'nhp-opts'),
-				'icon' => NHP_OPTIONS_URL.'img/glyphicons/glyphicons_062_attach.png',
+				'title' => __('Footer', 'nhp-opts'),
+//				'icon' => NHP_OPTIONS_URL.'img/glyphicons/glyphicons_062_attach.png',
 				'fields' => array(
                                                 array(
-                                                    'id' => '2',
-                                                    'type' => 'upload',
-                                                    'title' => __('Image #1', 'nhp-opts'),
+                                                    'id' => '21',
+                                                    'type' => 'text',
+                                                    'title' => __('Header for Extra degree funding', 'nhp-opts'),
+                                                    'std' => __('', 'nhp-opts'),
 						),                                    
                                         )
 				);
 
+$tabs = array();
 
-	$tabs = array();
-			
-	
-	if(file_exists(trailingslashit(get_stylesheet_directory()).'README.html')){
-		$tabs['theme_docs'] = array(
-						'icon' => NHP_OPTIONS_URL.'img/glyphicons/glyphicons_071_book.png',
-						'title' => __('Documentation', 'nhp-opts'),
-						'content' => nl2br(file_get_contents(trailingslashit(get_stylesheet_directory()).'README.html'))
-						);
-	}//if
 
-	global $NHP_Options;
-	$NHP_Options = new NHP_Options($sections, $args, $tabs);
+if(file_exists(trailingslashit(get_stylesheet_directory()).'README.html')){
+        $tabs['theme_docs'] = array(
+                                        'icon' => NHP_OPTIONS_URL.'img/glyphicons/glyphicons_071_book.png',
+                                        'title' => __('Documentation', 'nhp-opts'),
+                                        'content' => nl2br(file_get_contents(trailingslashit(get_stylesheet_directory()).'README.html'))
+                                        );
+}//if
+
+global $NHP_Options;
+$NHP_Options = new NHP_Options($sections, $args, $tabs);
 
 }//function
 add_action('init', 'setup_framework_options', 0);

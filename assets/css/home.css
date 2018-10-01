@@ -85,6 +85,38 @@
     padding: 20px 0;
 }
 /* End section user_status*/
+/*Section university_funding*/
+#university_funding .grid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0 -15px;
+    padding: 25px 0 0;
+}
+#university_funding .item {
+    padding: 15px;
+    overflow: hidden;
+    max-width: 400px;
+}
+.university_funding_title{
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+.university_funding_text{font-size: 15px;}
+/*End university_funding*/
 /* Section home_content_wrap */
 .home_content_wrap{
     margin: 40px 0;

@@ -1226,17 +1226,21 @@ article.status-publish .entry-title{
 /*End*/
 /*For sidebar*/
 .widget_categories .widget-title,
-.custom_widget_recent_entries .widget-title{
+.custom_widget_recent_entries .widget-title,
+.tsh_header{
     border: 2px solid #ccc;
-    text-align: center;
+    padding-left: 15px;
     text-transform: capitalize;
+    background: #f6f6f6;
 }
-.widget_categories ul{
+.widget_categories ul,
+.widget_recent_entries ul{
     list-style: none;
     margin-left: 0px;
     padding-left: 0px;
 }
-.widget_categories ul a{    
+.widget_categories ul a,
+.widget_recent_entries ul a{    
     text-decoration: none;
     color: royalblue;
 }
@@ -1263,14 +1267,22 @@ article.status-publish .entry-title{
     font-size: 20px;
 }
 /*Custom Search form*/
+.searchform_wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
 #super_searchform #s{
+    flex-grow:2;
     padding: 8px;
     border-right-width: 0px;
     border-radius:0;
+    border-width: 2px;
 }
 #super_searchform #searchsubmit{
     line-height: 1.8rem;
-    border-left-width: 0px;
+    border-width: 2px 2px 2px 0;
     margin-left: -4px;
     border-radius: 0;
     background: #fff;

@@ -63,39 +63,50 @@ add_filter('wp_nav_menu_items', 'tsh_change_menu', 199, 2);
  * Add custom metabox
  */
 function tsh_metabox_add() {
-    add_meta_box( 'tsh_meta', __( 'Featured Posts', THEME_DOMAIN ), 'tsh_meta_callback', 'post' );
-}
-function tsh_meta_callback( $post ) {
-    $featured = get_post_meta( $post->ID, '_tsh_featured', true );
-    
-    wp_nonce_field( plugin_basename(__FILE__), 'tsh_metabox_featuredpost' );
-    ?> 
-    
-            <label for="meta-checkbox">
-                <input type="checkbox" name="tsh_featured" id="tsh_featured" value="yes" <?php if ( isset ( $featured ) ) checked( $featured, 'yes' ); ?> />
-                <?php _e( 'Featured this post', THEME_DOMAIN )?>
-            </label>        
-       
-    <?php
+    add_meta_box( 'tsh_metabox_post_fea', __( 'Featured Posts', THEME_DOMAIN ), 'tsh_meta_callback_fea', 'post' );
+    add_meta_box( 'tsh_metabox_post_university_funding', __( 'University Funding', THEME_DOMAIN ), 'tsh_meta_callback_university_funding', 'post' );
 }
 add_action( 'add_meta_boxes', 'tsh_metabox_add' );
+
+function tsh_meta_callback_fea( $post ) {
+    $checked = get_post_meta( $post->ID, '_tsh_featured', true );
+    
+    wp_nonce_field( plugin_basename(__FILE__), 'tsh_metabox_main_nonce' );
+    ?>    
+            <label for="meta-checkbox">
+                <input type="checkbox" name="tsh_field_eatured" id="tsh_field_eatured" value="yes" <?php if ( isset ( $checked ) ) checked( $checked, 'yes' ); ?> />
+                <?php _e( 'Featured this post', THEME_DOMAIN )?>
+            </label>
+    <?php
+}
+function tsh_meta_callback_university_funding( $post ) {
+    $checked = get_post_meta( $post->ID, '_tsh_university_funding', true );
+    
+    wp_nonce_field( plugin_basename(__FILE__), 'tsh_metabox_main_nonce' );
+    ?>    
+            <label for="meta-checkbox">
+                <input type="checkbox" name="tsh_field_university_funding" id="tsh_field_university_funding" value="yes" <?php if ( isset ( $checked ) ) checked( $checked, 'yes' ); ?> />
+                <?php _e( 'University Funding', THEME_DOMAIN )?>
+            </label>       
+    <?php
+}
 
 /**
  * Saves custom metabox
  */
 function tsh_metabox_save( $post_id ) {    
-	if ( isset($_POST['tsh_metabox_featuredpost']) && ! wp_verify_nonce( $_POST['tsh_metabox_featuredpost'], plugin_basename(__FILE__) ) ){
+	if ( isset($_POST['tsh_metabox_main_nonce']) && ! wp_verify_nonce( $_POST['tsh_metabox_main_nonce'], plugin_basename(__FILE__) ) ){
 		return;
         }
 	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ){
 		return;
         }
 
-	$value = isset( $_POST[ 'tsh_featured' ] ) ? 'yes' : '';
-
-	update_post_meta( $post_id, '_tsh_featured', $value );
+	update_post_meta( $post_id, '_tsh_featured', isset( $_POST[ 'tsh_field_eatured' ] ) ? 'yes' : '' );
+	update_post_meta( $post_id, '_tsh_university_funding', isset( $_POST[ 'tsh_field_university_funding' ] ) ? 'yes' : '' );
  
 }
 add_action( 'save_post', 'tsh_metabox_save' );
 
+//Remove <p>
 remove_filter( 'the_excerpt', 'wpautop' );

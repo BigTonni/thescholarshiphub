@@ -112,7 +112,7 @@ get_header(); ?>
         <section class="home_content_wrap">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-9">
                         <div class="row">
                             <div class="col-md-12">
                                 <?php
@@ -121,9 +121,9 @@ get_header(); ?>
                                     'meta_key' => '_tsh_featured',
                                     'meta_value' => 'yes'
                                 );
-                                $featured_post = new WP_Query($args);
-                                if ($featured_post->have_posts()){
-                                    while ($featured_post->have_posts()){ $featured_post->the_post();
+                                $the_query = new WP_Query($args);
+                                if ($the_query->have_posts()){
+                                    while ($the_query->have_posts()){ $the_query->the_post();
                                         if (has_post_thumbnail()) { ?>
                                             <div class="featured_post_image">
                                                 <?php the_post_thumbnail('full'); ?>                          
@@ -134,7 +134,7 @@ get_header(); ?>
                                             <h3><?php the_title(); ?></h3>
                                             <div><?php the_excerpt(); ?></div>
                                             <div class="read_more">
-                                                <a href="<?php the_permalink(); ?>">Read more</a>                                                
+                                                <a href="<?php the_permalink(); ?>">>> Read more</a>                                                
                                             </div>
                                         </div>
                                 
@@ -145,16 +145,51 @@ get_header(); ?>
                             </div>
                             
                             <div class="col-md-12" id="university_funding">
-                                <h2>University Funding</h2>
+                                <h2 class="tsh_header">University Funding</h2>
+                                <?php
+                                $args = array(
+                                    'posts_per_page' => 4,
+                                    'meta_key' => '_tsh_university_funding',
+                                    'meta_value' => 'yes'
+                                );
+                                $the_query = new WP_Query($args);
+                                if ($the_query->have_posts()){
+                                    ?>
+                                    <div class="grid">
+                                        <?php
+                                        while ($the_query->have_posts()){ $the_query->the_post();
+                                            ?>
+                                            <div class="item">
+                                                <div class="row">
+                                                    
+                                                    <div class="col-md-6 university_funding_thumb">
+                                                    <?php
+                                                        if (has_post_thumbnail()) { ?>
+                                                                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-thumbnail'); ?></a>                     
+
+                                                        <?php } ?>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h4 class="university_funding_title"><?php the_title(); ?></h4>
+                                                        <div class="university_funding_text"><?php echo wp_trim_words(get_the_content(), 10 ); ?></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php
+                                        } ?>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
                             </div>
                             
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h2>Degree Apprenticeships</h2>
+                                        <h2 class="tsh_header">Degree Apprenticeships</h2>
                                     </div>                                    
                                     <div class="col-md-6">
-                                        <h2>Fundraise your university costs</h2>
+                                        <h2 class="tsh_header" style="text-transform: inherit;">Fundraise your university costs</h2>
                                     </div>
                                 </div>                                
                             </div>
@@ -162,7 +197,7 @@ get_header(); ?>
                         </div>
                     </div>
                     
-                    <div class="col-md-4 home_sidebar_wrap">
+                    <div class="col-md-3 home_sidebar_wrap">
                         <?php dynamic_sidebar( 'sidebar_home' ); ?>
                     </div>
                     
