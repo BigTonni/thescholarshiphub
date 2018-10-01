@@ -73,7 +73,7 @@
 .user_status .user_status_text {
     font-size: 20px;
     font-weight: bold;
-    border: 2px solid #f6f6f6;
+    border: 2px solid #ccc;
     border-top: none;
     text-align: center;
 }
@@ -94,14 +94,15 @@
     vertical-align: middle;
 }
 .featured_post_text{
-    border:2px solid #f6f6f6;
+    border:2px solid #ccc;
     padding: 20px 15px;
 }
 .home_content_wrap .read_more{
     text-align: right;
 }
 .home_content_wrap .read_more a{
-    text-decoration: none;    
+    text-decoration: none;
+    color: royalblue;  
 }
 /* End section home_content_wrap*/
 

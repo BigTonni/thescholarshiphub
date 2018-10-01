@@ -176,11 +176,12 @@ if ( ! function_exists( 'thescholarshiphub_advanced' ) ) {
         ?>
             <div class="entry-advanced">
                 <div class="row">
-                    <div class="col-md-1">Share</div>
+                    <!--<div class="col-md-1">Share</div>-->
                     <div class="col-md-9">
-                        <?php echo do_shortcode('[addthis tool="addthis_inline_share_toolbox_hsbh"]'); ?>
+                        <?php // echo do_shortcode('[addthis tool="addthis_inline_share_toolbox_hsbh"]'); ?>
+                        <?php echo do_shortcode('[ssba-buttons]'); ?>
                     </div>
-                    <div class="col-md-2" style="padding-left: 0px;padding-right: 0px;">
+                    <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;">
                         <?php thescholarshiphub_comments(); ?>
                     </div>                        
                 </div>

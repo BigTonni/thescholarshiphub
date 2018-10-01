@@ -708,9 +708,8 @@ a:hover, a:active {
 	display: block;
 	text-decoration: none;
         color: #fff;        
-        padding: 10px 13px;
-    /*margin-left: 3px;*/
-    margin-right: 3px;
+        padding: 10px 11px;
+        margin-right: 3px;
 }
 /*.main-navigation>a {
     padding: 10px 11px;
@@ -719,23 +718,23 @@ a:hover, a:active {
     margin-left: 0;
 }*/
 .main-navigation li:last-child > a {
-    margin-right: 0;
+        margin-right: 0;
 }
 .main-navigation a:hover,
 .main-navigation li.current-menu-item{
-    border-radius: 5px 5px 0 0;
-    background: #08c;
+        border-radius: 5px 5px 0 0;
+        background: #08c;
 }
 .main-navigation li:first-child a:hover{
-    border-radius: 0 5px 0 0;
+        border-radius: 0 5px 0 0;
 }
 .main-navigation .sub-menu a:hover{
-    border-radius: 0;
+        border-radius: 0;
 }
 .main-navigation .menu-item-has-children > a:after {
-    font-family: 'FontAwesome';
-    content: "\f107";
-    margin-left: 5px;
+        font-family: 'FontAwesome';
+        content: "\f107";
+        margin-left: 5px;
 }
 
 /* Small menu. */
@@ -1185,7 +1184,7 @@ footer .menu a{
     display: flex;
     justify-content:center;
     padding: 20px;
-    border: 2px solid #f6f6f6;
+    border: 2px solid #ccc;
     border-top:none;
 }
 #content .single_sidebar_wrap{
@@ -1200,24 +1199,37 @@ footer .menu a{
     margin: 0;
 }
 .entry-advanced{
-    border-top: 1px solid #f6f6f6;
-    border-bottom: 1px solid #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     padding: 10px 0;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+.entry-advanced .ssbp-wrap .ssbp-list li{
+    margin-top: 0px; 
+}
+.entry-advanced .ssba-share-text{
+    display: inline-block;
+    vertical-align: middle;
 }
 .fa-comment{
     font-size: 20px;
 }
-.view_comments{
+article .view_comments{
     text-decoration: none;
     color: #000;
+}
+.comment-metadata .edit-link{display: none;}
+article.status-publish .entry-title{
+    margin-bottom: 10px;
 }
 /*End*/
 /*For sidebar*/
 .widget_categories .widget-title,
 .custom_widget_recent_entries .widget-title{
-    border: 2px solid #f6f6f6;
+    border: 2px solid #ccc;
     text-align: center;
+    text-transform: capitalize;
 }
 .widget_categories ul{
     list-style: none;
@@ -1226,10 +1238,11 @@ footer .menu a{
 }
 .widget_categories ul a{    
     text-decoration: none;
+    color: royalblue;
 }
 
 .widget_find_scholarship{
-    border:2px solid #f6f6f6;
+    border:2px solid #ccc;
     padding: 15px 15px;
     margin-bottom: 20px;
 }
@@ -1247,5 +1260,22 @@ footer .menu a{
     margin-top: 15px;
 }
 #scholarship_form_btn input{
+    font-size: 20px;
+}
+/*Custom Search form*/
+#super_searchform #s{
+    padding: 8px;
+    border-right-width: 0px;
+    border-radius:0;
+}
+#super_searchform #searchsubmit{
+    line-height: 1.8rem;
+    border-left-width: 0px;
+    margin-left: -4px;
+    border-radius: 0;
+    background: #fff;
+    cursor: pointer;
+}
+#super_searchform .fa-search{
     font-size: 20px;
 }
