@@ -202,6 +202,9 @@ function thescholarshiphub_scripts() {
         if(is_home() ){
             wp_enqueue_style( 'blog', THEME_DIR_URI . '/assets/css/blog.css' );
         }
+        if( is_page_template('templates/template-student-calculator.php') ){
+            wp_enqueue_style( 'student-calculator', THEME_DIR_URI . '/assets/css/calculator.css' );
+        }
 
 	wp_enqueue_script( 'thescholarshiphub-navigation', THEME_DIR_URI . '/assets/js/navigation.js', array(), '20180925', true );
 
