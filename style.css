@@ -1102,6 +1102,10 @@ header .search-form{display: none;}
     border: 1px solid;
     border-color: #ccc #ccc #bbb;
 }
+#extra_degree_funding .jumpButton:hover{
+    background: #fff;
+    color: #0077b3;
+}
 /*End*/
 
 /*Footer*/
@@ -1154,7 +1158,7 @@ footer .menu{
 }
 #custom_recent_post_list .post-date{
     color:#909090;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 footer .menu a{
     text-decoration: none;
@@ -1227,6 +1231,7 @@ article.status-publish .entry-title{
 /*For sidebar*/
 .widget_categories .widget-title,
 .custom_widget_recent_entries .widget-title,
+.tsh_list_post_types .widget-title,
 .tsh_header{
     border: 2px solid #ccc;
     padding-left: 15px;
@@ -1234,13 +1239,15 @@ article.status-publish .entry-title{
     background: #f6f6f6;
 }
 .widget_categories ul,
-.widget_recent_entries ul{
+.widget_recent_entries ul,
+.tsh_list_post_types ul{
     list-style: none;
     margin-left: 0px;
     padding-left: 0px;
 }
 .widget_categories ul a,
-.widget_recent_entries ul a{    
+.widget_recent_entries ul a,   
+.tsh_list_post_types ul a{    
     text-decoration: none;
     color: royalblue;
 }

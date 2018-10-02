@@ -38,7 +38,7 @@
     font-weight: 600;
     line-height: 36px;
 }
-.slider_1 .slider-text .jumpButton {
+.home .jumpButton {
     background: inherit;
     display: inline-block;
     -webkit-border-radius: 0;
@@ -137,6 +137,7 @@
 }
 .featured_post_text{
     border:2px solid #ccc;
+    border-top: none;
     padding: 20px 15px;
 }
 .home_content_wrap .read_more{
@@ -145,6 +146,20 @@
 .home_content_wrap .read_more a{
     text-decoration: none;
     color: royalblue;  
+}
+.link_wrap{
+    text-align: right;
+}
+.link_wrap .learn_more{  
+    color: #fff;
+    background-color: #f0ad4e;
+    padding: 10px 16px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+.link_wrap .learn_more:hover{
+    color: #f0ad4e;
+    background-color: #fff;
 }
 /* End section home_content_wrap*/
 

@@ -180,6 +180,8 @@ function thescholarshiphub_widgets_init() {
         register_widget( 'WP_TSH_Widget_Recent_Posts' );
         
         register_widget( 'WP_TSH_Widget_Find_Scholarship' );
+        
+        register_widget( 'WP_TSH_Widget_List_Post_Types' );
 }
 add_action( 'widgets_init', 'thescholarshiphub_widgets_init' );
 
@@ -196,6 +198,9 @@ function thescholarshiphub_scripts() {
         
         if( is_front_page() ){
             wp_enqueue_style( 'home', THEME_DIR_URI . '/assets/css/home.css' );
+        }
+        if(is_home() ){
+            wp_enqueue_style( 'blog', THEME_DIR_URI . '/assets/css/blog.css' );
         }
 
 	wp_enqueue_script( 'thescholarshiphub-navigation', THEME_DIR_URI . '/assets/js/navigation.js', array(), '20180925', true );
@@ -246,8 +251,12 @@ require_once THEME_INCLUDES . '/customizer.php';
  */
 require_once THEME_INCLUDES . '/tsh_helpers.php';
 
+/**
+ * Widgets.
+ */
 require_once THEME_INCLUDES . '/class-wp-tsh-widget-recent-posts.php';
 require_once THEME_INCLUDES . '/class-wp-tsh-widget-find-scholarship.php';
+require_once THEME_INCLUDES . '/class-wp-tsh-widget-list-post-types.php';
 
 /**
  * Theme options.

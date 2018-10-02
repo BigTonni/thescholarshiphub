@@ -23,7 +23,7 @@ get_header();
                                 <?php if ( have_posts() ) : ?>
 
                                     <header class="page-header">
-                                        <h1 class="page-title"> Useful Articles</h1>
+                                        <h1 class="page-title"><?php _e( 'Useful Articles', THEME_DOMAIN ); ?></h1>
                                             <?php
                                             the_archive_description( '<div class="archive-description">', '</div>' );
                                             ?>
@@ -39,7 +39,7 @@ get_header();
                                              * If you want to override this in a child theme, then include a file
                                              * called content-___.php (where ___ is the Post Type name) and that will be used instead.
                                              */
-                                            get_template_part( 'template-parts/content', get_post_type() );
+                                            get_template_part( 'template-parts/content', 'blog-'.get_post_type() );
 
                                     endwhile;
 

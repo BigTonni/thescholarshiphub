@@ -89,7 +89,7 @@ class WP_TSH_Widget_Recent_Posts extends WP_Widget {
                                     <span class="col-md-8">
                                         <a href="<?php the_permalink( $recent_post->ID ); ?>" class="post-title"><?php echo $title ; ?></a><br />
 					<?php if ( $show_date ) : ?>
-						<span class="post-date"><?php echo get_the_date( 'd M Y', $recent_post->ID ); ?></span>
+						<span class="post-date"><?php echo get_the_date( 'F Y', $recent_post->ID ); ?></span>
 					<?php endif; ?>
                                         <?php if ( $show_content ) : ?>
 						<p class="post-excerpt"><?php echo $recent_post->post_excerpt ? $recent_post->post_excerpt : ''; ?></p>

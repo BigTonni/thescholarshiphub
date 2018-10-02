@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 /*
-/* Last element's ID = 16, 20-28
+/* Last element's ID = 29
  * 
  * Require the framework class before doing anything else, so we can use the defined urls and dirs
  * Also if running on windows you may have url problems, which can be fixed by defining the framework url first
@@ -229,18 +229,38 @@ $sections[] = array(
                                                 array(
                                                     'id' => '12',
                                                     'type' => 'upload',
-                                                    'title' => __('Iamge for section#3', 'nhp-opts'),
+                                                    'title' => __('Image for section#3', 'nhp-opts'),
 						),
                                                 array(
                                                     'id' => '13',
-                                                    'type' => 'text',
+                                                    'type' => 'pages_select',
                                                     'title' => __('Page Link for section#3', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '17',
+                                                    'type' => 'text',
+                                                    'title' => __('Button title for section#3', 'nhp-opts'),
 						),
                                     
                                                 array(
                                                     'id' => '11',
                                                     'type' => 'text',
                                                     'title' => __('Header for section#4', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '18',
+                                                    'type' => 'upload',
+                                                    'title' => __('Image for section#4', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '19',
+                                                    'type' => 'text',
+                                                    'title' => __('Link for section#3', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '29',
+                                                    'type' => 'textarea',
+                                                    'title' => __('Text for section#3', 'nhp-opts'),
 						),
                                         )
 				);

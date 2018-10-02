@@ -185,11 +185,43 @@ get_header(); ?>
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h2 class="tsh_header"><?php echo !empty($options['10']) ? $options['10'] : ''; ?></h2>
+                                        <?php
+                                        if (!empty($options['13'])) { ?>
+                                            <h2 class="tsh_header"><?php echo !empty($options['10']) ? $options['10'] : ''; ?></h2>
+                                            <?php
+                                            $post_id = $options['13'];
+                                            $post = get_post( $post_id );
+                                            if (!empty($options['12'])) { ?>
+                                                <div class="featured_post_image tsh_border">
+                                                    <img src="<?php echo $options['12']; ?>" alt="<?php _e('Post Image', THEME_DOMAIN); ?>"/>                         
+                                                </div>
+                                            <?php } ?>
+                                            <div class="featured_post_text">
+                                                <div><?php echo wp_trim_words($post->post_content, 40); ?></div>
+                                                <div class="link_wrap">
+                                                    <a href="<?php echo get_page_link($post_id); ?>" class='jumpButton learn_more'><?php echo !empty($options['17']) ? $options['17'] : ''; ?></a>                                                
+                                                </div>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                     
                                     <div class="col-md-6">
-                                        <h2 class="tsh_header" style="text-transform: inherit;"><?php echo !empty($options['11']) ? $options['11'] : ''; ?></h2>
+                                        <?php
+                                        if (!empty($options['19'])) { ?>
+                                            <h2 class="tsh_header" style="text-transform: inherit;"><?php echo !empty($options['11']) ? $options['11'] : ''; ?></h2>
+                                            <?php
+                                            if (!empty($options['18'])) { ?>
+                                                <div class="featured_post_image tsh_border">
+                                                    <img src="<?php echo $options['18']; ?>" alt="<?php _e('Post Image', THEME_DOMAIN); ?>"/>                         
+                                                </div>
+                                            <?php } ?>
+                                            <div class="featured_post_text">
+                                                <div><?php echo $options['29']; ?></div>
+                                                <div class="link_wrap">
+                                                    <a href="<?php echo $options['19']; ?>" class='jumpButton learn_more'><?php echo !empty($options['17']) ? $options['17'] : ''; ?></a>                                                
+                                                </div>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>                                
                             </div>
