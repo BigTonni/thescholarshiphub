@@ -30,7 +30,7 @@
                 
 	</header><!-- .entry-header -->
 
-	<?php thescholarshiphub_post_thumbnail(); ?>
+	<?php // thescholarshiphub_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

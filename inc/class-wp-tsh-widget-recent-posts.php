@@ -17,7 +17,6 @@ class WP_TSH_Widget_Recent_Posts extends WP_Widget {
 //			'customize_selective_refresh' => true,
 		);
 		parent::__construct( 'custom_recent-posts', __( 'Custom Recent Posts', THEME_DOMAIN ), $widget_ops );
-//		$this->alt_option_name = 'custom_widget_recent_entries';
 	}
 
 	/**
@@ -79,15 +78,21 @@ class WP_TSH_Widget_Recent_Posts extends WP_Widget {
 		<ul id="custom_recent_post_list">
 			<?php foreach ( $r->posts as $recent_post ) : ?>
 				<?php
-				$post_title = get_the_title( $recent_post->ID );
-				$title      = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)', THEME_DOMAIN );
+                                $custom_title = get_post_meta( $recent_post->ID, '_tsh_short_title', true );
+                                if( $custom_title != false ){
+                                    $title = $custom_title;
+                                }else{                                    
+                                    $post_title = get_the_title( $recent_post->ID );
+                                    $title      = ( ! empty( $post_title ) ) ? wp_trim_words($post_title, 5) : __( '(no title)', THEME_DOMAIN );
+                                }
+				
 				?>
 				<li class="row">
                                     <span class="col-md-4">
                                         <?php echo get_the_post_thumbnail( $recent_post->ID, 'thumbnail'); ?>					
                                     </span>
                                     <span class="col-md-8">
-                                        <a href="<?php the_permalink( $recent_post->ID ); ?>" class="post-title"><?php echo $title ; ?></a><br />
+                                        <a href="<?php the_permalink( $recent_post->ID ); ?>" class="post-title"><?php echo $title; ?></a><br />
 					<?php if ( $show_date ) : ?>
 						<span class="post-date"><?php echo get_the_date( 'F Y', $recent_post->ID ); ?></span>
 					<?php endif; ?>

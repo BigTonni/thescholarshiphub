@@ -60,21 +60,32 @@ function tsh_change_menu($items, $args) {
 add_filter('wp_nav_menu_items', 'tsh_change_menu', 199, 2);
 
 /**
- * Add custom metabox
+ * Add custom metaboxes
  */
 function tsh_metabox_add() {
+    add_meta_box( 'tsh_metabox_post_short_title', __( 'Short title', THEME_DOMAIN ), 'tsh_meta_callback_short_title', 'post' );
     add_meta_box( 'tsh_metabox_post_fea', __( 'Featured Posts', THEME_DOMAIN ), 'tsh_meta_callback_fea', 'post' );
     add_meta_box( 'tsh_metabox_post_university_funding', __( 'University Funding', THEME_DOMAIN ), 'tsh_meta_callback_university_funding', 'post' );
 }
 add_action( 'add_meta_boxes', 'tsh_metabox_add' );
 
+function tsh_meta_callback_short_title( $post ) {
+    $text = get_post_meta( $post->ID, '_tsh_short_title', true );
+    
+    wp_nonce_field( plugin_basename(__FILE__), 'tsh_metabox_main_nonce' );
+    ?>    
+            <label for="meta-text">
+                <input type="text" name="tsh_field_short_title" size="30" value="<?php echo $text != false ? $text : ''; ?>"/>
+            </label>
+    <?php
+}
 function tsh_meta_callback_fea( $post ) {
     $checked = get_post_meta( $post->ID, '_tsh_featured', true );
     
     wp_nonce_field( plugin_basename(__FILE__), 'tsh_metabox_main_nonce' );
     ?>    
             <label for="meta-checkbox">
-                <input type="checkbox" name="tsh_field_eatured" id="tsh_field_eatured" value="yes" <?php if ( isset ( $checked ) ) checked( $checked, 'yes' ); ?> />
+                <input type="checkbox" name="tsh_field_featured" id="tsh_field_featured" value="yes" <?php if ( isset ( $checked ) ) checked( $checked, 'yes' ); ?> />
                 <?php _e( 'Featured this post', THEME_DOMAIN )?>
             </label>
     <?php
@@ -102,7 +113,8 @@ function tsh_metabox_save( $post_id ) {
 		return;
         }
 
-	update_post_meta( $post_id, '_tsh_featured', isset( $_POST[ 'tsh_field_eatured' ] ) ? 'yes' : '' );
+	update_post_meta( $post_id, '_tsh_short_title', isset( $_POST[ 'tsh_field_short_title' ] ) ? trim($_POST[ 'tsh_field_short_title' ]) : '' );
+	update_post_meta( $post_id, '_tsh_featured', isset( $_POST[ 'tsh_field_featured' ] ) ? 'yes' : '' );
 	update_post_meta( $post_id, '_tsh_university_funding', isset( $_POST[ 'tsh_field_university_funding' ] ) ? 'yes' : '' );
  
 }

@@ -1198,9 +1198,11 @@ footer .menu a{
 .single_sidebar_wrap #custom_recent_post_list .post-title{
     color: #000;
     font-weight: bold;
+    font-size: 15px;
 }
 .single_sidebar_wrap #custom_recent_post_list .post-excerpt{
     margin: 0;
+    font-size: 14px;
 }
 .entry-advanced{
     border-top: 1px solid #ccc;
