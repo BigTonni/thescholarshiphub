@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 /*
-/* Last element's ID = 29
+/* Last element's ID = 30
  * 
  * Require the framework class before doing anything else, so we can use the defined urls and dirs
  * Also if running on windows you may have url problems, which can be fixed by defining the framework url first
@@ -318,6 +318,18 @@ $sections[] = array(
 						),
                                         )
 				);
+
+$sections[] = array(
+        'title' => __('Calculator', 'nhp-opts'),
+                'fields' => array(
+                        array(
+                            'id' => '30',
+                            'type' => 'text',
+                            'title' => __('For example', 'nhp-opts'),
+                            'std' => __('', 'nhp-opts'),
+                        ),
+        )
+);
 
 $tabs = array();
 
