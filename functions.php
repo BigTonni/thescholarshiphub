@@ -254,6 +254,9 @@ require_once THEME_INCLUDES . '/customizer.php';
  */
 require_once THEME_INCLUDES . '/tsh_helpers.php';
 
+require_once THEME_INCLUDES .'/tsh_ajax.php';
+require_once THEME_INCLUDES .'/tsh_shortcodes.php';
+
 /**
  * Widgets.
  */
