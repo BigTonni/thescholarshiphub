@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 /*
-/* Last element's ID = 13, 21
+/* Last element's ID = 16, 20-28
  * 
  * Require the framework class before doing anything else, so we can use the defined urls and dirs
  * Also if running on windows you may have url problems, which can be fixed by defining the framework url first
@@ -115,15 +115,15 @@ $args['page_position'] = 27;
 		
 //Set ANY custom page help tabs - displayed using the new help tab API, show in order of definition		
 $args['help_tabs'][] = array(
-							'id' => 'nhp-opts-1',
-							'title' => __('Theme Information 1', 'nhp-opts'),
-							'content' => __('<p>This is the tab content, HTML is allowed.</p>', 'nhp-opts')
-							);
+                                'id' => 'nhp-opts-1',
+                                'title' => __('Theme Information 1', 'nhp-opts'),
+                                'content' => __('<p>This is the tab content, HTML is allowed.</p>', 'nhp-opts')
+                            );
 $args['help_tabs'][] = array(
-							'id' => 'nhp-opts-2',
-							'title' => __('Theme Information 2', 'nhp-opts'),
-							'content' => __('<p>This is the tab content, HTML is allowed.</p>', 'nhp-opts')
-							);
+                                'id' => 'nhp-opts-2',
+                                'title' => __('Theme Information 2', 'nhp-opts'),
+                                'content' => __('<p>This is the tab content, HTML is allowed.</p>', 'nhp-opts')
+                            );
 
 //Set the Help Sidebar for the options page - no sidebar by default										
 $args['help_sidebar'] = __('<p>This is the sidebar content, HTML is allowed.</p>', 'nhp-opts');
@@ -144,13 +144,12 @@ $sections[] = array(
     //text|textarea|editor|checkbox|multi_checkbox|radio|radio_img|button_set|select|multi_select|color|date|divide|info|upload
                                                     'title' => __('Slider#1 Header', 'nhp-opts'),
                                                     'desc' => '',
-                                                    'std' => __('Find UK Scholarship Today', 'nhp-opts'),
+                                                    'std' => __('Find UK Scholarship Today!', 'nhp-opts'),
 						),
                                                 array(
                                                     'id' => '2',
                                                     'type' => 'textarea',
                                                     'title' => __('Slider#1 Text', 'nhp-opts'),
-                                                    'desc' => '',
 						),
                                                 array(
                                                     'id' => '3',
@@ -158,6 +157,13 @@ $sections[] = array(
                                                     'title' => __('Slider#1 Button title', 'nhp-opts'),
                                                     'desc' => '',
                                                     'std'=> 'Get started today'
+						),
+                                                array(
+                                                    'id' => '14',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#1 Button link', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> ''
 						),
                                                 array(
                                                     'id' => '4',
@@ -170,7 +176,7 @@ $sections[] = array(
                                                     'type' => 'text',
                                                     'title' => __('Slider#2 Header', 'nhp-opts'),
                                                     'desc' => '',
-                                                    'std' => __('Find UK Scholarship Today', 'nhp-opts'),
+                                                    'std' => __('Find UK Scholarship Today!', 'nhp-opts'),
 						),
                                                 array(
                                                     'id' => '6',
@@ -186,9 +192,25 @@ $sections[] = array(
                                                     'std'=> 'Get started today'
 						),
                                                 array(
+                                                    'id' => '15',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#2 Button link', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> ''
+						),
+                                                array(
                                                     'id' => '8',
                                                     'type' => 'upload',
                                                     'title' => __('Slider#2 Image', 'nhp-opts'),
+						),
+                                    
+                                    
+                                                array(
+                                                    'id' => '16',
+                                                    'type' => 'text',
+                                                    'title' => __('Button title for Post section', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> __('>> Read more', 'nhp-opts')
 						),
                                     
                                                 
@@ -227,13 +249,53 @@ $sections[] = array(
 $sections[] = array(
 				'title' => __('Footer', 'nhp-opts'),
 //				'icon' => NHP_OPTIONS_URL.'img/glyphicons/glyphicons_062_attach.png',
-				'fields' => array(
+				'fields' => array(                                 
+                                                array(
+                                                    'id' => '20',
+                                                    'type' => 'info',
+                                                    'desc' => __('<h3 id="extra_degree_funding">Extra degree funding</h3>', 'nhp-opts')
+						),
                                                 array(
                                                     'id' => '21',
                                                     'type' => 'text',
-                                                    'title' => __('Header for Extra degree funding', 'nhp-opts'),
+                                                    'title' => __('Header', 'nhp-opts'),
                                                     'std' => __('', 'nhp-opts'),
-						),                                    
+						),
+                                                array(
+                                                    'id' => '22',
+                                                    'type' => 'textarea',
+                                                    'title' => __('Text', 'nhp-opts'),
+                                                    'std' => __('', 'nhp-opts'),
+						), 
+                                                array(
+                                                    'id' => '23',
+                                                    'type' => 'text',
+                                                    'title' => __('Button title', 'nhp-opts'),
+                                                    'std' => __('', 'nhp-opts'),
+						),                                
+                                                array(
+                                                    'id' => '28',
+                                                    'type' => 'info',
+                                                    'desc' => __('<h3>Social accounts</h3>', 'nhp-opts')
+						),
+                                                array(
+                                                    'id' => '25',
+                                                    'type' => 'text',
+                                                    'title' => __('Facebook', 'nhp-opts'),
+                                                    'std' => __('', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '26',
+                                                    'type' => 'text',
+                                                    'title' => __('Twitter', 'nhp-opts'),
+                                                    'std' => __('', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '27',
+                                                    'type' => 'text',
+                                                    'title' => __('Google+', 'nhp-opts'),
+                                                    'std' => __('', 'nhp-opts'),
+						),
                                         )
 				);
 

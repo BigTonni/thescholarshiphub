@@ -21,20 +21,20 @@
     max-width: 740px;
     margin: 0 auto 30px;
     overflow: hidden;
-    text-align: left;
+    text-align: center;
 }
 .slider_1 .slider-text .tagline_1 {
     letter-spacing: 0;
-    text-transform: uppercase;
     font-weight: bold;
     max-height: 270px;
     line-height: 1;
-    margin: 10px auto !important;
+    margin: 10px auto;
+    font-size: 40px;
 }
 .slider_1 .slider-text .tagline_2 {
     max-height: 145px;
     letter-spacing: 0;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 600;
     line-height: 36px;
 }
@@ -62,9 +62,19 @@
     border-color: #ccc #ccc #bbb;
 }
 /* End section slider*/
+.home .hentry{
+    margin-bottom: 0;
+}
+.home .entry-content{
+    margin-top:0;
+}
+.tsh_border{
+    border: 2px solid #ccc;
+}
 /* Section user_status*/
 .user_status{
-    margin: 15px 0;
+    padding: 30px 0;
+    background: #f6f6f6;
 }
 .user_status .user_status_image img {
     width: 100%;
