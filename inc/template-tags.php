@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH')) {
+    exit;
+}
 /**
  * Custom template tags for this theme
  *
@@ -6,6 +9,19 @@
  *
  * @package thescholarshiphub
  */
+
+if ( ! function_exists( 'vardump' ) ) {
+        /**
+        * @desc Debug
+        * @param string $str
+        * @return array
+        **/
+        function vardump( $str ){
+                var_dump('<pre>');
+                var_dump( $str );
+                var_dump('</pre>');
+        }
+}
 
 if ( ! function_exists( 'thescholarshiphub_posted_on' ) ) {
 	/**
