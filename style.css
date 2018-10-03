@@ -1301,6 +1301,10 @@ article.status-publish .entry-title{
     font-size: 20px;
 }
 /*End*/
+
 .error-404-sidebar{
     margin-top: 40px;
+}
+.default_page_banner{
+    background: #f6f6f6;
 }
