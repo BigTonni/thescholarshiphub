@@ -12,6 +12,7 @@ class TSH_Scholarship {
 	 */
 	public function __construct() {                
                 add_action( 'init', array( $this, 'register_post_types' ) );
+                add_action( 'init', array( $this, 'create_taxonomy' ) );
         }
         
         public function register_post_types(){
@@ -37,8 +38,7 @@ class TSH_Scholarship {
                                 'singular_label'    => __( 'Scholarship', THEME_DOMAIN ),
                                 'public'            => true,
                                 'show_ui'           => true,
-                                '_builtin'          => false,
-                                'show_in_menu'      => 'scholarshiphub',
+                                'show_in_menu'      => true,
                                 'hierarchical'      => false,
                                 'show_in_nav_menus' => false,
                                 'query_var'         => false,
@@ -46,6 +46,55 @@ class TSH_Scholarship {
                                 'has_archive'       => false,
 			)
 		);
-        }     
+        }        
+         
+        public function create_taxonomy() {
+            //Institution
+            register_taxonomy('tsh_tax_institution','tsh_scholarship',array(
+  //            'hierarchical' => false,
+                'labels' =>  array(
+                            'name'              => 'Institutions',
+                            'singular_name'     => 'Institution',
+                            'search_items'      => 'Search Institutions',
+                            'all_items'         => 'All Institutions',
+                            'view_item '        => 'View Institution',
+    //			'parent_item'       => 'Parent Institution',
+    //			'parent_item_colon' => 'Parent Institution:',
+                            'edit_item'         => 'Edit Institution',
+                            'update_item'       => 'Update Institution',
+                            'add_new_item'      => 'Add New Institution',
+                            'new_item_name'     => 'New Institution Name',
+                            'menu_name'         => 'Institution',
+                    ),
+                'show_ui' => true,
+                'show_in_nav_menus' => false,
+    //            'show_admin_column' => true,
+    //            'update_count_callback' => '_update_post_term_count',
+                'query_var' => true,
+    //            'rewrite' => array( 'slug' => 'tsh_institution' ),
+                'meta_box_cb' => 'post_categories_meta_box'
+            ));
+            
+            //Subject
+            register_taxonomy('tsh_tax_subject','tsh_scholarship',array(
+  //            'hierarchical' => false,
+                'labels' =>  array(
+                            'name'              => 'Subjects',
+                            'singular_name'     => 'Subject',
+                            'search_items'      => 'Search Subjects',
+                            'all_items'         => 'All Subjects',
+                            'view_item '        => 'View Subject',
+                            'edit_item'         => 'Edit Subject',
+                            'update_item'       => 'Update Subject',
+                            'add_new_item'      => 'Add New Subject',
+                            'new_item_name'     => 'New Subject Name',
+                            'menu_name'         => 'Subject',
+                    ),
+                'show_ui' => true,
+                'show_in_nav_menus' => false,
+                'query_var' => true,
+                'meta_box_cb' => 'post_categories_meta_box'
+            ));
+        }
 }
 new TSH_Scholarship();

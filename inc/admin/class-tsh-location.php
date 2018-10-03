@@ -41,7 +41,7 @@ class TSH_Location {
                                 'public'            => true,
                                 'show_ui'           => true,
                                 '_builtin'          => false,
-                                'show_in_menu'      => 'scholarshiphub',
+                                'show_in_menu'      => true,
                                 'hierarchical'      => false,
                                 'show_in_nav_menus' => false,
                                 'query_var'         => false,
