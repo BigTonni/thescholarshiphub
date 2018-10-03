@@ -70,40 +70,72 @@ get_header(); ?>
 
 	</main><!-- #main -->
         
-        <!--Custom frontpage content-->
+        <!-- Some post categories -->
         <section class="user_status">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="user_status_image tsh_border">
-                            <img src="<?php echo THEME_DIR_URI; ?>/assets/img/user_status.jpg">                            
+                    <?php if(!empty($options['30'])){
+                        $term = get_term_by('id', $options['30'], 'category');
+                        $thumbnail_id = get_term_meta($term->term_id, '_thumbnail_id', true);
+                        if ( $thumbnail_id ){
+                                $image = wp_get_attachment_image_url( $thumbnail_id, 'full' );
+                        }else{
+                                $image = tsh_placeholder_cat_img_src();	
+                        }
+                        ?>
+                        <div class="col-md-4 <?php echo $term->term_id; ?>">
+                            <div class="user_status_image tsh_border">
+                                <img src="<?php echo $image; ?>">                            
+                            </div>
+                            <div class="user_status_text">
+                                <a href="<?php echo get_category_link( $term->term_id ); ?>">
+                                    <div><?php echo $term->name; ?></div>
+                                </a>
+                            </div>
                         </div>
-                        <div class="user_status_text">
-                            <a href="#">
-                                <div>Students</div>
-                            </a>
+                    <?php }
+                    
+                    if(!empty($options['31'])){
+                        $term = get_term_by('id', $options['31'], 'category');
+                        $thumbnail_id = get_term_meta($term->term_id, '_thumbnail_id', true);
+                        if ( $thumbnail_id ){
+                                $image = wp_get_attachment_image_url( $thumbnail_id, 'full' );
+                        }else{
+                                $image = tsh_placeholder_cat_img_src();	
+                        }
+                        ?>
+                        <div class="col-md-4 <?php echo $term->term_id; ?>">
+                            <div class="user_status_image tsh_border">
+                                <img src="<?php echo $image; ?>">                            
+                            </div>
+                            <div class="user_status_text">
+                                <a href="<?php echo get_category_link( $term->term_id ); ?>">
+                                    <div><?php echo $term->name; ?></div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="user_status_image tsh_border">
-                            <img src="<?php echo THEME_DIR_URI; ?>/assets/img/user_status.jpg">                            
+                    <?php }
+                    
+                    if(!empty($options['32'])){
+                        $term = get_term_by('id', $options['32'], 'category');
+                        $thumbnail_id = get_term_meta($term->term_id, '_thumbnail_id', true);
+                        if ( $thumbnail_id ){
+                                $image = wp_get_attachment_image_url( $thumbnail_id, 'full' );
+                        }else{
+                                $image = tsh_placeholder_cat_img_src();	
+                        }
+                        ?>
+                        <div class="col-md-4 <?php echo $term->term_id; ?>">
+                            <div class="user_status_image tsh_border">
+                                <img src="<?php echo $image; ?>">                            
+                            </div>
+                            <div class="user_status_text">
+                                <a href="<?php echo get_category_link( $term->term_id ); ?>">
+                                    <div><?php echo $term->name; ?></div>
+                                </a>
+                            </div>
                         </div>
-                        <div class="user_status_text">
-                            <a href="#">
-                                <div>Parents</div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="user_status_image tsh_border">
-                            <img src="<?php echo THEME_DIR_URI; ?>/assets/img/user_status.jpg">                            
-                        </div>
-                        <div class="user_status_text">
-                            <a href="#">
-                                <div>Teachers</div>
-                            </a>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </section><!-- .user_status -->

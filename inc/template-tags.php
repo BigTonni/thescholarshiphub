@@ -214,3 +214,7 @@ function thescholarshiphub_list_locations( $selected = '', $default = '', $with_
     }
     return $html;
 }
+
+function tsh_placeholder_cat_img_src() {
+	return THEME_DIR_URI.'/assets/img/default.png';
+}
