@@ -28,7 +28,7 @@ get_header();
                                         </div><!-- .page-content -->
                                 </section><!-- .error-404 -->
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 error-404-sidebar">
                                 <?php
                                                 get_search_form();
 

@@ -1300,3 +1300,7 @@ article.status-publish .entry-title{
 #super_searchform .fa-search{
     font-size: 20px;
 }
+/*End*/
+.error-404-sidebar{
+    margin-top: 40px;
+}
