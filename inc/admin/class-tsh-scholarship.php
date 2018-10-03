@@ -77,7 +77,6 @@ class TSH_Scholarship {
             
             //Subject
             register_taxonomy('tsh_tax_subject','tsh_scholarship',array(
-  //            'hierarchical' => false,
                 'labels' =>  array(
                             'name'              => 'Subjects',
                             'singular_name'     => 'Subject',
@@ -92,8 +91,55 @@ class TSH_Scholarship {
                     ),
                 'show_ui' => true,
                 'show_in_nav_menus' => false,
+                'show_tagcloud'	=> false,
                 'query_var' => true,
-                'meta_box_cb' => 'post_categories_meta_box'
+                'meta_box_cb' => 'post_categories_meta_box',
+                'rewrite' => array( 'slug' => 'tsh_tax_subject','with_front' => false, 'hierarchical' => false ),
+                'public' => true
+            ));
+            //Basis for Selection
+            register_taxonomy('tsh_tax_basic_selection','tsh_scholarship',array(
+                'labels' =>  array(
+                            'name'              => 'Basis for Selection',
+                            'singular_name'     => 'Basis for Selection',
+                            'search_items'      => 'Search Basis',
+                            'all_items'         => 'All Basis',
+                            'view_item '        => 'View Basis',
+                            'edit_item'         => 'Edit Basis',
+                            'update_item'       => 'Update Basis',
+                            'add_new_item'      => 'Add New Basis',
+                            'new_item_name'     => 'New Basis Name',
+                            'menu_name'         => 'Basis for Selection',
+                    ),
+                'show_ui' => true,
+                'show_in_nav_menus' => false,
+                'show_tagcloud'	=> false,
+                'query_var' => true,
+                'meta_box_cb' => 'post_categories_meta_box',
+                'rewrite' => array( 'slug' => 'tsh_tax_basic_selection','with_front' => false, 'hierarchical' => false ),
+                'public' => true
+            ));
+            //Level of Study
+            register_taxonomy('tsh_tax_study_level','tsh_scholarship',array(
+                'labels' =>  array(
+                            'name'              => 'Levels of Study',
+                            'singular_name'     => 'Level of Study',
+                            'search_items'      => 'Search Levels',
+                            'all_items'         => 'All Levels',
+                            'view_item '        => 'View Level',
+                            'edit_item'         => 'Edit Level',
+                            'update_item'       => 'Update Level',
+                            'add_new_item'      => 'Add New Level',
+                            'new_item_name'     => 'New Level Name',
+                            'menu_name'         => 'Level of Study',
+                    ),
+                'show_ui' => true,
+                'show_in_nav_menus' => false,
+                'show_tagcloud'	=> false,
+                'query_var' => true,
+                'meta_box_cb' => 'post_categories_meta_box',
+                'rewrite' => array( 'slug' => 'tsh_tax_study_level','with_front' => false, 'hierarchical' => false ),
+                'public' => true
             ));
         }
 }
