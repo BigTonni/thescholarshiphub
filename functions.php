@@ -202,9 +202,6 @@ function thescholarshiphub_scripts() {
         if(is_home() ){
             wp_enqueue_style( 'blog', THEME_DIR_URI . '/assets/css/blog.css' );
         }
-        if( is_page_template('templates/template-student-calculator.php') ){
-            wp_enqueue_style( 'student-calculator', THEME_DIR_URI . '/assets/css/calculator.css' );
-        }
 
 	wp_enqueue_script( 'thescholarshiphub-navigation', THEME_DIR_URI . '/assets/js/navigation.js', array(), '20180925', true );
 
@@ -217,11 +214,19 @@ function thescholarshiphub_scripts() {
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
         
         $params = array(
-//                'ajax_url'          => admin_url( 'admin-ajax.php' ),
+                'ajax_url' => admin_url( 'admin-ajax.php' ),
         );
 
         wp_enqueue_script( 'tsh_front', THEME_DIR_URI . '/assets/js/front.js', array('jquery', 'tsh_libs'), '', true );
         wp_localize_script( 'tsh_front', 'TSHParams', $params );
+        
+        if( is_page_template('templates/template-student-calculator.php') ){
+            wp_enqueue_style( 'jqueryUI', THEME_DIR_URI . '/assets/css/jquery-ui.css' );
+            wp_enqueue_style( 'calculator', THEME_DIR_URI . '/assets/css/calculator.css', array('jqueryUI') );
+            
+            wp_enqueue_script( 'jqueryUI', THEME_DIR_URI . '/assets/js/jquery-ui.js', array('jquery'), '', true );
+            wp_enqueue_script( 'calculator', THEME_DIR_URI . '/assets/js/calculator.js', array('jquery','jqueryUI'), '', true );
+        }
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -264,6 +269,7 @@ if( is_admin() ){
         * Theme options.
         */
         require_once THEME_INCLUDES . '/options/theme-options.php';
+        
 	require_once THEME_INCLUDES . '/admin/class-tsh-admin.php';
 	require_once THEME_INCLUDES . '/admin/class-tsh-location.php';
 }
