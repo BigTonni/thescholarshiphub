@@ -272,6 +272,7 @@ if( is_admin() ){
         
 	require_once THEME_INCLUDES . '/admin/class-tsh-admin.php';
 	require_once THEME_INCLUDES . '/admin/class-tsh-location.php';
+	require_once THEME_INCLUDES . '/admin/class-tsh-scholarship.php';
 }
 
 /**
