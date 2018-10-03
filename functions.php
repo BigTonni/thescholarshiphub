@@ -259,14 +259,18 @@ require_once THEME_INCLUDES . '/class-wp-tsh-widget-recent-posts.php';
 require_once THEME_INCLUDES . '/class-wp-tsh-widget-find-scholarship.php';
 require_once THEME_INCLUDES . '/class-wp-tsh-widget-list-post-types.php';
 
-/**
- * Theme options.
- */
-require_once THEME_INCLUDES . '/options/theme-options.php';
+if( is_admin() ){
+        /**
+        * Theme options.
+        */
+        require_once THEME_INCLUDES . '/options/theme-options.php';
+	require_once THEME_INCLUDES . '/admin/class-tsh-admin.php';
+	require_once THEME_INCLUDES . '/admin/class-tsh-location.php';
+}
 
 /**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
-	require THEME_INCLUDES . '/jetpack.php';
+	require_once THEME_INCLUDES . '/jetpack.php';
 }
