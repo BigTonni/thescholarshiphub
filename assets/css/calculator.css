@@ -1,0 +1,232 @@
+
+.calc_container > div {
+	display: block;
+	position: relative;
+	float: left;
+}
+.calc_container {
+	box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.5);
+	/*border: 1px solid;*/
+}
+
+.left_part {
+	width: 45%;
+	/*background: aliceblue;*/
+	padding-top: 22px;
+}
+
+.right_part {
+	width: 55%;
+	/*background: antiquewhite;*/
+	height: 650px;
+	text-align: center;
+	padding-top: 20px;
+}
+.center_line{
+
+	position: absolute !important;
+	width: 2px;
+	background: black;
+	height: 600px;
+	left: 45%;
+	top: 25px;
+}
+
+.bottom_part {
+	width: 100%;
+	/*background: burlywood;*/
+}
+select#start_course {
+	width: 100%;
+	height: 35px;
+}
+
+select#duration_course {
+	width: 80%;
+	height: 35px;
+}
+.selects_container {
+	font-size: 22px;
+	height: 105px;
+}
+.slider_loan_container {
+	font-size: 22px;
+	height: 90px;
+}
+
+.slider_salary_container {
+	font-size: 22px;
+	height: 100px;
+}
+
+.slider_interest_container {
+	font-size: 22px;
+	height: 90px;
+}
+
+div#slider_loan {
+	margin-top: 10px;
+}
+
+div#slider_salary {
+	margin-top: 10px;
+}
+
+div#slider_interest {
+	margin-top: 10px;
+}
+#slider_loan_val,
+#slider_salary_val,
+#slider_interest_val{
+	width: 80%;
+}
+label[for="slider_loan_val"],
+label[for="slider_salary_val"],
+label[for="slider_interest_val"]{
+	opacity: 0;
+}
+.bottom_part .col-md-1 p{
+	font-size: 22px;
+	text-align: center;
+}
+.bottom_part .col-md-11{
+	padding: 0;
+}
+.bottom_part .col-md-12{
+	padding-left: 2%;
+}
+.right_top_text{
+
+	font-size: 22px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.pie-chart {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	position: relative;
+	display: block;
+	width: 160px;
+	height: 160px;
+	margin: 10px auto 20px;
+	text-align: center;
+	overflow: hidden
+}
+.pie-chart canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+}
+.pie-chart-contents {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	z-index: 10;
+	width: 130px;
+	height: 130px;
+	background: #354158;
+	border-radius: 50%
+}
+.pie-chart-unit {
+	display: inline-block;
+	line-height: 130px;
+	color: #f8c22f;
+	font-weight: 700;
+	font-size: 36px;
+	font-family: museo_slab900,helvetica neue,Helvetica,Arial,sans-serif
+}
+.pie-chart-suffix {
+	display: inline-block;
+	color: #fff;
+	font-size: 14px;
+	margin: 0 16px 0 0;
+}
+
+
+.bar-chart {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	position: relative;
+	width: 210px;
+	height: 300px;
+	margin: 0 auto;
+	overflow: hidden
+}
+.bar-chart-contents {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	float: left;
+	clear: none;
+	text-align: center;
+	width: 100px
+}
+.bar-chart-contents:nth-child(1) {
+	left: 50%;
+	transform: translateX(-50%);
+}
+/*.bar-chart-contents:nth-child(1) {*/
+/*left: 0*/
+/*}*/
+/*.bar-chart-contents:nth-child(2) {*/
+/*left: 110px*/
+/*}*/
+.bar-chart-contents:nth-child(odd) .bar-chart-line {
+	background: #354158
+}
+.bar-chart-contents:nth-child(even) .bar-chart-line {
+	background: #2c56a7
+}
+.bar-chart-unit {
+	position: relative;
+	width: 100%;
+	font-family: museo_slab900,helvetica neue,Helvetica,Arial,sans-serif;
+	background: #fff;
+	border: 1px solid #ccc;
+	margin: 0 0 10px;
+	padding: 3px 0;
+	border-radius: 3px;
+	font-size: 14px
+}
+.bar-chart-unit:after,.bar-chart-unit:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none
+}
+.bar-chart-unit:after {
+	border-color: transparent;
+	border-top-color: #fff;
+	border-width: 5px;
+	margin-left: -5px
+}
+.bar-chart-unit:before {
+	border-color: transparent;
+	border-top-color: #ccc;
+	border-width: 6px;
+	margin-left: -6px
+}
+.bar-chart-line {
+	transition: height .5s ease;
+	width: 100%;
+	height: 0;
+	border-radius: 3px 3px 0 0
+}
+.bar-chart-info {
+	width: 100%;
+	min-height: 40px;
+	padding: 5px 0;
+	margin: 0!important;
+	font-size: 11px!important;
+	color: #666;
+	line-height: 14px
+}
