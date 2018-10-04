@@ -63,7 +63,7 @@ add_filter('wp_nav_menu_items', 'tsh_change_menu', 199, 2);
  * Add custom metaboxes
  */
 function tsh_metabox_add() {
-    add_meta_box( 'tsh_metabox_post_short_title', __( 'Short title', THEME_DOMAIN ), 'tsh_meta_callback_short_title', 'post' );
+    add_meta_box( 'tsh_metabox_post_short_title', __( 'Short title', THEME_DOMAIN ), 'tsh_meta_callback_short_title', array('post', 'page') );
     add_meta_box( 'tsh_metabox_post_fea', __( 'Featured Posts', THEME_DOMAIN ), 'tsh_meta_callback_fea', 'post' );
     add_meta_box( 'tsh_metabox_post_university_funding', __( 'University Funding', THEME_DOMAIN ), 'tsh_meta_callback_university_funding', 'post' );
 }
