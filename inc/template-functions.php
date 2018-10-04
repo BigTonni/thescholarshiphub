@@ -63,7 +63,7 @@ add_filter('wp_nav_menu_items', 'tsh_change_menu', 199, 2);
  * Add custom metaboxes
  */
 function tsh_metabox_add() {
-    add_meta_box( 'tsh_metabox_post_short_title', __( 'Short title', THEME_DOMAIN ), 'tsh_meta_callback_short_title', 'post' );
+    add_meta_box( 'tsh_metabox_post_short_title', __( 'Short title', THEME_DOMAIN ), 'tsh_meta_callback_short_title', array('post', 'page') );
     add_meta_box( 'tsh_metabox_post_fea', __( 'Featured Posts', THEME_DOMAIN ), 'tsh_meta_callback_fea', 'post' );
     add_meta_box( 'tsh_metabox_post_university_funding', __( 'University Funding', THEME_DOMAIN ), 'tsh_meta_callback_university_funding', 'post' );
 }
@@ -122,3 +122,180 @@ add_action( 'save_post', 'tsh_metabox_save' );
 
 //Remove <p>
 remove_filter( 'the_excerpt', 'wpautop' );
+
+//Add the fields for Post Category
+if( taxonomy_exists('category') ){
+    add_action('category_add_form_fields', 'tsh_category_fields_add', 10);
+    add_action('category_edit_form_fields', 'tsh_category_fields_edit', 10, 2);
+    add_action( 'admin_enqueue_scripts', 'tsh_admin_scripts' );
+    add_action('edited_category', 'tsh_category_fields_save', 10, 2);
+    add_action('create_category', 'tsh_category_fields_save', 10, 2);    
+    add_filter('manage_edit-category_columns', 'tsh_category_columns');
+    add_filter('manage_category_custom_column', 'tsh_category_column', 10, 3 );
+
+}
+
+function tsh_category_fields_add(){
+    $image = tsh_placeholder_cat_img_src();
+    ?>
+    <div class="form-field">
+            <label><?php _e( 'Thumbnail', THEME_DOMAIN ); ?></label>
+            <div id="cat_thumbnail" style="float:left;margin-right:10px;"><img src="<?php echo $image; ?>" width="60px" height="60px" /></div>
+            <div style="line-height:60px;">
+                    <input type="hidden" id="cat_thumbnail_id" name="cat_thumbnail_id" />
+                    <button type="button" class="upload_image_button button"><?php _e( 'Upload/Add image', THEME_DOMAIN ); ?></button>
+                    <button type="button" class="remove_image_button button"><?php _e( 'Remove image', THEME_DOMAIN ); ?></button>
+            </div>
+            <script type="text/javascript">
+                     // Only show the "remove image" button when needed
+                     if ( ! jQuery('#cat_thumbnail_id').val() )
+                             jQuery('.remove_image_button').hide();
+
+                    // Uploading files
+                    var file_frame;
+
+                    jQuery(document).on( 'click', '.upload_image_button', function( event ){
+
+
+                            event.preventDefault();
+
+                            // If the media frame already exists, reopen it.
+                            if ( file_frame ) {
+                                    file_frame.open();
+                                    return;
+                            }
+
+                            // Create the media frame.
+                            file_frame = wp.media.frames.downloadable_file = wp.media({
+                                    title: '<?php _e( 'Choose an image', THEME_DOMAIN ); ?>',
+                                    button: {
+                                            text: '<?php _e( 'Use image', THEME_DOMAIN ); ?>',
+                                    },
+                                    multiple: false
+                            });
+
+                            // When an image is selected, run a callback.
+                            file_frame.on( 'select', function() {
+                                    attachment = file_frame.state().get('selection').first().toJSON();
+
+                                    jQuery('#cat_thumbnail_id').val( attachment.id );
+                                    jQuery('#cat_thumbnail img').attr('src', attachment.url );
+                                    jQuery('.remove_image_button').show();
+                            });
+
+                            // Finally, open the modal.
+                            file_frame.open();
+                    });
+
+                    jQuery(document).on( 'click', '.remove_image_button', function( event ){
+                            jQuery('#cat_thumbnail img').attr('src', '<?php echo tsh_placeholder_cat_img_src(); ?>');
+                            jQuery('#cat_thumbnail_id').val('');
+                            jQuery('.remove_image_button').hide();
+                            return false;
+                    });
+
+            </script>
+            <div class="clear"></div>
+    </div>
+    <?php
+}
+
+function tsh_category_fields_edit($term, $taxonomy){
+    $image 		= '';
+    $thumbnail_id = get_term_meta($term->term_id, '_thumbnail_id', true);
+    if ( $thumbnail_id )
+            $image = wp_get_attachment_thumb_url( $thumbnail_id );
+    else
+    {
+            $image = tsh_placeholder_cat_img_src();	
+    }
+    ?>              
+    <tr class="form-field">
+            <th scope="row" valign="top"><label><?php _e( 'Thumbnail', THEME_DOMAIN ); ?></label></th>
+            <td>
+                    <div id="cat_thumbnail" style="float:left;margin-right:10px;"><img src="<?php echo $image; ?>" width="60px" height="60px" /></div>
+                    <div style="line-height:60px;">
+                            <input type="hidden" id="cat_thumbnail_id" name="cat_thumbnail_id" value="<?php echo $thumbnail_id; ?>" />
+                            <button type="submit" class="upload_image_button button"><?php _e( 'Upload/Add image', THEME_DOMAIN ); ?></button>
+                            <button type="submit" class="remove_image_button button"><?php _e( 'Remove image', THEME_DOMAIN ); ?></button>
+                    </div>
+                    <script type="text/javascript">
+                            // Uploading files
+                            var file_frame;
+
+                            jQuery(document).on( 'click', '.upload_image_button', function( event ){
+
+                                    event.preventDefault();
+
+                                    // If the media frame already exists, reopen it.
+                                    if ( file_frame ) {
+                                            file_frame.open();
+                                            return;
+                                    }
+
+                                    // Create the media frame.
+                                    file_frame = wp.media.frames.downloadable_file = wp.media({
+                                            title: '<?php _e( 'Choose an image', THEME_DOMAIN ); ?>',
+                                            button: {
+                                                    text: '<?php _e( 'Use image', THEME_DOMAIN ); ?>',
+                                            },
+                                            multiple: false
+                                    });
+
+                                    // When an image is selected, run a callback.
+                                    file_frame.on( 'select', function() {
+                                            attachment = file_frame.state().get('selection').first().toJSON();
+
+                                            jQuery('#cat_thumbnail_id').val( attachment.id );
+                                            jQuery('#cat_thumbnail img').attr('src', attachment.url );
+                                            jQuery('.remove_image_button').show();
+                                    });
+
+                                    // Finally, open the modal.
+                                    file_frame.open();
+                            });
+
+                            jQuery(document).on( 'click', '.remove_image_button', function( event ){
+                                    jQuery('#cat_thumbnail img').attr('src', '<?php echo tsh_placeholder_cat_img_src(); ?>');
+                                    jQuery('#cat_thumbnail_id').val('');
+                                    jQuery('.remove_image_button').hide();
+                                    return false;
+                            });
+
+                    </script>
+                    <div class="clear"></div>
+            </td>
+    </tr>
+    <?php
+}
+
+function tsh_admin_scripts() { wp_enqueue_media(); }
+
+function tsh_category_fields_save($term_id){
+    if (!isset($_POST['cat_thumbnail_id'])) {
+        return;
+    }
+    update_term_meta( $term_id, '_thumbnail_id', absint( $_POST['cat_thumbnail_id'] ) );
+}
+
+function tsh_category_columns( $columns ){
+    $columns['thumb'] = __( 'Image', THEME_DOMAIN );
+    return $columns;
+}
+function tsh_category_column($columns, $column, $id){
+    if ( $column == 'thumb' ) {
+        $image 			= '';
+        $thumbnail_id 	= get_term_meta($id, '_thumbnail_id', true);
+
+        if ($thumbnail_id){
+                $image = wp_get_attachment_thumb_url( $thumbnail_id );
+        }else{
+                $image = tsh_placeholder_cat_img_src();
+        }
+        $image = str_replace( ' ', '%20', $image );
+
+        $columns .= '<img src="' . esc_url( $image ) . '" alt="Thumbnail" class="wp-post-image" height="48" width="48" />';
+    }
+
+    return $columns;
+}

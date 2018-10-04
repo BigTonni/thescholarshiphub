@@ -46,8 +46,7 @@ class WP_TSH_Widget_Find_Scholarship extends WP_Widget {
                         <div class="row">
                             <div class="col-md-12">
                                 <select id="scholarship_list">
-                                    <option value=""><?php _e('Study Location', THEME_DOMAIN); ?></option>
-                                    <!--Code for other locations-->
+                                    <?php echo thescholarshiphub_list_locations('', __('Study Location', THEME_DOMAIN)); ?>
                                 </select>
                             </div>
                             <?php 

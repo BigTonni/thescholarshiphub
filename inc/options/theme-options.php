@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 /*
-/* Last element's ID = 30
+/* Last element's ID = 33
  * 
  * Require the framework class before doing anything else, so we can use the defined urls and dirs
  * Also if running on windows you may have url problems, which can be fixed by defining the framework url first
@@ -203,7 +203,24 @@ $sections[] = array(
                                                     'type' => 'upload',
                                                     'title' => __('Slider#2 Image', 'nhp-opts'),
 						),
-                                    
+                                                array(
+                                                    'id' => '30',
+                                                    'type' => 'cats_select',
+                                                    'title' => __('Post Category #1', 'nhp-opts'),
+                                                    'args' => array('hide_empty' => false)
+						),
+                                                array(
+                                                    'id' => '31',
+                                                    'type' => 'cats_select',
+                                                    'title' => __('Post Category #2', 'nhp-opts'),
+                                                    'args' => array('hide_empty' => false)
+						),
+                                                array(
+                                                    'id' => '32',
+                                                    'type' => 'cats_select',
+                                                    'title' => __('Post Category #3', 'nhp-opts'),
+                                                    'args' => array('hide_empty' => false)
+						),                                    
                                     
                                                 array(
                                                     'id' => '16',
@@ -323,7 +340,7 @@ $sections[] = array(
         'title' => __('Calculator', 'nhp-opts'),
                 'fields' => array(
                         array(
-                            'id' => '30',
+                            'id' => '33',
                             'type' => 'text',
                             'title' => __('For example', 'nhp-opts'),
                             'std' => __('', 'nhp-opts'),
