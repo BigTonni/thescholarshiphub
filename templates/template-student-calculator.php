@@ -6,6 +6,7 @@
  */
 
 get_header();
+$options = get_option('TheScholarshipHub');
 ?>
 <div id="primary" class="content-area">
         <main id="main" class="site-main">
@@ -16,7 +17,6 @@ get_header();
                         <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
                     </section>
                     <div class="container">
-                        <div class="row">
                             <div class="col-md-12">
                                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                                         <div class="entry-content">
@@ -52,7 +52,7 @@ get_header();
 																<div id="slider_loan"></div>
 															</div>
 														</div>
-														<div class="col-md-4">
+														<div class="col-md-4 col-sm-12">
 															<div class="form-group">
 																<label for="slider_loan_val">slider_loan_val</label>
 																<input type="number" class="form-control" id="slider_loan_val">
@@ -66,7 +66,7 @@ get_header();
 																<div id="slider_salary"></div>
 															</div>
 														</div>
-														<div class="col-md-4">
+														<div class="col-md-4 col-sm-12">
 															<label for="slider_salary_val">slider_salary_val</label>
 															<input type="number" class="form-control" id="slider_salary_val">
 														</div>
@@ -78,7 +78,7 @@ get_header();
 																<div id="slider_interest"></div>
 															</div>
 														</div>
-														<div class="col-md-4">
+														<div class="col-md-4 col-sm-12">
 															<label for="slider_interest_val">slider_interest_val</label>
 															<input type="number" class="form-control" id="slider_interest_val">
 														</div>
@@ -87,9 +87,9 @@ get_header();
 												<div class="center_line"></div>
 												<div class="right_part">
 													<p class="right_top_text">When will the loan be cleared?</p>
-													<div class="pie-chart chart" data-percent="73" data-scale-color="#ffb400">
+													<div class="pie-chart chart" data-percent="0" data-scale-color="#ffb400">
 														<div class="pie-chart-contents">
-															<div class="pie-chart-unit ng-binding yearsToRepay">16</div>
+															<div class="pie-chart-unit ng-binding yearsToRepay">0</div>
 															<div class="pie-chart-suffix">Yrs</div>
 														</div>
 													</div>
@@ -97,9 +97,9 @@ get_header();
 													<div class="bar-chart-container">
 														<div class="bar-chart">
 															<div class="bar-chart-contents">
-																<div class="bar-chart-unit">£<span class="ng-binding">24,800</span></div>
-																<div class="bar-chart-line" style="height: 27.28px;"></div>
-																<p class="bar-chart-info help-label">What you <br> repay? <a href="#repay-modal" class="info-tooltip js-help-btn ng-isolate-scope"></a></p>
+																<div class="bar-chart-unit">£<span class="bar-chart-unit-val">0</span></div>
+																<div class="bar-chart-line" style="height: 0;"></div>
+																<p class="bar-chart-info help-label">What you <br> repay?</p>
 															</div>
 														</div>
 													</div>
@@ -107,37 +107,31 @@ get_header();
 												<div class="bottom_part">
 													<div class="row">
 														<div class="col-md-12">
-															<p>The results are a rough estimate only, as a number of assumptions have been made...</p>
+															<p><?php echo $options[33]; ?></p>
 														</div>
 													</div>
 													<div class="row">
-														<div class="col-md-1"><p>&checkmark;</p></div>
-														<div class="col-md-11">
-															<p>Interest is accrued and applied monthly (in reality it will accrue daily, but we have simplified
-																it so that the tool can work properly - this makes a difference of up to 'plus or minus 2%'.</p>
+														<div class="col-md-1 col-sm-1 col-xs-1"><p>&checkmark;</p></div>
+														<div class="col-md-11 col-sm-11 col-xs-11">
+															<p><?php echo $options[34]; ?></p>
 														</div>
 													</div>
 													<div class="row">
-														<div class="col-md-1"><p>&checkmark;</p></div>
-														<div class="col-md-11">
-															<p>You don't take any time off during the 30 years after graduation, and your salary rise is
-																consistent. If you retire before the 30 years are up, there's a significant chance you'll repay
-																far less.
-																Repayments start in the April following graduation.</p>
+														<div class="col-md-1 col-sm-1 col-xs-1"><p>&checkmark;</p></div>
+														<div class="col-md-11 col-sm-11 col-xs-11">
+															<p><?php echo $options[35]; ?></p>
 														</div>
 													</div>
 													<div class="row">
-														<div class="col-md-1"><p>&checkmark;</p></div>
-														<div class="col-md-11">
-															<p>No tuition fee inflation as some universities will keep you at the rate you start on, so if you
-																pay £9,250 in year one, you pay it for each year of study.</p>
+														<div class="col-md-1 col-sm-1 col-xs-1"><p>&checkmark;</p></div>
+														<div class="col-md-11 col-sm-11 col-xs-11">
+															<p><?php echo $options[36]; ?></p>
 														</div>
 													</div>
 													<div class="row">
-														<div class="col-md-1"><p>&checkmark;</p></div>
-														<div class="col-md-11">
-															<p>The repayment threshold is £25,000 in 2018/19 after which it will rise by average earnings
-																growth (we assume this to be RPI+1% per annum).</p>
+														<div class="col-md-1 col-sm-1 col-xs-1"><p>&checkmark;</p></div>
+														<div class="col-md-11 col-sm-11 col-xs-11">
+															<p><?php echo $options[37]; ?></p>
 														</div>
 													</div>
 												</div>
@@ -145,7 +139,6 @@ get_header();
                                         </div><!-- .entry-content -->
                                 </article><!-- #post-->
                             </div>
-                        </div>
                     </div>
             <?php
             endwhile; // End of the loop.
