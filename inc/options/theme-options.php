@@ -341,8 +341,32 @@ $sections[] = array(
                 'fields' => array(
                         array(
                             'id' => '33',
-                            'type' => 'text',
-                            'title' => __('For example', 'nhp-opts'),
+                            'type' => 'textarea',
+                            'title' => __('Bold text', 'nhp-opts'),
+                            'std' => __('', 'nhp-opts'),
+                        ),
+                        array(
+                            'id' => '34',
+                            'type' => 'textarea',
+                            'title' => __('Text line 1', 'nhp-opts'),
+                            'std' => __('', 'nhp-opts'),
+                        ),
+                        array(
+                            'id' => '35',
+                            'type' => 'textarea',
+                            'title' => __('Text line 2', 'nhp-opts'),
+                            'std' => __('', 'nhp-opts'),
+                        ),
+                        array(
+                            'id' => '36',
+                            'type' => 'textarea',
+                            'title' => __('Text line 3', 'nhp-opts'),
+                            'std' => __('', 'nhp-opts'),
+                        ),
+                        array(
+                            'id' => '37',
+                            'type' => 'textarea',
+                            'title' => __('Text line 4', 'nhp-opts'),
                             'std' => __('', 'nhp-opts'),
                         ),
         )

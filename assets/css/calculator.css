@@ -6,7 +6,7 @@
 }
 .calc_container {
 	box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.5);
-	/*border: 1px solid;*/
+	float: left;
 }
 
 .left_part {
@@ -26,7 +26,7 @@
 
 	position: absolute !important;
 	width: 2px;
-	background: black;
+	background: #b1b1b1;
 	height: 600px;
 	left: 45%;
 	top: 25px;
@@ -88,12 +88,16 @@ label[for="slider_interest_val"]{
 .bottom_part .col-md-1 p{
 	font-size: 22px;
 	text-align: center;
+	line-height: 1;
 }
 .bottom_part .col-md-11{
-	padding: 0;
+	padding-left: 0;
+}
+.bottom_part p {
+	margin-top: 0;
 }
 .bottom_part .col-md-12{
-	padding-left: 2%;
+	font-weight: bold;
 }
 .right_top_text{
 
@@ -229,4 +233,66 @@ label[for="slider_interest_val"]{
 	font-size: 11px!important;
 	color: #666;
 	line-height: 14px
+}
+
+@media (max-width: 1199px){
+	.selects_container {
+		font-size: 16px;
+		height: 75px;
+	}
+
+	.slider_loan_container {
+		font-size: 16px;
+		height: 75px;
+	}
+
+	.slider_salary_container {
+		font-size: 16px;
+		height: 75px;
+	}
+
+	.slider_interest_container {
+		font-size: 16px;
+		height: 75px;
+	}
+}
+
+@media (max-width: 991px){
+	.selects_container {
+		height: auto;
+		margin-bottom: 20px;
+	}
+
+	.slider_loan_container {
+		height: auto;
+		margin-bottom: 20px;
+	}
+
+	.slider_salary_container {
+		height: auto;
+		margin-bottom: 20px;
+	}
+
+	.slider_interest_container {
+		height: auto;
+		margin-bottom: 20px;
+	}
+
+	select#duration_course {
+		width: 100%;
+	}
+
+	#slider_loan_val, #slider_salary_val, #slider_interest_val {
+		width: 100%;
+	}
+}
+@media (max-width: 500px){
+	.calc_container > div.center_line {
+		display: none;
+	}
+
+	.calc_container > div {
+		float: none;
+		width: 100%;
+	}
 }
