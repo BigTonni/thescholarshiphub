@@ -225,7 +225,8 @@ function thescholarshiphub_scripts() {
             wp_enqueue_style( 'calculator', THEME_DIR_URI . '/assets/css/calculator.css', array('jqueryUI') );
             
             wp_enqueue_script( 'jqueryUI', THEME_DIR_URI . '/assets/js/jquery-ui.js', array('jquery'), '', true );
-            wp_enqueue_script( 'calculator', THEME_DIR_URI . '/assets/js/calculator.js', array('jquery','jqueryUI'), '', true );
+            wp_enqueue_script( 'easy-pie-chart', THEME_DIR_URI . '/assets/js/easy-pie-chart.js', array('jquery'), '', true );
+            wp_enqueue_script( 'calculator', THEME_DIR_URI . '/assets/js/calculator.js', array('jquery','jqueryUI','easy-pie-chart'), '', true );
         }
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
