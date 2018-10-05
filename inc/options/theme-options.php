@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 /*
-/* Last element's ID = 33
+/* Last element's ID = 48
  * 
  * Require the framework class before doing anything else, so we can use the defined urls and dirs
  * Also if running on windows you may have url problems, which can be fixed by defining the framework url first
@@ -166,6 +166,20 @@ $sections[] = array(
                                                     'std'=> ''
 						),
                                                 array(
+                                                    'id' => '43',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#1 Button#2 title', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> 'Login'
+						),
+                                                array(
+                                                    'id' => '44',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#1 Button#2 link', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> ''
+						),
+                                                array(
                                                     'id' => '4',
                                                     'type' => 'upload',
                                                     'title' => __('Slider#1 Image', 'nhp-opts'),
@@ -199,10 +213,72 @@ $sections[] = array(
                                                     'std'=> ''
 						),
                                                 array(
+                                                    'id' => '45',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#1 Button#2 title', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> 'Login'
+						),
+                                                array(
+                                                    'id' => '46',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#1 Button#2 link', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> ''
+						),
+                                                array(
                                                     'id' => '8',
                                                     'type' => 'upload',
                                                     'title' => __('Slider#2 Image', 'nhp-opts'),
 						),
+//                                    Start
+                                    array(
+                                                    'id' => '38',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#3 Header', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std' => __('Find UK Scholarship Today!', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '39',
+                                                    'type' => 'textarea',
+                                                    'title' => __('Slider#3 Text', 'nhp-opts'),
+                                                    'desc' => '',
+						),
+                                                array(
+                                                    'id' => '40',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#3 Button title', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> 'Get started today'
+						),
+                                                array(
+                                                    'id' => '41',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#3 Button link', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> ''
+						),
+                                                array(
+                                                    'id' => '47',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#1 Button#2 title', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> 'Login'
+						),
+                                                array(
+                                                    'id' => '48',
+                                                    'type' => 'text',
+                                                    'title' => __('Slider#1 Button#2 link', 'nhp-opts'),
+                                                    'desc' => '',
+                                                    'std'=> ''
+						),
+                                                array(
+                                                    'id' => '42',
+                                                    'type' => 'upload',
+                                                    'title' => __('Slider#3 Image', 'nhp-opts'),
+						),
+//                                    End
                                                 array(
                                                     'id' => '30',
                                                     'type' => 'cats_select',
@@ -228,8 +304,7 @@ $sections[] = array(
                                                     'title' => __('Button title for Post section', 'nhp-opts'),
                                                     'desc' => '',
                                                     'std'=> __('>> Read more', 'nhp-opts')
-						),
-                                    
+						),                                    
                                                 
                                                 array(
                                                     'id' => '9',

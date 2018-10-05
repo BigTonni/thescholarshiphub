@@ -26,6 +26,7 @@ get_header(); ?>
                         <p class="slider-text_mod tagline_2"><?php echo !empty($options['2']) ? $options['2'] : ''; ?></p>
                         <div class="slider-text_mod">
                             <a class="jumpButton" href="<?php echo !empty($options['14']) ? $options['14'] : ''; ?>"><?php echo !empty($options['3']) ? $options['3'] : ''; ?></a>
+                            <a class="jumpButton" href="<?php echo !empty($options['44']) ? $options['44'] : ''; ?>"><?php echo !empty($options['43']) ? $options['43'] : ''; ?></a>
                         </div>
                     </div>
                     <img src="<?php echo !empty($options['4']) ? $options['4'] : ''; ?>" alt="<?php _e('Slider Image', THEME_DOMAIN); ?>">
@@ -36,6 +37,18 @@ get_header(); ?>
                         <p class="slider-text_mod tagline_2"><?php echo !empty($options['6']) ? $options['6'] : ''; ?></p>
                         <div class="slider-text_mod">
                             <a class="jumpButton" href="<?php echo !empty($options['15']) ? $options['15'] : ''; ?>"><?php echo !empty($options['7']) ? $options['7'] : ''; ?></a>
+                            <a class="jumpButton" href="<?php echo !empty($options['46']) ? $options['46'] : ''; ?>"><?php echo !empty($options['45']) ? $options['45'] : ''; ?></a>
+                        </div>
+                    </div>
+                    <img src="<?php echo !empty($options['8']) ? $options['8'] : ''; ?>" alt="<?php _e('Slider Image', THEME_DOMAIN); ?>">
+                </div>
+                <div class="item">
+                    <div class="slider-text">
+                        <h2 class="slider-text_mod tagline_1"><?php echo !empty($options['38']) ? $options['38'] : ''; ?></h2>
+                        <p class="slider-text_mod tagline_2"><?php echo !empty($options['39']) ? $options['39'] : ''; ?></p>
+                        <div class="slider-text_mod">
+                            <a class="jumpButton" href="<?php echo !empty($options['41']) ? $options['41'] : ''; ?>"><?php echo !empty($options['40']) ? $options['40'] : ''; ?></a>
+                            <a class="jumpButton" href="<?php echo !empty($options['48']) ? $options['48'] : ''; ?>"><?php echo !empty($options['47']) ? $options['47'] : ''; ?></a>
                         </div>
                     </div>
                     <img src="<?php echo !empty($options['8']) ? $options['8'] : ''; ?>" alt="<?php _e('Slider Image', THEME_DOMAIN); ?>">
@@ -146,6 +159,7 @@ get_header(); ?>
                     <div class="col-md-9">
                         <div class="row">
                             <div class="col-md-12">
+                                <h1>Featured Article</h1>
                                 <?php
                                 $args = array(
                                     'posts_per_page' => 1,
@@ -189,6 +203,16 @@ get_header(); ?>
                                     <div class="grid">
                                         <?php
                                         while ($the_query->have_posts()){ $the_query->the_post();
+                                            $title = '';
+                                            $post_id = get_the_ID();
+                                            $custom_title = get_post_meta( $post_id, '_tsh_short_title', true );
+                                            if( $custom_title != false ){
+                                                $title = $custom_title;
+                                            }else{                                    
+                                                $post_title = get_the_title( $post_id );
+                                                $title      = ( ! empty( $post_title ) ) ? wp_trim_words($post_title, 5) : __( '(no title)', THEME_DOMAIN );
+                                            }
+                                        
                                             ?>
                                             <div class="item">
                                                 <div class="row">
@@ -196,13 +220,14 @@ get_header(); ?>
                                                     <div class="col-md-6 university_funding_thumb">
                                                     <?php
                                                         if (has_post_thumbnail()) { ?>
-                                                                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-thumbnail'); ?></a>                     
+                                                                <?php the_post_thumbnail('post-thumbnail'); ?>                 
 
                                                         <?php } ?>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <h4 class="university_funding_title"><?php the_title(); ?></h4>
+                                                        <h4 class="university_funding_title"><?php echo $title; ?></h4>
                                                         <div class="university_funding_text"><?php echo wp_trim_words(get_the_content(), 10 ); ?></div>
+                                                        <a href="<?php the_permalink(); ?>"><?php echo !empty($options['16']) ? $options['16'] : ''; ?></a>
                                                     </div>
                                                 </div>
                                             </div>
