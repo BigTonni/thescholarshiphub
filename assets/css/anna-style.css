@@ -1,0 +1,89 @@
+#rcp_subscription_levels_plans{
+	display: -webkit-flex;
+	display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;	
+}
+#rcp_subscription_levels_plans .single_plan{
+	width: 31%;
+    border: 2px solid #9E9E9E;
+    padding: 15px;
+    margin-bottom: 50px;
+}
+#rcp_subscription_levels_plans .single_plan .single_plan_header{
+	text-align: center;
+    border-bottom: 1px solid #9E9E9E;
+	margin-bottom: 10px;
+    padding-bottom: 10px;
+	font-size: 1.2rem;
+}
+#rcp_subscription_levels_plans .single_plan .single_plan_header .single_plan_price{
+	font-weight: bold;
+}
+#rcp_subscription_levels_plans .single_plan .single_plan_header .register-button a{
+	color: #404040;
+	font-size: 0.9rem;
+	text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #000;
+}
+#rcp_subscription_levels_plans .single_plan .single_plan_content{
+	font-size: 0.9rem;	
+}
+#rcp_subscription_levels_plans .single_plan .single_plan_content .single_plan_description ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#rcp_subscription_levels_plans .single_plan .single_plan_content .single_plan_description ul li{
+	padding-bottom: 10px;
+}
+#rcp_subscription_levels_plans .single_plan .single_plan_content .single_plan_description ul li:before{
+	content:'\2714';
+    margin-right: 5px;
+}
+.testimonials-section .strong-grid{
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+
+.rcp_user_fieldset_custom .fieldset_wrapper{
+	display: -webkit-flex;
+	display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;	
+	-webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.rcp_user_fieldset_custom .fieldset_wrapper .left-form-part,
+.rcp_user_fieldset_custom .fieldset_wrapper .right-form-part{
+	width: 48%;
+}
+.rcp_form .rcp_user_fieldset_custom p{
+	display: -webkit-flex;
+	display: flex;	
+}
+.rcp_form .rcp_user_fieldset_custom label{
+	width: 30%;
+	display: inline;
+    cursor: unset;	
+}
+.rcp_form .rcp_user_fieldset_custom input,
+.rcp_form .rcp_user_fieldset_custom select{
+	width: 50%;
+    height: 35px;
+}
+.after_register_form_custom{margin-top: 30px;}
+.after_register_form_custom table {
+    border-collapse: collapse;
+    text-align: left;
+}
+.after_register_form_custom tr,
+.after_register_form_custom td {
+   border: 1px solid black;
+}
+.after_register_form_custom thead tr{border: unset;}
+.after_register_form_custom td{padding: 5px;}
+sup.description{left: 20px;top: 0;}
