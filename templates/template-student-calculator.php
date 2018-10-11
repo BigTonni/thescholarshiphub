@@ -27,9 +27,7 @@ $options = get_option('TheScholarshipHub');
 															<div class="form-group">
 																<label for="start_course">Year Starting Course</label>
 																<select class="form-control" id="start_course">
-																	<?php for($i=2000;$i<2051;++$i){?>
-																		<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-																	<?php } ?>
+																		<option value="2018">2018</option>
 																</select>
 															</div>
 														</div>
@@ -38,9 +36,8 @@ $options = get_option('TheScholarshipHub');
 																<label for="duration_course">Duration</label>
 																<select class="form-control" id="duration_course">
 																	<option value="1">1 year</option>
-																	<?php for($i=2;$i<10;++$i){?>
-																		<option value="<?php echo $i; ?>"><?php echo $i; ?> years</option>
-																	<?php } ?>
+																	<option value="2">2 years</option>
+																	<option value="3">3 years</option>
 																</select>
 															</div>
 														</div>
@@ -80,7 +77,9 @@ $options = get_option('TheScholarshipHub');
 														</div>
 														<div class="col-md-4 col-sm-12">
 															<label for="slider_interest_val">slider_interest_val</label>
+															<div class="slider_interest_val_wrap">
 															<input type="number" class="form-control" id="slider_interest_val">
+															</div>
 														</div>
 													</div>
 												</div>
@@ -95,12 +94,20 @@ $options = get_option('TheScholarshipHub');
 													</div>
 													<p>How much will you repay?</p>
 													<div class="bar-chart-container">
-														<div class="bar-chart">
-															<div class="bar-chart-contents">
+														<div class="bar-chart"style="display: none">
+															<div class="bar-chart-contents" >
 																<div class="bar-chart-unit">£<span class="bar-chart-unit-val">0</span></div>
 																<div class="bar-chart-line" style="height: 0;"></div>
 																<p class="bar-chart-info help-label">What you <br> repay?</p>
 															</div>
+														</div>
+														<div class="tool-errors"  style="display: none">
+
+																<span>
+																	<p class="show-error"><strong>You won't repay anything before the 30 years when the debt wipes.</strong></p>
+																	<p class="show-error"><strong>Try increasing starting salary to see when you'd start repaying.</strong></p>
+																</span>
+
 														</div>
 													</div>
 												</div>

@@ -77,8 +77,11 @@ div#slider_interest {
 }
 #slider_loan_val,
 #slider_salary_val,
-#slider_interest_val{
+.slider_interest_val_wrap{
 	width: 80%;
+}
+#slider_interest_val{
+	width: 100%;
 }
 label[for="slider_loan_val"],
 label[for="slider_salary_val"],
@@ -235,6 +238,37 @@ label[for="slider_interest_val"]{
 	line-height: 14px
 }
 
+#slider_loan_val, #slider_salary_val {
+	background: url('/wp-content/themes/thescholarshiphub/assets/img/pound-symbol.jpg') 8px center no-repeat;
+	padding-left: 20px;
+}input#slider_interest_val {
+	 padding-right: 25px;
+ }.slider_interest_val_wrap {
+	  position: relative;
+  }
+
+.slider_interest_val_wrap:after {
+	position: absolute;
+	content: '%';
+	top: 5px;
+	right: 7px;
+	color: #999999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 1199px){
 	.selects_container {
 		font-size: 16px;
@@ -282,7 +316,7 @@ label[for="slider_interest_val"]{
 		width: 100%;
 	}
 
-	#slider_loan_val, #slider_salary_val, #slider_interest_val {
+	#slider_loan_val, #slider_salary_val, .slider_interest_val_wrap {
 		width: 100%;
 	}
 }

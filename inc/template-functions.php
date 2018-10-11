@@ -21,6 +21,10 @@ function tsh_body_classes( $classes ) {
 //	if ( ! is_active_sidebar( 'sidebar_single' ) ) {
 //		$classes[] = 'no-sidebar';
 //	}
+        
+        if( is_admin_bar_showing() ){
+            $classes[] = 'tsh_show_adminbar';
+        }
 
 	return $classes;
 }

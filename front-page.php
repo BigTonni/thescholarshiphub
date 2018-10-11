@@ -25,8 +25,12 @@ get_header(); ?>
                         <h2 class="slider-text_mod tagline_1"><?php echo !empty($options['1']) ? $options['1'] : ''; ?></h2>
                         <p class="slider-text_mod tagline_2"><?php echo !empty($options['2']) ? $options['2'] : ''; ?></p>
                         <div class="slider-text_mod">
-                            <a class="jumpButton" href="<?php echo !empty($options['14']) ? $options['14'] : ''; ?>"><?php echo !empty($options['3']) ? $options['3'] : ''; ?></a>
-                            <a class="jumpButton" href="<?php echo !empty($options['44']) ? $options['44'] : ''; ?>"><?php echo !empty($options['43']) ? $options['43'] : ''; ?></a>
+                            <a class="jumpButton jumpButton_mod" href="<?php echo !empty($options['14']) ? $options['14'] : ''; ?>"><i class="fa fa-play" aria-hidden="true"></i>
+                                <?php echo !empty($options['3']) ? $options['3'] : ''; ?></a>
+                            <?php if ( !is_user_logged_in() ) { ?>
+                                <a class="jumpButton" href="<?php echo !empty($options['44']) ? $options['44'] : ''; ?>"><i class="fa fa-play" aria-hidden="true"></i>
+                                    <?php echo !empty($options['43']) ? $options['43'] : ''; ?></a>
+                            <?php } ?>
                         </div>
                     </div>
                     <img src="<?php echo !empty($options['4']) ? $options['4'] : ''; ?>" alt="<?php _e('Slider Image', THEME_DOMAIN); ?>">
@@ -36,8 +40,12 @@ get_header(); ?>
                         <h2 class="slider-text_mod tagline_1"><?php echo !empty($options['5']) ? $options['5'] : ''; ?></h2>
                         <p class="slider-text_mod tagline_2"><?php echo !empty($options['6']) ? $options['6'] : ''; ?></p>
                         <div class="slider-text_mod">
-                            <a class="jumpButton" href="<?php echo !empty($options['15']) ? $options['15'] : ''; ?>"><?php echo !empty($options['7']) ? $options['7'] : ''; ?></a>
-                            <a class="jumpButton" href="<?php echo !empty($options['46']) ? $options['46'] : ''; ?>"><?php echo !empty($options['45']) ? $options['45'] : ''; ?></a>
+                            <a class="jumpButton jumpButton_mod" href="<?php echo !empty($options['15']) ? $options['15'] : ''; ?>"><i class="fa fa-play" aria-hidden="true"></i>
+                                <?php echo !empty($options['7']) ? $options['7'] : ''; ?></a>
+                            <?php if ( !is_user_logged_in() ) { ?>
+                                <a class="jumpButton" href="<?php echo !empty($options['46']) ? $options['46'] : ''; ?>"><i class="fa fa-play" aria-hidden="true"></i>
+                                    <?php echo !empty($options['45']) ? $options['45'] : ''; ?></a>
+                            <?php } ?>
                         </div>
                     </div>
                     <img src="<?php echo !empty($options['8']) ? $options['8'] : ''; ?>" alt="<?php _e('Slider Image', THEME_DOMAIN); ?>">
@@ -47,8 +55,12 @@ get_header(); ?>
                         <h2 class="slider-text_mod tagline_1"><?php echo !empty($options['38']) ? $options['38'] : ''; ?></h2>
                         <p class="slider-text_mod tagline_2"><?php echo !empty($options['39']) ? $options['39'] : ''; ?></p>
                         <div class="slider-text_mod">
-                            <a class="jumpButton" href="<?php echo !empty($options['41']) ? $options['41'] : ''; ?>"><?php echo !empty($options['40']) ? $options['40'] : ''; ?></a>
-                            <a class="jumpButton" href="<?php echo !empty($options['48']) ? $options['48'] : ''; ?>"><?php echo !empty($options['47']) ? $options['47'] : ''; ?></a>
+                            <a class="jumpButton jumpButton_mod" href="<?php echo !empty($options['41']) ? $options['41'] : ''; ?>"><i class="fa fa-play" aria-hidden="true"></i>
+                                <?php echo !empty($options['40']) ? $options['40'] : ''; ?></a>
+                            <?php if ( !is_user_logged_in() ) { ?>
+                                <a class="jumpButton" href="<?php echo !empty($options['48']) ? $options['48'] : ''; ?>"><i class="fa fa-play" aria-hidden="true"></i>
+                                    <?php echo !empty($options['47']) ? $options['47'] : ''; ?></a>
+                            <?php } ?>
                         </div>
                     </div>
                     <img src="<?php echo !empty($options['8']) ? $options['8'] : ''; ?>" alt="<?php _e('Slider Image', THEME_DOMAIN); ?>">
@@ -87,7 +99,12 @@ get_header(); ?>
         <section class="user_status">
             <div class="container">
                 <div class="row">
-                    <?php if(!empty($options['30'])){
+                    <?php if(!empty($options['49'])){ ?>
+                        <div class="col-md-12">
+                            <h1 class="home_h1"><?php echo $options['49']; ?></h1>
+                        </div>                    
+                    <?php }
+                    if(!empty($options['30'])){
                         $term = get_term_by('id', $options['30'], 'category');
                         $thumbnail_id = get_term_meta($term->term_id, '_thumbnail_id', true);
                         if ( $thumbnail_id ){
@@ -97,12 +114,13 @@ get_header(); ?>
                         }
                         ?>
                         <div class="col-md-4 <?php echo $term->term_id; ?>">
-                            <div class="user_status_image tsh_border">
+                            <div class="user_status_image tsh_border_mod">
                                 <img src="<?php echo $image; ?>">                            
                             </div>
-                            <div class="user_status_text">
+                            <div class="user_status_text user_status_text_Bg1">
                                 <a href="<?php echo get_category_link( $term->term_id ); ?>">
                                     <div><?php echo $term->name; ?></div>
+                                    <i class="fa fa-play" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
@@ -118,12 +136,13 @@ get_header(); ?>
                         }
                         ?>
                         <div class="col-md-4 <?php echo $term->term_id; ?>">
-                            <div class="user_status_image tsh_border">
+                            <div class="user_status_image tsh_border_mod">
                                 <img src="<?php echo $image; ?>">                            
                             </div>
-                            <div class="user_status_text">
+                            <div class="user_status_text user_status_text_Bg2">
                                 <a href="<?php echo get_category_link( $term->term_id ); ?>">
                                     <div><?php echo $term->name; ?></div>
+                                    <i class="fa fa-play" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
@@ -139,12 +158,13 @@ get_header(); ?>
                         }
                         ?>
                         <div class="col-md-4 <?php echo $term->term_id; ?>">
-                            <div class="user_status_image tsh_border">
+                            <div class="user_status_image tsh_border_mod">
                                 <img src="<?php echo $image; ?>">                            
                             </div>
-                            <div class="user_status_text">
+                            <div class="user_status_text user_status_text_Bg3">
                                 <a href="<?php echo get_category_link( $term->term_id ); ?>">
                                     <div><?php echo $term->name; ?></div>
+                                    <i class="fa fa-play" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
@@ -159,8 +179,10 @@ get_header(); ?>
                     <div class="col-md-9">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1>Featured Article</h1>
-                                <?php
+                                <?php if(!empty($options['50'])){ ?>
+                                        <h1 class="home_h1"><?php echo $options['50']; ?></h1>
+                                <?php }
+                                
                                 $args = array(
                                     'posts_per_page' => 1,
                                     'meta_key' => '_tsh_featured',
@@ -170,19 +192,23 @@ get_header(); ?>
                                 if ($the_query->have_posts()){
                                     while ($the_query->have_posts()){ $the_query->the_post();
                                         if (has_post_thumbnail()) { ?>
-                                            <div class="featured_post_image tsh_border">
-                                                <?php the_post_thumbnail('full'); ?>                          
+                                            <div class="featured_post_image">
+                                                <?php the_post_thumbnail('full'); ?> 
+
+
+                                        <div class="featured_post_text featured_post_text_mod">
+                                            <h3><?php the_title(); ?></h3>
+                                            <div><?php echo wp_trim_words(get_the_content(), 27, '...'); ?></div>
+                                            <div class="read_more">
+                                                <a class="jumpButton" href="<?php the_permalink(); ?>"><i class="fa fa-play" aria-hidden="true"></i><?php echo !empty($options['16']) ? $options['16'] : ''; ?></a>                                                
+                                            </div>
+                                        </div>
+
+
                                             </div>
                                         <?php } ?>
                                         
-                                        <div class="featured_post_text">
-                                            <h3><?php the_title(); ?></h3>
-                                            <div><?php the_excerpt(); ?></div>
-                                            <div class="read_more">
-                                                <a href="<?php the_permalink(); ?>"><?php echo !empty($options['16']) ? $options['16'] : ''; ?></a>                                                
-                                            </div>
-                                        </div>
-                                
+                              
                                         <?php
                                     }    
                                 }
@@ -190,8 +216,10 @@ get_header(); ?>
                             </div>
                             
                             <div class="col-md-12" id="university_funding">
-                                <h2 class="tsh_header"><?php echo !empty($options['9']) ? $options['9'] : ''; ?></h2>
+                                <?php if(!empty($options['9'])){ ?>
+                                    <h1 class="home_h_mod"><?php echo $options['9']; ?></h1>
                                 <?php
+                                }
                                 $args = array(
                                     'posts_per_page' => 4,
                                     'meta_key' => '_tsh_university_funding',
@@ -217,17 +245,17 @@ get_header(); ?>
                                             <div class="item">
                                                 <div class="row">
                                                     
-                                                    <div class="col-md-6 university_funding_thumb">
+                                                    <div class="col-md-4 university_funding_thumb">
                                                     <?php
                                                         if (has_post_thumbnail()) { ?>
                                                                 <?php the_post_thumbnail('post-thumbnail'); ?>                 
 
                                                         <?php } ?>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <h4 class="university_funding_title"><?php echo $title; ?></h4>
+                                                    <div class="col-md-8">
+                                                        <h4 class="university_funding_title clippingText_1"><?php echo $title; ?></h4>
                                                         <div class="university_funding_text"><?php echo wp_trim_words(get_the_content(), 10 ); ?></div>
-                                                        <a href="<?php the_permalink(); ?>"><?php echo !empty($options['16']) ? $options['16'] : ''; ?></a>
+                                                        <a class="university_funding_btn" href="<?php the_permalink(); ?>"><i class="fa fa-play" aria-hidden="true"></i><?php echo !empty($options['16']) ? $options['16'] : ''; ?></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -243,20 +271,21 @@ get_header(); ?>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <?php
-                                        if (!empty($options['13'])) { ?>
-                                            <h2 class="tsh_header"><?php echo !empty($options['10']) ? $options['10'] : ''; ?></h2>
-                                            <?php
+                                        if (!empty($options['13'])) {                                            
                                             $post_id = $options['13'];
                                             $post = get_post( $post_id );
                                             if (!empty($options['12'])) { ?>
-                                                <div class="featured_post_image tsh_border">
+                                                <div class="featured_post_image featured_post_image_mod tsh_border">
                                                     <img src="<?php echo $options['12']; ?>" alt="<?php _e('Post Image', THEME_DOMAIN); ?>"/>                         
                                                 </div>
                                             <?php } ?>
-                                            <div class="featured_post_text">
-                                                <div><?php echo wp_trim_words($post->post_content, 40); ?></div>
+                                            <div class="featured_post_text featured_post_text_2">
+                                                <?php if(!empty($options['10'])){ ?>
+                                                    <h1 class="home_h1 home_h_mod_2"><?php echo $options['10']; ?></h1>
+                                                <?php } ?>
+                                                <div><?php echo wp_trim_words($post->post_content, 19); ?></div>
                                                 <div class="link_wrap">
-                                                    <a href="<?php echo get_page_link($post_id); ?>" class='jumpButton learn_more'><?php echo !empty($options['17']) ? $options['17'] : ''; ?></a>                                                
+                                                    <a class="university_funding_btn university_funding_btn_mod" href="<?php echo get_page_link($post_id); ?>" class='jumpButton learn_more'><i class="fa fa-play" aria-hidden="true"></i><?php echo !empty($options['17']) ? $options['17'] : ''; ?></a>                                                
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -264,18 +293,19 @@ get_header(); ?>
                                     
                                     <div class="col-md-6">
                                         <?php
-                                        if (!empty($options['19'])) { ?>
-                                            <h2 class="tsh_header" style="text-transform: inherit;"><?php echo !empty($options['11']) ? $options['11'] : ''; ?></h2>
-                                            <?php
+                                        if (!empty($options['19'])) {
                                             if (!empty($options['18'])) { ?>
-                                                <div class="featured_post_image tsh_border">
+                                                <div class="featured_post_image featured_post_image_mod tsh_border">
                                                     <img src="<?php echo $options['18']; ?>" alt="<?php _e('Post Image', THEME_DOMAIN); ?>"/>                         
                                                 </div>
                                             <?php } ?>
-                                            <div class="featured_post_text">
+                                            <div class="featured_post_text featured_post_text_2">
+                                                <?php if(!empty($options['11'])){ ?>
+                                                    <h1 class="home_h1 home_h_mod_2"><?php echo $options['11']; ?></h1>
+                                                <?php } ?>
                                                 <div><?php echo $options['29']; ?></div>
                                                 <div class="link_wrap">
-                                                    <a href="<?php echo $options['19']; ?>" class='jumpButton learn_more'><?php echo !empty($options['17']) ? $options['17'] : ''; ?></a>                                                
+                                                    <a class="university_funding_btn university_funding_btn_mod" href="<?php echo $options['19']; ?>" class='jumpButton learn_more'><i class="fa fa-play" aria-hidden="true"></i><?php echo !empty($options['17']) ? $options['17'] : ''; ?></a>                                                
                                                 </div>
                                             </div>
                                         <?php } ?>

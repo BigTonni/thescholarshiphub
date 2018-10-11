@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 /*
-/* Last element's ID = 48
+/* Last element's ID = 51
  * 
  * Require the framework class before doing anything else, so we can use the defined urls and dirs
  * Also if running on windows you may have url problems, which can be fixed by defining the framework url first
@@ -231,8 +231,7 @@ $sections[] = array(
                                                     'type' => 'upload',
                                                     'title' => __('Slider#2 Image', 'nhp-opts'),
 						),
-//                                    Start
-                                    array(
+                                                array(
                                                     'id' => '38',
                                                     'type' => 'text',
                                                     'title' => __('Slider#3 Header', 'nhp-opts'),
@@ -277,8 +276,14 @@ $sections[] = array(
                                                     'id' => '42',
                                                     'type' => 'upload',
                                                     'title' => __('Slider#3 Image', 'nhp-opts'),
+						),                                    
+                                                
+                                                array(
+                                                    'id' => '49',
+                                                    'type' => 'text',
+                                                    'title' => __('Header for Categories', 'nhp-opts'),
+                                                    'std'=> 'We\'ve got you covered'
 						),
-//                                    End
                                                 array(
                                                     'id' => '30',
                                                     'type' => 'cats_select',
@@ -298,6 +303,12 @@ $sections[] = array(
                                                     'args' => array('hide_empty' => false)
 						),                                    
                                     
+                                                array(
+                                                    'id' => '50',
+                                                    'type' => 'text',
+                                                    'title' => __('Header for Post section', 'nhp-opts'),
+                                                    'std'=> 'Featured Article'
+						),
                                                 array(
                                                     'id' => '16',
                                                     'type' => 'text',
@@ -407,6 +418,12 @@ $sections[] = array(
                                                     'type' => 'text',
                                                     'title' => __('Google+', 'nhp-opts'),
                                                     'std' => __('', 'nhp-opts'),
+						),
+                                                array(
+                                                    'id' => '51',
+                                                    'type' => 'text',
+                                                    'title' => __('Contact text', 'nhp-opts'),
+                                                    'std'=> 'Contact the hub'
 						),
                                         )
 				);

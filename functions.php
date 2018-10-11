@@ -196,10 +196,7 @@ function thescholarshiphub_scripts() {
 	wp_enqueue_style( 'tsh_carousel', THEME_DIR_URI . '/assets/css/owl.carousel.min.css' );        
 	wp_enqueue_style( 'responsive', THEME_DIR_URI . '/assets/css/responsive.css' );
         
-        if( is_front_page() ){
-            wp_enqueue_style( 'home', THEME_DIR_URI . '/assets/css/home.css' );
-        }
-        if(is_home() ){
+        if(is_home() || is_tag() || is_category()){
             wp_enqueue_style( 'blog', THEME_DIR_URI . '/assets/css/blog.css' );
         }
 
@@ -219,6 +216,11 @@ function thescholarshiphub_scripts() {
 
         wp_enqueue_script( 'tsh_front', THEME_DIR_URI . '/assets/js/front.js', array('jquery', 'tsh_libs'), '', true );
         wp_localize_script( 'tsh_front', 'TSHParams', $params );
+                
+        if( is_front_page() ){
+            wp_enqueue_style( 'home', THEME_DIR_URI . '/assets/css/home.css' );
+            wp_enqueue_script( 'tsh_homepage', THEME_DIR_URI . '/assets/js/homepage.js', array('jquery', 'tsh_libs'), '', true );            
+        }
         
         if( is_page_template('templates/template-student-calculator.php') ){
             wp_enqueue_style( 'jqueryUI', THEME_DIR_URI . '/assets/css/jquery-ui.css' );
@@ -228,11 +230,15 @@ function thescholarshiphub_scripts() {
             wp_enqueue_script( 'easy-pie-chart', THEME_DIR_URI . '/assets/js/easy-pie-chart.js', array('jquery'), '', true );
             wp_enqueue_script( 'calculator', THEME_DIR_URI . '/assets/js/calculator.js', array('jquery','jqueryUI','easy-pie-chart'), '', true );
         }
+        if( is_page_template('templates/template-my-account.php') ){
+            wp_enqueue_style( 'my-account', THEME_DIR_URI . '/assets/css/my-account.css' );
+        }
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
         wp_enqueue_style( 'anna-style', THEME_DIR_URI . '/assets/css/anna-style.css' );
+	wp_enqueue_style( 'bt-table', THEME_DIR_URI . '/assets/css/bt-table.css' );
 }
 add_action( 'wp_enqueue_scripts', 'thescholarshiphub_scripts' );
 
@@ -250,6 +256,11 @@ require_once THEME_INCLUDES . '/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require_once THEME_INCLUDES . '/template-functions.php';
+
+/**
+ * Functions which enhance the theme by hooking plugin Restrict Content Pro.
+ */
+//require_once THEME_INCLUDES . '/rcp-functions.php';
 
 /**
  * Customizer additions.
