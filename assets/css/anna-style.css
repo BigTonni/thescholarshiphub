@@ -170,11 +170,11 @@ sup.description{left: 20px;top: 0;}
 
 .post-listing article{margin: 0;padding: 50px 0;}
 .post-listing article{background-color: transparent!important;}
-.post-listing article a{text-decoration: none;color: #0088cc!important;}
+.post-listing article a{text-decoration: none;color: #0d79a6!important;}
 .post-listing article .autor-tags{font-size: 14px;margin-top: 10px;color: #777;}
 .post-listing article .autor-tags .autor-article{text-transform: capitalize;}
 .post-listing article .autor-tags .tags-article{margin-left: 10px;}
-.post-listing article .autor-tags a:hover{text-decoration: underline;}
+.post-listing article .autor-tags a:hover{text-decoration: underline;color: #8a5b9f!important;}
 .post-listing article .single-article{
     display: -webkit-flex;
     display: flex;
@@ -184,6 +184,7 @@ sup.description{left: 20px;top: 0;}
 .post-listing article .single-article .article-left-part{width: 35%;}
 .post-listing article .single-article .article-right-part{width: 65%;padding-left: 20px;position: relative;}
 .post-listing article .single-article .single-article-title{margin: 0;line-height: 1.3em;}
+.post-listing article .single-article .single-article-title a{color: #8a5b9f!important;}
 .post-listing article .single-article .article-right-part .read-more-link{position: absolute;bottom: 0;right: 0;}
 .post-listing article .single-article .article-right-part .read-more-link a{
 	background-color: #0088cc;

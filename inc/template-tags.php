@@ -185,13 +185,32 @@ function thescholarshiphub_advanced(){
         <div class="entry-advanced">
             <div class="row">
                 <!--<div class="col-md-1">Share</div>-->
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <?php // echo do_shortcode('[addthis tool="addthis_inline_share_toolbox_hsbh"]'); ?>
-                    <?php echo do_shortcode('[ssba-buttons]'); ?>
+                    <?php //echo do_shortcode('[ssba-buttons]'); ?>
+                    <?php echo do_shortcode('[cresta-social-share]'); ?>
                 </div>
-                <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;">
-                    <?php thescholarshiphub_comments(); ?>
-                </div>                        
+                <!-- <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;">
+                    <?php //thescholarshiphub_comments(); ?>
+                </div>   -->                      
+            </div>
+        </div>
+    <?php
+}
+
+function thescholarshiphub_advanced_bottom(){
+    ?>
+        <div class="entry-advanced entry-bottom-advanced">
+            <div class="row">
+                <!--<div class="col-md-1">Share</div>-->
+                <div class="col-md-12">
+                    <?php // echo do_shortcode('[addthis tool="addthis_inline_share_toolbox_hsbh"]'); ?>
+                    <?php //echo do_shortcode('[ssba-buttons]'); ?>
+                    <?php echo do_shortcode('[cresta-social-share-bottom]'); ?>
+                </div>
+                <!-- <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;">
+                    <?php //thescholarshiphub_comments(); ?>
+                </div>  -->                       
             </div>
         </div>
     <?php

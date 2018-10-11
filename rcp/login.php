@@ -22,7 +22,7 @@ global $rcp_login_form_args; ?>
 <?php } ?>
 
 <?php if ( ! is_user_logged_in() ) : ?>
-	<h2>If you no account, please <a href="<?php echo site_url('/register/');?>">register</a></h2>
+	<h2>If you don’t have an account, please <a href="<?php echo site_url('/register/');?>">register</a></h2>
 	<?php rcp_show_error_messages( 'login' ); ?>
 
 	<form id="rcp_login_form"  class="<?php echo esc_attr( $rcp_login_form_args['class'] ); ?>" method="POST" action="<?php echo esc_url( rcp_get_current_url() ); ?>">

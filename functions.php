@@ -260,7 +260,7 @@ require_once THEME_INCLUDES . '/template-functions.php';
 /**
  * Functions which enhance the theme by hooking plugin Restrict Content Pro.
  */
-//require_once THEME_INCLUDES . '/rcp-functions.php';
+require_once THEME_INCLUDES . '/rcp-functions.php';
 
 /**
  * Customizer additions.

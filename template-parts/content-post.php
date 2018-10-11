@@ -21,8 +21,8 @@
                 ?>
                 <div class="entry-meta">
                         <?php
-                        thescholarshiphub_posted_on();
-                        thescholarshiphub_posted_by();                        
+                        //thescholarshiphub_posted_on();
+                        //thescholarshiphub_posted_by();                        
                         ?>
                 </div><!-- .entry-meta -->
                 
@@ -50,7 +50,7 @@
 		?>
 	</div><!-- .entry-content -->
         
-        <?php thescholarshiphub_advanced(); ?>
+        <?php thescholarshiphub_advanced_bottom(); ?>
 
 	<footer class="entry-footer">
 		<?php // thescholarshiphub_entry_footer(); ?>

@@ -30,7 +30,7 @@ $options = get_option('TheScholarshipHub');
                                         </div>
                                         
                                         <div class="extra_degree_btn">                                    
-                                            <a class="jumpButton" href="<?php echo ! is_user_logged_in() ? wp_registration_url() : '/'; ?>"><i class="fa fa-play" aria-hidden="true"></i> <?php echo !empty($options['23']) ? $options['23'] : ''; ?></a>
+                                            <a class="jumpButton" href="/register/"><i class="fa fa-play" aria-hidden="true"></i> <?php echo !empty($options['23']) ? $options['23'] : ''; ?></a>
                                         </div>
                                     </div>
 

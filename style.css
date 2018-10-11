@@ -406,6 +406,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
+	color: #8a5b9f;
 }
 
 p {
@@ -616,19 +617,22 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #0d79a6;
+	text-decoration: none;
 }
 
 a:visited {
-	color: purple;
+	color: #0d79a6;
 }
 
 a:hover, a:focus, a:active {
 	color: midnightblue;
+	text-decoration: underline;
+	color: #8a5b9f;
 }
 
 a:focus {
-	outline: thin dotted;
+	outline: none;
 }
 
 a:hover, a:active {
@@ -1107,7 +1111,7 @@ header .search-form{
 	left: 75%;
 	width: 100%;
 	position: absolute;
-	top: 165px;
+	top: 100px;
 }
 
 /*Extra funding*/
@@ -1115,7 +1119,7 @@ header .search-form{
 /*    border: solid 2px #000;
     background-color: #0077b3;*/
    	/*min-height: 248.5px;*/
-	background-color: #057ba7;
+	background-color: #057ba7
 	background-image: -webkit-linear-gradient(left, #077ba7 0%, #b2519c 100%);
 	background-image: -o-linear-gradient(left, #077ba7 0%, #b2519c 100%);
 	background-image: linear-gradient(to right, #077ba7 0%, #b2519c 100%);
@@ -1180,7 +1184,6 @@ header .search-form{
     color: #fff;
     letter-spacing: 2px;
     outline: none;
-    display: inline-block;
     font-size: 10px;
     -webkit-transition: .3s ease;
     -o-transition: .3s ease;
@@ -1210,7 +1213,7 @@ header .search-form{
 footer .site-info{
     background: #2c2c2c;
     padding-top: 80px;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     font-size: 15px;
 }
 footer .site-info .widgettitle{
@@ -1292,17 +1295,85 @@ footer .tsh_social_icons a.fa-google-plus {
     margin-left: 0px;
     padding-left: 0px;
 }
+#custom_recent_post_list .post_list_wrap {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 78px;
+}
+.background_lady {
+    position: relative;
+}
+.background_lady img {
+    max-width: 420px;
+    position: absolute;
+    top: -106px;
+    left: -133px;
+}
+.phone_btn_link_wrap {
+	width: 100%;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: flex-end;
+}
+.phone_btn_link {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+	width: 210px;
+    background: inherit;
+    -webkit-border-radius: 0;
+    border-radius: 40px;
+    color: #fff !important;
+    letter-spacing: 2px;
+    outline: none;
+    font-size: 10px;
+    -webkit-transition: .3s ease;
+    -o-transition: .3s ease;
+    transition: .3s ease;
+    padding: 11px 22px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    text-decoration: none;    
+    border: 3px solid #FFFFFF;
+    text-transform: uppercase;
+}
+.phone_btn_img {
+	width: 20px;
+}
+
 footer .menu{
     margin-left: 15px;
     padding-left: 0px;
 }
-footer #menu-footer-scholarship{
+footer #menu-footer-scholarship, footer #menu-footer-links{
 	list-style: none !important;
 }
 footer #menu-footer-scholarship li:before {
         font-family: "FontAwesome" !important;
-        content: "\f04b" !important;
-        margin-right: 5px;
+        content: "\f0da" !important;
+	    margin-right: 21px;
+	    color: #e55ec6;
+	    font-size: 10px;
+}
+footer #menu-footer-links li:before {
+        font-family: "FontAwesome" !important;
+        content: "\f0da" !important;
+	    margin-right: 21px;
+	    color: #e55ec6;
+	    font-size: 10px;
 }
 #custom_recent_post_list li{
 	margin-bottom: 22px;
@@ -1316,7 +1387,11 @@ footer #menu-footer-scholarship li:before {
 }
 #custom_recent_post_list .post-date{
     color:#909090;
-    /*text-transform: uppercase;*/
+    font-family: "Open Sans Regular";
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
 }
 
 #custom_recent_post_list img {
@@ -1325,6 +1400,10 @@ footer #menu-footer-scholarship li:before {
 footer .menu a{
     text-decoration: none;
     color: #fff;
+	font-family: "Open Sans Regular";
+	letter-spacing: 0.4px;
+	margin-bottom: 42px;
+	display: inline-block
 }
 .footer_bottom_wrap{
     color: #c2c2c2;
@@ -1352,6 +1431,7 @@ footer .menu a{
     padding: 20px;
     border: 2px solid #ccc;
     border-top:none;
+	display: none;/*hide client ask here - https://trello.com/c/OEPgDnyD/23-what-is-this-banner-for-can-it-be-removed*/
 }
 #content .single_sidebar_wrap{
     padding-left: 25px;
@@ -1379,6 +1459,9 @@ footer .menu a{
 .entry-advanced .ssba-share-text{
     display: inline-block;
     vertical-align: middle;
+}
+.entry-advanced.entry-bottom-advanced{
+    margin-bottom: 110px;	
 }
 .fa-comment{
     font-size: 20px;
@@ -1460,7 +1543,15 @@ article.status-publish .entry-title{
 }
 #scholarship_form_btn input{
     font-size: 20px;
+    padding: .4em 1em;
+    cursor: pointer;
 }
+#scholarship_form_btn input:hover{
+    background: #8a5b9f;
+    border-color: #7c4f90;
+    color: #fff;
+}
+
 /*Custom Search form*/
 .searchform_wrapper{
     display: flex;

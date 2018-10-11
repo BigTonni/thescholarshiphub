@@ -16,8 +16,8 @@
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php
-			thescholarshiphub_posted_on();
-			thescholarshiphub_posted_by();
+			//thescholarshiphub_posted_on();
+			//thescholarshiphub_posted_by();
 			?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>

@@ -46,7 +46,7 @@ class WP_TSH_Widget_List_Post_Types extends WP_Widget {
                         $post = get_post($id);
                         $html .= '<li class="tsh_post_type_item"><a href="'. $post->guid .'">'. $post->post_title .'</a></li>';
                     }
-                    $html .= '<ul>';
+                    $html .= '</ul>';
                     echo $html;
                 }
                 

@@ -102,9 +102,12 @@ if ( $query->have_posts() )
 		                if(!empty($obj_meta['_job_financial_award'][0])){ ?>
 		                <p class="field-label">Financial Award</p>
 		                <p class="field-items" style="font-weight: bold;font-size: 22px;"><?php echo $obj_meta['_job_financial_award'][0];?></p>
-		                <?php } ?>
-		                    <a class="button_link" href="#">Add to Compare</a>
-		                    <a class="button_link" href="<?php the_job_permalink(); ?>">Details</a>
+                        <?php }
+
+                        $args['single'] = true;
+                        tm_woocompare_add_button( $args );
+                        ?>                        
+                            <a class="button_link" href="<?php the_job_permalink(); ?>" style="width: 50%;background-color: #fff; color: #000; border: 2px solid; margin-bottom: 10px; margin-left: 1rem;  margin-right: 1rem;text-align: center;    cursor: pointer;    display: inline-block;    line-height: 1;    border-radius: 0;    padding: .6em 1em .4em;margin-top: 10px;">Details</a>
 		            </div>
 		        </div>	
 		</li>

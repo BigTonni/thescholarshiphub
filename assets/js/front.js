@@ -7,7 +7,6 @@ jQuery(document).ready(function ($) {
         $('header .search-form').toggle();
     });
 
-
       clippingText('.clippingText_1', 22);
       function clippingText(selector, length) {
         var titles = document.querySelectorAll(selector);
