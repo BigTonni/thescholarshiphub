@@ -63,7 +63,6 @@ jQuery(document).ready(function ($) {
 
     $('#subscription-constantcontact-form form input[type="submit"]').on('click',function(e){
         setTimeout(function() {
-            console.log('123');
         }, 1500);
     });
 
@@ -72,4 +71,14 @@ jQuery(document).ready(function ($) {
 		$('div.tab').removeClass('active');
 		$('.tab'+$(this).data('tab')).addClass('active');
 	});
+        
+        $('#scholarship_form_btn input').on('click',function(){
+            if($( "#scholarship_list" ).val() != false ){
+                if( $( "#scholarship_list" ).val() == 'register' ){
+                    window.location.href = $( 'input[name="redirect_path"]' ).val() + '/register/';
+                }else{
+                    window.location.href = $( 'input[name="redirect_path"]' ).val() + '?location=' + $( "#scholarship_list" ).val();
+                }
+            }
+        });
 });

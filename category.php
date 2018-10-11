@@ -1,8 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * The template for displaying post category
  *
  * @package thescholarshiphub
  */
@@ -10,7 +8,7 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area post-listing">
 		<main id="main" class="site-main">
                     <section class="single_banner">                        
                         <img src="https://via.placeholder.com/1000x200" alt="banner" />
@@ -19,25 +17,30 @@ get_header();
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8">
-                                <?php
-                                while ( have_posts() ) :
-                                        the_post();
+                                <?php if ( have_posts() ) : ?>
+                                    <header class="page-header">
+                                            <?php 
+                                            the_archive_title( '<h1 class="page-title">', '</h1>' );
+                                            the_archive_description( '<div class="archive-description">', '</div>' );
+                                            ?>
+                                        </header><!-- .page-header -->
+                                    <?php
+                                    while ( have_posts() ) :
+                                            the_post();
 
-                                        get_template_part( 'template-parts/content', 'blog-post' );
+                                            get_template_part( 'template-parts/content', 'blog-post' );
 
-//                                        the_post_navigation();
+                                    endwhile; // End of the loop.
+                                else :
 
-                                        // If comments are open or we have at least one comment, load up the comment template.
-                                        if ( comments_open() || get_comments_number() ) :
-                                                comments_template();
-                                        endif;
+                                        get_template_part( 'template-parts/content', 'none' );
 
-                                endwhile; // End of the loop.
+                                endif;
                                 ?>
                             </div>
                             
                             <div class="col-md-4 single_sidebar_wrap">
-                                <?php get_sidebar('sidebar_single'); ?>
+                                <?php get_sidebar('page'); ?>
                             </div>
                         </div>
                     </div>

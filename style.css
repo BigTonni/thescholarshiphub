@@ -692,8 +692,8 @@ a:hover, a:active {
 .main-navigation ul ul li {
     line-height: 24px;}
 .main-navigation ul ul a {
-	width: 200px;
-        
+	/*width: 200px;*/
+        white-space: nowrap;
         color: #fff;
         font-weight: 400;
         padding-bottom: 4px;
@@ -1119,7 +1119,7 @@ header .search-form{
 /*    border: solid 2px #000;
     background-color: #0077b3;*/
    	/*min-height: 248.5px;*/
-	background-color: #057ba7
+	background-color: #057ba7;
 	background-image: -webkit-linear-gradient(left, #077ba7 0%, #b2519c 100%);
 	background-image: -o-linear-gradient(left, #077ba7 0%, #b2519c 100%);
 	background-image: linear-gradient(to right, #077ba7 0%, #b2519c 100%);
@@ -1476,16 +1476,27 @@ article.status-publish .entry-title{
 }
 /*End*/
 /*For sidebar*/
-.widget_categories .widget-title,
 .custom_widget_recent_entries .widget-title,
-.tsh_list_post_types .widget-title,
 .tsh_header{
     border: 2px solid #ccc;
     padding-left: 15px;
     text-transform: capitalize;
     background: #f6f6f6;
 }
-
+.tsh_list_post_types .widget-title,
+.widget_categories .widget-title{
+	padding: 15px 30px;
+	margin: 0;
+	background: #8a5b9f;
+	color: #fff;
+}
+.tsh_list_post_types ul li,
+.widget_categories ul li{
+	line-height: 1.7em;
+    margin: 15px 0;
+}
+.tsh_list_post_types ul li a:hover,
+.widget_categories l li a:hover{color: #e55ec6;}
 .home .tsh_header {
 	display: none;
 }

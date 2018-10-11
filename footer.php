@@ -30,7 +30,7 @@ $options = get_option('TheScholarshipHub');
                                         </div>
                                         
                                         <div class="extra_degree_btn">                                    
-                                            <a class="jumpButton" href="/register/"><i class="fa fa-play" aria-hidden="true"></i> <?php echo !empty($options['23']) ? $options['23'] : ''; ?></a>
+                                            <a class="jumpButton" href="/plans"><i class="fa fa-play" aria-hidden="true"></i> <?php echo !empty($options['23']) ? $options['23'] : ''; ?></a>
                                         </div>
                                     </div>
 

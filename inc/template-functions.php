@@ -303,3 +303,19 @@ function tsh_category_column($columns, $column, $id){
 
     return $columns;
 }
+
+//Remove Review Draft post/page
+add_filter('views_edit-post', 'tsh_remove_draft_status' );
+add_filter('views_edit-page', 'tsh_remove_draft_status' );
+function tsh_remove_draft_status( $views ) {
+    if( isset( $views['draft'] ) ) {
+        unset( $views['draft'] );
+    }
+    return $views;
+}
+add_action('admin_print_styles', 'remove_this_stuff');
+function remove_this_stuff() {
+?>
+<style>tr.status-draft {display:none; }</style>
+<?php }
+  

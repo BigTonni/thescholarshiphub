@@ -24,6 +24,9 @@
 global $post;
 if ( $query->have_posts() )
 {
+    $curr_user = wp_get_current_user();
+    $arr_ids = get_user_meta($curr_user->ID, '_scholarship_selected', true);
+    $arr_ids = $arr_ids != false ? $arr_ids : array();
 	?>
 	
 	<?php echo $query->found_posts; ?> Results<br />
@@ -34,34 +37,17 @@ if ( $query->have_posts() )
 	while ($query->have_posts())
 	{
 		$query->the_post();
-		
+                $post_id = $query->post->ID;
 		?>
-<!-- 		<div>
-			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-			
-			<p><br /><?php the_excerpt(); ?></p>
-			<?php 
-				if ( has_post_thumbnail() ) {
-					echo '<p>';
-					the_post_thumbnail("small");
-					echo '</p>';
-				}
-			?>
-			<p><?php the_category(); ?></p>
-			<p><?php the_tags(); ?></p>
-			<p><small><?php the_date(); ?></small></p>
-			
-		</div> -->
 		
-		<li <?php job_listing_class(); ?> data-longitude="<?php echo esc_attr( $post->geolocation_lat ); ?>" data-latitude="<?php echo esc_attr( $post->geolocation_long ); ?>">
-			<?php // the_company_logo(); ?>
+		<li <?php job_listing_class(); ?>>
 			<?php the_scholarship_logo(); ?>
 		        <div class="row">
-		            <div class="position col-md-9">
+		            <div class="position col-md-8">
 		                <h3 class="header"><?php wpjm_the_job_title(); ?></h3>
 		                <div class="company">
-		                    <?php $obj_meta = get_post_meta($post->ID);
-		                    $postterms = get_the_terms( $post->ID, 'tsh_tax_institution' );
+		                    <?php $obj_meta = get_post_meta($post_id);
+		                    $postterms = get_the_terms( $post_id, 'tsh_tax_institution' );
 		                    $res = job_from_arr_to_text($postterms);
 		                    ?>
 		                    <p>
@@ -69,7 +55,7 @@ if ( $query->have_posts() )
 		                            <span class="field-label">University:</span>
 		                            <span class="field-value"><?php echo $res; ?></span>
 		                        <?php }
-		                        $postterms = get_the_terms( $post->ID, 'tsh_tax_subject' );
+		                        $postterms = get_the_terms( $post_id, 'tsh_tax_subject' );
 		                        $res = job_from_arr_to_text($postterms);
 		                        if($res){ ?>
 		                            <span class="field-label">Subject:</span>
@@ -78,7 +64,7 @@ if ( $query->have_posts() )
 		                    </p>
 		                    <p>
 		                      <?php
-		                        $postterms = get_the_terms( $post->ID, 'tsh_tax_basic_selection' );
+		                        $postterms = get_the_terms( $post_id, 'tsh_tax_basic_selection' );
 		                        $res = job_from_arr_to_text($postterms);
 		                        if($res){ ?>
 		                            <span class="field-label">Basis for Selection: </span>
@@ -93,22 +79,25 @@ if ( $query->have_posts() )
 		                        <div class="field-items"><?php wpjm_the_job_description(); ?></div>
 		                    </p>
 
-		                        <?php // the_company_name( '<strong>', '</strong> ' ); ?>
-		                        <?php // the_company_tagline( '<span class="tagline">', '</span>' ); ?>
 		                </div>
 		            </div>
 		            <div class="col-md-3 scholarship_sidebar">
 		                <?php
 		                if(!empty($obj_meta['_job_financial_award'][0])){ ?>
-		                <p class="field-label">Financial Award</p>
-		                <p class="field-items" style="font-weight: bold;font-size: 22px;"><?php echo $obj_meta['_job_financial_award'][0];?></p>
-                        <?php }
+                                        <p class="field-label">Financial Award</p>
+                                        <p class="field-items" style="font-weight: bold;font-size: 22px;"><?php echo $obj_meta['_job_financial_award'][0];?></p>
+                                <?php }
 
-                        $args['single'] = true;
-                        tm_woocompare_add_button( $args );
-                        ?>                        
-                            <a class="button_link" href="<?php the_job_permalink(); ?>" style="width: 50%;background-color: #fff; color: #000; border: 2px solid; margin-bottom: 10px; margin-left: 1rem;  margin-right: 1rem;text-align: center;    cursor: pointer;    display: inline-block;    line-height: 1;    border-radius: 0;    padding: .6em 1em .4em;margin-top: 10px;">Details</a>
+                                $args['single'] = true;
+                                tm_woocompare_add_button( $args );
+                                ?>                        
+                                <a class="button_link" href="<?php the_job_permalink(); ?>" style="width: 50%;background-color: #fff; color: #000; border: 2px solid; margin-bottom: 10px; margin-left: 1rem;  margin-right: 1rem;text-align: center;    cursor: pointer;    display: inline-block;    line-height: 1;    border-radius: 0;    padding: .6em 1em .4em;margin-top: 10px;">Details</a>
 		            </div>
+                            <?php if (rcp_is_active() && rcp_get_subscription_id() >= 2) { ?>
+                                <div class="col-md-1 favorite_item <?php echo in_array($post_id, $arr_ids) ? 'favorited' : 'no-favorited';?>" data-sid="<?php echo $post_id; ?>">
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            <?php } ?>
 		        </div>	
 		</li>
 		<?php

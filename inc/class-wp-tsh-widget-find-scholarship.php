@@ -46,13 +46,33 @@ class WP_TSH_Widget_Find_Scholarship extends WP_Widget {
                         <div class="row">
                             <div class="col-md-12">
                                 <select id="scholarship_list">
-                                    <?php echo thescholarshiphub_list_locations('', __('Study Location', THEME_DOMAIN)); ?>
+                                    <?php
+                                    $args1 = array(
+                                            'taxonomy' => 'tsh_tax_institution',
+                                            'hide_empty' => false,
+                                    );
+                                    $terms = get_terms( $args1 );
+                                    $html = '<option value="">--'. __('Study Location', THEME_DOMAIN) .'--</option>';
+    
+                                    if( !empty($terms) ){
+                                        if (!is_user_logged_in()) {
+                                            foreach ($terms as $term) {
+                                                $html .= '<option value="register">'. $term->name .'</option>';
+                                            }
+                                        }else{
+                                            foreach ($terms as $term) {
+                                                $html .= '<option value="'. $term->slug .'">'. $term->name .'</option>';
+                                            }
+                                        }
+                                    }                                    
+                                    echo $html; ?>
                                 </select>
                             </div>
                             <?php 
                             if ( $title_btn ) { ?>
                                 <div class="col-md-12" id="scholarship_form_btn">
-                                    <input type="submit" name="submit" value="<?php echo $title_btn; ?>"/>
+                                    <input type="hidden" name="redirect_path" value="<?php echo home_url('find-a-scholarship/'); ?>"/>
+                                    <input type="button" name="submit" value="<?php echo $title_btn; ?>"/>
                                 </div>
                             <?php } ?>
                         </div>

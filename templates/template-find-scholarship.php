@@ -10,7 +10,9 @@ if( !is_user_logged_in() ){
 else{
 get_header();
     ?>
-
+<style>
+    .level_free .sf-field-search{display: none;}
+</style>
     <div id="primary" class="content-area">
             <main id="main" class="site-main">
                 <?php
@@ -43,7 +45,7 @@ get_header();
                         <div class="scholarship-list-container">
                             <?php // thescholarshiphub_post_thumbnail(); ?>
 
-                            <div class="entry-content">
+                            <div class="entry-content <?php echo (defined( 'RCP_PLUGIN_DIR' ) && rcp_get_subscription_id() == 1) ? 'level_free' : ''; ?>">
                                 <div class="scholarship-search-sidebar">
                                     <?php echo do_shortcode( '[searchandfilter id="727"]' ); ?>                                   
                                 </div>
