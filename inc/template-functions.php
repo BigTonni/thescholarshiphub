@@ -53,10 +53,11 @@ function tsh_change_menu($items, $args) {
     }
 
     if (is_user_logged_in()) {
+        $items .= '<li><a href="' . site_url('/register/edit-your-profile/') . '">' . __('My Account', THEME_DOMAIN) . '</a></li>';
         $items .= '<li><a href="' . wp_logout_url(home_url()) . '">' . __('Log Out', THEME_DOMAIN) . '</a></li>';
     } else {
-        $items .= '<li><a href="' . site_url('/log-in/') . '">' . __('Login', THEME_DOMAIN) . '</a></li>';
-        $items .= '<li><a href="' . site_url('/register/') . '">' . __('Register', THEME_DOMAIN) . '</a></li>';
+        $items .= '<li><a href="' . site_url('/log-in') . '">' . __('Login', THEME_DOMAIN) . '</a></li>';
+        $items .= '<li><a href="' . site_url('/plans') . '">' . __('Register', THEME_DOMAIN) . '</a></li>';
     }
 
     return $items;

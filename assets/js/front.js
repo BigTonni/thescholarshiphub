@@ -76,7 +76,7 @@ jQuery(document).ready(function ($) {
     $('#scholarship_form_btn input').on('click',function(){
         if($( "#scholarship_list" ).val() != false ){
             if( $( "#scholarship_list" ).val() == 'register' ){
-                window.location.href = $( 'input[name="redirect_path"]' ).val() + '/register/';
+                window.location.href = $( 'input[name="redirect_path"]' ).val() + '/plans/';
             }else{
                 window.location.href = $( 'input[name="redirect_path"]' ).val() + '?_sft_tsh_tax_institution=' + $( "#scholarship_list" ).val();
             }

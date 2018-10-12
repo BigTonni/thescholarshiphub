@@ -1088,13 +1088,13 @@ header.site-header{
 }
 .site-branding {
     float: left;
-    width:15%;
+    width:12%;
 }
 header nav.main-navigation {
     clear: none;
     float: left;
 /*    margin: 25px 0 0;
-*/    width: 80%;
+*/    width: 83%;
 }
 .searchicon{
     float: right;
