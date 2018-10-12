@@ -66,19 +66,20 @@ jQuery(document).ready(function ($) {
         }, 1500);
     });
 
-	$(document).on('click','body.page-template-template-my-account .nav-tabs li a',function(){
-		$('.nav-tabs li').removeClass('active');
-		$('div.tab').removeClass('active');
-		$('.tab'+$(this).data('tab')).addClass('active');
-	});
-        
-        $('#scholarship_form_btn input').on('click',function(){
-            if($( "#scholarship_list" ).val() != false ){
-                if( $( "#scholarship_list" ).val() == 'register' ){
-                    window.location.href = $( 'input[name="redirect_path"]' ).val() + '/register/';
-                }else{
-                    window.location.href = $( 'input[name="redirect_path"]' ).val() + '?location=' + $( "#scholarship_list" ).val();
-                }
+    $(document).on('click','body.page-template-template-my-account .nav-tabs li a',function(){
+            $('.nav-tabs li').removeClass('active');
+            $('div.tab').removeClass('active');
+            $('.tab'+$(this).data('tab')).addClass('active');
+    });
+    
+    //Redirect after submit in 'find uk scholarships, grants and bursaries' panel
+    $('#scholarship_form_btn input').on('click',function(){
+        if($( "#scholarship_list" ).val() != false ){
+            if( $( "#scholarship_list" ).val() == 'register' ){
+                window.location.href = $( 'input[name="redirect_path"]' ).val() + '/register/';
+            }else{
+                window.location.href = $( 'input[name="redirect_path"]' ).val() + '?_sft_tsh_tax_institution=' + $( "#scholarship_list" ).val();
             }
-        });
+        }
+    });
 });

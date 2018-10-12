@@ -71,7 +71,7 @@ class WP_TSH_Widget_Find_Scholarship extends WP_Widget {
                             <?php 
                             if ( $title_btn ) { ?>
                                 <div class="col-md-12" id="scholarship_form_btn">
-                                    <input type="hidden" name="redirect_path" value="<?php echo home_url('find-a-scholarship/'); ?>"/>
+                                    <input type="hidden" name="redirect_path" value="<?php echo home_url('find-a-scholarship'); ?>"/>
                                     <input type="button" name="submit" value="<?php echo $title_btn; ?>"/>
                                 </div>
                             <?php } ?>

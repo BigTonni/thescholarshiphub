@@ -138,6 +138,15 @@ function thescholarshiphub_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Page Guide to UK Degree Sidebar', THEME_DOMAIN ),
+        'id'            => 'page-guide-to-uk-degree',
+        'description'   => esc_html__( 'Add widgets here.', THEME_DOMAIN ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
         register_sidebar( array(
 		'name'          => esc_html__( 'Home Sidebar', THEME_DOMAIN ),
 		'id'            => 'sidebar_home',

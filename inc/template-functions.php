@@ -307,6 +307,7 @@ function tsh_category_column($columns, $column, $id){
 //Remove Review Draft post/page
 add_filter('views_edit-post', 'tsh_remove_draft_status' );
 add_filter('views_edit-page', 'tsh_remove_draft_status' );
+add_filter('views_edit-job_listing', 'tsh_remove_draft_status' );
 function tsh_remove_draft_status( $views ) {
     if( isset( $views['draft'] ) ) {
         unset( $views['draft'] );
