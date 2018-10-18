@@ -22,12 +22,19 @@
  *
  */
 global $post;
+
+$args = array( 'posts_per_page' => -1, 'post_type' => 'job_listing');
+$myposts = get_posts( $args );
+
+//var_dump($myposts);
+
 if ( $query->have_posts() )
 {
     $curr_user = wp_get_current_user();
     $arr_ids = get_user_meta($curr_user->ID, '_scholarship_selected', true);
     $arr_ids = $arr_ids != false ? $arr_ids : array();
-	?>
+    $plan_not_free = (defined( 'RCP_PLUGIN_DIR' ) && (rcp_get_subscription_id() >= 2 || current_user_can('administrator'))) ? true : false;
+    ?>
 	
 	<?php echo $query->found_posts; ?> Results<br />
 	<!-- Page <?php echo $query->query['paged']; ?> of <?php echo $query->max_num_pages; ?><br /> -->
@@ -87,13 +94,14 @@ if ( $query->have_posts() )
                                         <p class="field-label">Financial Award</p>
                                         <p class="field-items" style="font-weight: bold;font-size: 22px;"><?php echo $obj_meta['_job_financial_award'][0];?></p>
                                 <?php }
-
-                                $args['single'] = true;
-                                tm_woocompare_add_button( $args );
+                                if ($plan_not_free) {
+                                    $args['single'] = true;
+                                    tm_woocompare_add_button( $args );
+                                }
                                 ?>                        
                                 <a class="button_link" href="<?php the_job_permalink(); ?>" style="width: 50%;background-color: #fff; color: #000; border: 2px solid; margin-bottom: 10px; margin-left: 1rem;  margin-right: 1rem;text-align: center;    cursor: pointer;    display: inline-block;    line-height: 1;    border-radius: 0;    padding: .6em 1em .4em;margin-top: 10px;">Details</a>
 		            </div>
-                            <?php if (rcp_is_active() && rcp_get_subscription_id() >= 2) { ?>
+                            <?php if ($plan_not_free) { ?>
                                 <div class="col-md-1 favorite_item <?php echo in_array($post_id, $arr_ids) ? 'favorited' : 'no-favorited';?>" data-sid="<?php echo $post_id; ?>">
                                     <i class="fa fa-star"></i>
                                 </div>

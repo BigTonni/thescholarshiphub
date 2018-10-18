@@ -1496,7 +1496,7 @@ article.status-publish .entry-title{
     margin: 15px 0;
 }
 .tsh_list_post_types ul li a:hover,
-.widget_categories l li a:hover{color: #e55ec6;}
+.widget_categories ul li a:hover{color: #e55ec6;}
 .home .tsh_header {
 	display: none;
 }

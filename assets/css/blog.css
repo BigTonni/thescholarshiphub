@@ -1,13 +1,15 @@
 .blog article,
 body.tag article,
 body.category article{
-    border-bottom: 1px solid #ccc;
+    /*border-bottom: 1px solid #ccc;*/
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
-.blog article:nth-child(2n),
+/*.blog article:nth-child(2n),
 body.tag article:nth-child(2n),
 body.category article:nth-child(2n){
     background: #f6f6f6;
-}
+}*/
 .blog .entry-title a,
 body.tag .entry-title a,
 body.category .entry-title a{

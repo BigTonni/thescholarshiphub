@@ -1,8 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * The template for displaying post tag
  *
  * @package thescholarshiphub
  */
@@ -21,26 +19,27 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8">
-                                <?php
-                                while ( have_posts() ) :
-                                        the_post();
+                                <?php if ( have_posts() ) : ?>
+                                    <header class="page-header">
+                                            <?php 
+                                            the_archive_title( '<h1 class="page-title">', '</h1>' );
+                                            the_archive_description( '<div class="archive-description">', '</div>' );
+                                            ?>
+                                        </header><!-- .page-header -->
+                                    <?php
+                                    while ( have_posts() ) :
+                                            the_post();
 
-                                        get_template_part( 'template-parts/content', 'blog-post' );
+                                            get_template_part( 'template-parts/content', 'blog-post' );
 
-//                                        the_post_navigation();
-
-                                        // If comments are open or we have at least one comment, load up the comment template.
-                                        if ( comments_open() || get_comments_number() ) :
-                                                comments_template();
-                                        endif;
-
-                                endwhile; // End of the loop.
-                                ?>
+                                    endwhile; // End of the loop.
+                                    ?>
                                     <div class="blog-list-pagination">
                                         <span class="nav-previous"><?php previous_posts_link( '<<' ); ?></span>
                                         page <?php echo $paged; ?> of <?php echo $wp_query->max_num_pages; ?>
                                         <span class="nav-next"><?php next_posts_link( '>>', $wp_query->max_num_pages ); ?></span>
                                     </div>
+                                <?php endif; ?>
                             </div>
                             
                             <div class="col-md-4 single_sidebar_wrap">

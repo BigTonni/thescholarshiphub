@@ -59,7 +59,7 @@ $options = get_option('TheScholarshipHub');
                                         <div class="phone_btn_link_wrap">
                                             <a class="phone_btn_link" href="#">
                                                 <span><?php echo !empty($options['51']) ? $options['51'] : ''; ?></span>
-                                                <span><img class="phone_btn_img" src="<?php echo THEME_DIR_URI ?>/assets/img/phone_btn.png" alt="lady"></span>                                            
+                                                <span><img class="phone_btn_img" src="<?php echo THEME_DIR_URI ?>/assets/img/email-icon.png" alt="lady"></span>                                            
                                             </a>
                                         </div>
                                     </div>

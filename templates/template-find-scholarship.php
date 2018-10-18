@@ -11,8 +11,9 @@ else{
 get_header();
     ?>
 <style>
-    .level_free .sf-field-search{display: none;}
+    .level_free .sf-field-search, .level_free .scholarship-main-list>p{display: none;}
 </style>
+
     <div id="primary" class="content-area">
             <main id="main" class="site-main">
                 <?php

@@ -254,7 +254,7 @@ get_header(); ?>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <h4 class="university_funding_title clippingText_1"><?php echo $title; ?></h4>
-                                                        <div class="university_funding_text"><?php echo wp_trim_words(get_the_content(), 10 ); ?></div>
+                                                        <div class="university_funding_text"><?php echo get_the_excerpt();//wp_trim_words(get_the_content(), 15 ); ?></div>
                                                         <a class="university_funding_btn" href="<?php the_permalink(); ?>"><i class="fa fa-play" aria-hidden="true"></i><?php echo !empty($options['16']) ? $options['16'] : ''; ?></a>
                                                     </div>
                                                 </div>

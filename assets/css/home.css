@@ -25,7 +25,7 @@
     margin: 82px 0 110px;
     overflow: hidden;
     text-align: left;
-    font-family: Montserrat-Regular;
+    font-family: "Montserrat-Regular";
 }
 .slider_1 .slider-text .tagline_1 {
     letter-spacing: 7px;
@@ -38,9 +38,9 @@
 }
 .slider_1 .slider-text .tagline_2 {
     max-height: 145px;
-    /*font-family: Open Sans Light;*/
+    /*font-family: "Montserrat-Regular";*/
     letter-spacing: 0.24px;
-    font-size: 14px;
+    font-size: 16px;
     text-align: left;
     line-height: 25px;
 }
@@ -86,7 +86,9 @@
   .slider_1 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background: #e55ec6;
 }
-
+.slider-text_mod {
+	color: #fff;
+}
 .home .jumpButton {
     display: -webkit-flex;
     display: -moz-flex;
@@ -153,7 +155,7 @@
     vertical-align: middle;
 }
 .user_status .user_status_text {
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
     font-weight: bold;
     /*border: 2px solid #ccc;*/
@@ -215,14 +217,14 @@
 .university_funding_title{
     margin-bottom: 15px;
     margin-top: 17px;
-    font-size: 15px;
+    font-size: 16px;
     color: #00243f;
 }
-/*.university_funding_text{font-size: 14px;}*/
+/*.university_funding_text{font-size: 16px;}*/
 .university_funding_text {
     color: #b0b0b0;
-    font-family: "Open Sans";
-    font-size: 14px;
+    font-family: "Montserrat-Regular";
+    font-size: 16px;
 }
 
 .university_funding_btn {
@@ -296,10 +298,10 @@
     border: 1px solid #cbcbcb;
     border-top: none;
     padding: 20px 15px;
-    color: #b0b0b0;
+    color: #404040;
     letter-spacing: 0.4px;
-    font-size: 13px;
-    font-family: "Open Sans Regular";
+    font-size: 16px;
+    font-family: "Montserrat-Regular";
     text-align: center;
     line-height: 25px;
 }
@@ -317,13 +319,13 @@
     transform: translate(0, -50%);
     color: #FFFFFF;
     font-size: 14.5px;
-    font-family: Open Sans Light;
+    font-family: "Montserrat-Regular";
     line-height: 25px;
     margin-left: 37px;
 }
 .home .featured_post_text_mod h3 {
     font-size: 16px;
-    font-family: Open Sans Light;
+    font-family: "Montserrat-Regular";
     margin: 46px 0 48px;
 }
 .home_content_wrap .read_more{
@@ -364,7 +366,7 @@
     text-transform: uppercase;
     letter-spacing: 1.9px;
     margin: 1.5em 0 3em;
-    font-family: Montserrat-Regular;
+    font-family: "Montserrat-Regular";
     font-weight: bold;
 }
 .home_h_mod {
@@ -374,13 +376,13 @@
     text-transform: uppercase;
     letter-spacing: 1.9px;
     margin: 5.6em 0 1.5em;
-    font-family: Montserrat-Regular;
+    font-family: "Montserrat-Regular";
     font-weight: bold;
 }
 .home_h_mod_2 {
     font-size: 16.2px !important;
     font-weight: bold;
-    font-family: Montserrat-Regular;
+    font-family: "Montserrat-Regular";
 }
 
 .home .university_funding_thumb img {

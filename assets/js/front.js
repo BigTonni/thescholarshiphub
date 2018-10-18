@@ -23,13 +23,15 @@ jQuery(document).ready(function ($) {
             $('#others_role_wrapper p input').val("1");
             $('#educator_selected_role_wrapper').show();
             $('#others_role_wrapper').hide();
+            $('.degree_apprenticeship_wrapper').hide();
         }
         else if(elem==''){
             $('#others_role_wrapper p select :selected').val("1");
             $('#others_role_wrapper p select[multiple="multiple"] option:nth-child(1)').attr("selected","selected").val("1");
             $('#others_role_wrapper p input').val("1");
             $('#educator_selected_role_wrapper').hide();
-            $('#others_role_wrapper').hide(); 
+            $('#others_role_wrapper').hide();
+            $('.degree_apprenticeship_wrapper').hide();
         }
         else{
             $('#others_role_wrapper p select :selected').val("");
@@ -37,6 +39,7 @@ jQuery(document).ready(function ($) {
             $('#others_role_wrapper p input').val("");         
             $('#educator_selected_role_wrapper').hide();
             $('#others_role_wrapper').show(); 
+            $('.degree_apprenticeship_wrapper').show();
         }
     }
     change_status_content($('#rcp_status').val());
@@ -78,7 +81,7 @@ jQuery(document).ready(function ($) {
             if( $( "#scholarship_list" ).val() == 'register' ){
                 window.location.href = $( 'input[name="redirect_path"]' ).val() + '/plans/';
             }else{
-                window.location.href = $( 'input[name="redirect_path"]' ).val() + '?_sft_tsh_tax_institution=' + $( "#scholarship_list" ).val();
+                window.location.href = $( 'input[name="redirect_path"]' ).val() + '?_sft_tsh_tax_subject=' + $( "#scholarship_list" ).val();
             }
         }
     });

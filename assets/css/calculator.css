@@ -10,13 +10,12 @@
 }
 
 .left_part {
-	width: 45%;
-	/*background: aliceblue;*/
+	width: 55%;
 	padding-top: 22px;
 }
 
 .right_part {
-	width: 55%;
+	width: 45%;
 	/*background: antiquewhite;*/
 	height: 650px;
 	text-align: center;
@@ -28,7 +27,7 @@
 	width: 2px;
 	background: #b1b1b1;
 	height: 600px;
-	left: 45%;
+	left: 55%;
 	top: 25px;
 }
 
@@ -46,25 +45,87 @@ select#duration_course {
 	height: 35px;
 }
 .selects_container {
-	font-size: 22px;
+	font-size: 16px;
+	color: #ad539d;
+	font-weight: bold;
 	height: 105px;
 }
-.slider_loan_container {
-	font-size: 22px;
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background-color: #f3f3f3;
+	outline: none;
+	border: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #0B79A6;
+	cursor: pointer;
+	border-radius: 100%;
+}
+
+#amount-repaid {
+	margin-top: 0;
+	font-size: 26px; 
+	font-weight: bold;
+	color: #077ba7;
+}
+
+#no-repayment-text {
+	font-size: 14px;
+	width: 75%;
+	margin: 0 auto;
+}
+
+.calc-title {
+	font-size: 16px !important;
+    color: #ad539d;
+	font-weight: bold;
+	margin-top: 30px !important;
+	margin-bottom: 3px;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #0B79A6;
+	cursor: pointer;
+	border-radius: 100%;
+}
+
+.slider_loan_container,
+.slider_main_container {
+	font-size: 16px;
+	color: #ad539d;
+	font-weight: bold;
 	height: 90px;
 }
 
 .slider_salary_container {
-	font-size: 22px;
+	font-size: 16px;
+	color: #ad539d;
+	font-weight: bold;
 	height: 100px;
 }
 
 .slider_interest_container {
-	font-size: 22px;
+	font-size: 16px;
+	color: #ad539d;
+	font-weight: bold;
 	height: 90px;
 }
 
 div#slider_loan {
+	margin-top: 10px;
+}
+
+div#slider_main {
 	margin-top: 10px;
 }
 
@@ -76,6 +137,7 @@ div#slider_interest {
 	margin-top: 10px;
 }
 #slider_loan_val,
+#slider_main_val,
 #slider_salary_val,
 .slider_interest_val_wrap{
 	width: 80%;
@@ -84,6 +146,7 @@ div#slider_interest {
 	width: 100%;
 }
 label[for="slider_loan_val"],
+label[for="slider_main_val"],
 label[for="slider_salary_val"],
 label[for="slider_interest_val"]{
 	opacity: 0;
@@ -134,13 +197,17 @@ label[for="slider_interest_val"]{
 	z-index: 10;
 	width: 130px;
 	height: 130px;
-	background: #354158;
-	border-radius: 50%
+	background-color: #057ba7;
+    background-image: -webkit-linear-gradient(left, #077ba7 0%, #b2519c 100%);
+    background-image: -o-linear-gradient(left, #077ba7 0%, #b2519c 100%);
+    background-image: linear-gradient(to right, #077ba7 0%, #b2519c 100%);
+	border-radius: 50%;
+	box-shadow: 0px 1px 3px;
 }
 .pie-chart-unit {
 	display: inline-block;
 	line-height: 130px;
-	color: #f8c22f;
+	color: white;
 	font-weight: 700;
 	font-size: 36px;
 	font-family: museo_slab900,helvetica neue,Helvetica,Arial,sans-serif
@@ -149,10 +216,23 @@ label[for="slider_interest_val"]{
 	display: inline-block;
 	color: #fff;
 	font-size: 14px;
-	margin: 0 16px 0 0;
 }
 
+#calc_repayment {
+	padding: 15px; 
+	font-weight: bold;
+	text-transform: uppercase;
+	color: white;
+	background-color: #077ba7;
+	border: 0;
+	outline: 0;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
 
+#calc_repayment:hover {
+	background-color: #b2519c;
+}
 .bar-chart {
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -238,7 +318,7 @@ label[for="slider_interest_val"]{
 	line-height: 14px
 }
 
-#slider_loan_val, #slider_salary_val {
+#slider_loan_val, #slider_salary_val, #slider_main_val  {
 	background: url('/wp-content/themes/thescholarshiphub/assets/img/pound-symbol.jpg') 8px center no-repeat;
 	padding-left: 20px;
 }input#slider_interest_val {
@@ -275,6 +355,11 @@ label[for="slider_interest_val"]{
 		height: 75px;
 	}
 
+	.slider_main_container {
+		font-size: 16px;
+		height: 75px;
+	}
+
 	.slider_loan_container {
 		font-size: 16px;
 		height: 75px;
@@ -297,7 +382,8 @@ label[for="slider_interest_val"]{
 		margin-bottom: 20px;
 	}
 
-	.slider_loan_container {
+	.slider_loan_container,
+	.slider_main_container {
 		height: auto;
 		margin-bottom: 20px;
 	}

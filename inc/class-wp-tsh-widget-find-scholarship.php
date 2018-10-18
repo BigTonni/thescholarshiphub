@@ -48,7 +48,7 @@ class WP_TSH_Widget_Find_Scholarship extends WP_Widget {
                                 <select id="scholarship_list">
                                     <?php
                                     $args1 = array(
-                                            'taxonomy' => 'tsh_tax_institution',
+                                            'taxonomy' => 'tsh_tax_subject',
                                             'hide_empty' => false,
                                     );
                                     $terms = get_terms( $args1 );
