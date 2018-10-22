@@ -32,7 +32,7 @@ get_header();
                                             </header><!-- .entry-header -->
                                             <div class="list_scholarship" style="border-bottom: 2px solid #ccc;">
                                                 <p>If this is the first time you have visited our site, we suggest you read our Guide to UK Scholarships before you start your
-                                                    search and watch our short video on how to use the site.</p>
+                                                    search.</p>
                                                 <p>You can search for scholarships based on the course, the college or the reason for the award, or any combination of
                                                 these. If you are looking for scholarships that are not specific to one particular university, select “no specific university”.
                                                 Premium members can also search by keyword.</p>
