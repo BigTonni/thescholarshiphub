@@ -48,7 +48,7 @@ get_header();
 
                             <div class="entry-content <?php echo (defined( 'RCP_PLUGIN_DIR' ) && rcp_get_subscription_id() == 1) ? 'level_free' : ''; ?>">
                                 <div class="scholarship-search-sidebar">
-                                    <?php echo do_shortcode( '[searchandfilter id="727"]' ); ?>                                   
+                                    <?php echo do_shortcode( '[searchandfilter id="133"]' ); ?>                                   
                                 </div>
                                 <div class="scholarship-main-list">
                                     <?php
@@ -61,7 +61,7 @@ get_header();
                                     ) );
                                     ?>
                                     <div class="job_listings_custom">
-                                        <?php echo do_shortcode('[searchandfilter id="727" show="results"]');?>
+                                        <?php echo do_shortcode('[searchandfilter id="133" show="results"]');?>
                                     </div>
                                 </div>
                             </div><!-- .entry-content -->

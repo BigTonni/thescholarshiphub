@@ -85,4 +85,16 @@ jQuery(document).ready(function ($) {
             }
         }
     });
+
+    //  play/close  homepage video
+    $('#video_play_pause_button').click(function(e){    
+        $("#scholarship_video_modal")[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+        $('.video_modal').addClass('active'); 
+        e.preventDefault();
+    });
+    $('#video_modal_controls_close').click(function(e){
+        $("#scholarship_video_modal")[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+        $('.video_modal').removeClass('active');
+        e.preventDefault();
+    });
 });

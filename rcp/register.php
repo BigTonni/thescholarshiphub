@@ -42,31 +42,31 @@ rcp_show_error_messages( 'register' ); ?>
 			<div class="left-form-part">
 				<p id="rcp_user_login_wrap">
 					<label for="rcp_user_login"><?php echo apply_filters ( 'rcp_registration_username_label', __( 'Username', 'rcp' ) ); ?></label>
-					<input name="rcp_user_login" id="rcp_user_login" class="required" type="text" <?php if( isset( $_POST['rcp_user_login'] ) ) { echo 'value="' . esc_attr( $_POST['rcp_user_login'] ) . '"'; } ?>/>
+					<input name="rcp_user_login" id="rcp_user_login" tabindex="1" class="required" type="text" <?php if( isset( $_POST['rcp_user_login'] ) ) { echo 'value="' . esc_attr( $_POST['rcp_user_login'] ) . '"'; } ?>/>
 				</p>
 				<p id="rcp_user_first_wrap">
 					<label for="rcp_user_first"><?php echo apply_filters ( 'rcp_registration_firstname_label', __( 'First Name', 'rcp' ) ); ?></label>
-					<input name="rcp_user_first" id="rcp_user_first" type="text" <?php if( isset( $_POST['rcp_user_first'] ) ) { echo 'value="' . esc_attr( $_POST['rcp_user_first'] ) . '"'; } ?>/>
+					<input name="rcp_user_first" id="rcp_user_first" tabindex="3" type="text" <?php if( isset( $_POST['rcp_user_first'] ) ) { echo 'value="' . esc_attr( $_POST['rcp_user_first'] ) . '"'; } ?>/>
 				</p>
 				<?php do_action( 'rcp_after_first_name_registration_field' ); ?>
 				<p id="rcp_password_wrap">
 					<label for="rcp_password"><?php echo apply_filters ( 'rcp_registration_password_label', __( 'Password', 'rcp' ) ); ?></label>
-					<input name="rcp_user_pass" id="rcp_password" class="required" type="password"/>
+					<input name="rcp_user_pass" id="rcp_password" tabindex="7" class="required" type="password"/>
 				</p>
 			</div>
 			<div class="right-form-part">
 				<p id="rcp_user_email_wrap">
 					<label for="rcp_user_email"><?php echo apply_filters ( 'rcp_registration_email_label', __( 'Email', 'rcp' ) ); ?></label>
-					<input name="rcp_user_email" id="rcp_user_email" class="required" type="text" <?php if( isset( $_POST['rcp_user_email'] ) ) { echo 'value="' . esc_attr( $_POST['rcp_user_email'] ) . '"'; } ?>/>
+					<input name="rcp_user_email" id="rcp_user_email" tabindex="2" class="required" type="text" <?php if( isset( $_POST['rcp_user_email'] ) ) { echo 'value="' . esc_attr( $_POST['rcp_user_email'] ) . '"'; } ?>/>
 				</p>
 				<p id="rcp_user_last_wrap">
 					<label for="rcp_user_last"><?php echo apply_filters ( 'rcp_registration_lastname_label', __( 'Last Name', 'rcp' ) ); ?></label>
-					<input name="rcp_user_last" id="rcp_user_last" type="text" <?php if( isset( $_POST['rcp_user_last'] ) ) { echo 'value="' . esc_attr( $_POST['rcp_user_last'] ) . '"'; } ?>/>
+					<input name="rcp_user_last" id="rcp_user_last" tabindex="4" type="text" <?php if( isset( $_POST['rcp_user_last'] ) ) { echo 'value="' . esc_attr( $_POST['rcp_user_last'] ) . '"'; } ?>/>
 				</p>
 				<?php do_action( 'rcp_after_last_name_registration_field' ); ?>
 				<p id="rcp_password_again_wrap">
 					<label for="rcp_password_again"><?php echo apply_filters ( 'rcp_registration_password_again_label', __( 'Password Again', 'rcp' ) ); ?></label>
-					<input name="rcp_user_pass_confirm" id="rcp_password_again" class="required" type="password"/>
+					<input name="rcp_user_pass_confirm" tabindex="8" id="rcp_password_again" class="required" type="password"/>
 				</p>				
 			</div>
 		</div>

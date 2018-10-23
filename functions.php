@@ -212,7 +212,7 @@ function thescholarshiphub_scripts() {
 	wp_enqueue_style( 'fontawesome', THEME_DIR_URI . '/assets/css/font-awesome.min.css' );
 	wp_enqueue_style( 'mini-bootstrap', THEME_DIR_URI . '/assets/css/mini-bootstrap.css' );
 	wp_enqueue_style( 'tsh_carousel', THEME_DIR_URI . '/assets/css/owl.carousel.min.css' );        
-	wp_enqueue_style( 'responsive', THEME_DIR_URI . '/assets/css/responsive.css' );
+
         
         if(is_home() || is_tag() || is_category()){
             wp_enqueue_style( 'blog', THEME_DIR_URI . '/assets/css/blog.css' );
@@ -257,6 +257,7 @@ function thescholarshiphub_scripts() {
 	}
         wp_enqueue_style( 'anna-style', THEME_DIR_URI . '/assets/css/anna-style.css' );
 	wp_enqueue_style( 'bt-table', THEME_DIR_URI . '/assets/css/bt-table.css' );
+    wp_enqueue_style( 'responsive', THEME_DIR_URI . '/assets/css/responsive.css' );
 }
 add_action( 'wp_enqueue_scripts', 'thescholarshiphub_scripts' );
 
@@ -310,3 +311,6 @@ if( is_admin() ){
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require_once THEME_INCLUDES . '/jetpack.php';
 }
+
+
+show_admin_bar( false );

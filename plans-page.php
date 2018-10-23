@@ -59,7 +59,7 @@ global $rcp_options, $rcp_levels_db, $rcp_register_form_atts;
                                                                             <span class="rcp_level_duration"><?php echo $level->duration > 0 ? 'per ' . $level->duration_unit : ''; ?></span>
                                                                         </div>
                                                                         <div class="register-button">
-                                                                            <a href="<?php echo site_url('/register/');?>">Register Now</a>
+                                                                            <a href="<?php echo site_url('/register/').'?level='.$level->id;?>">Register Now</a>
                                                                         </div>
                                                                     </div>
                                                                     <div class="single_plan_content">

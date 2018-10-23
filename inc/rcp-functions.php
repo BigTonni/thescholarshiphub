@@ -9,7 +9,7 @@ function pw_rcp_add_user_field_gender() {
 	?>
 	<p id="rcp_gender_wrapper">
 		<label for="rcp_gender"><?php _e( 'Gender', 'rcp' ); ?></label>
-		<select id="rcp_gender" name="rcp_gender">
+		<select id="rcp_gender" name="rcp_gender" tabindex="5">
             <option value="" <?php selected( $gender, ''); ?>><?php _e( '- Select a value -', 'rcp' ); ?></option>
             <option value="Male" <?php selected( $gender, 'Male'); ?>><?php _e( 'Male', 'rcp' ); ?></option>
             <option value="Female" <?php selected( $gender, 'Female'); ?>><?php _e( 'Female', 'rcp' ); ?></option>
@@ -26,7 +26,7 @@ function pw_rcp_add_user_field_location() {
 	?>
 	<p id="rcp_location_wrapper">
 		<label for="rcp_location"><?php _e( 'Current Location', 'rcp' ); ?></label>
-		<select id="rcp_location" name="rcp_location">
+		<select id="rcp_location" name="rcp_location" tabindex="6">
             <option value="" <?php selected( $location, ''); ?>><?php _e( '- Select a value -', 'rcp' ); ?></option>
             <option value="East Anglia" <?php selected( $location, 'East Anglia'); ?>><?php _e( 'East Anglia', 'rcp' ); ?></option>
             <option value="London & Home Counties" <?php selected( $location, 'London & Home Counties'); ?>><?php _e( 'London & Home Counties', 'rcp' ); ?></option>
@@ -50,10 +50,11 @@ add_action( 'rcp_profile_editor_after', 'pw_rcp_add_user_field_location' );
 function pw_rcp_add_user_field_additional_opportunities() {
 	
 	$additional_opportunities = get_user_meta( get_current_user_id(), 'rcp_additional_opportunities', true );
+	$degree_apprenticeship = get_user_meta( get_current_user_id(), 'rcp_degree_apprenticeship', true );	
 	$additional_newsletter = get_user_meta( get_current_user_id(), 'rcp_additional_newsletter', true );
 	?>
 	<p>
-        <input name="rcp_additional_newsletter" id="rcp_additional_newsletter" type="checkbox" value="1" <?php checked( $additional_newsletter ); ?>/>
+        <input name="rcp_additional_newsletter"  id="rcp_additional_newsletter" type="checkbox" value="1" <?php checked( $additional_newsletter ); ?>/>
         <label for="rcp_additional_newsletter"><?php _e( 'Newsletter Opt In', 'rcp' ); ?></label>
         <sup class="description">Registering with The Scholarship Hub will allow you to search for scholarships on our database. If you would also like to receive our email newsletter with updates on new scholarships and deadline notifications please this tick the box.</sup>
     </p>
@@ -62,6 +63,12 @@ function pw_rcp_add_user_field_additional_opportunities() {
         <input name="rcp_additional_opportunities" id="rcp_additional_opportunities" type="checkbox" value="1" <?php checked( $additional_opportunities ); ?>/>
         <label for="rcp_additional_opportunities"><?php _e( 'Additional Opportunitiess', 'rcp' ); ?></label>
         <sup class="description">From time to time, we get information from third parties about scholarships or other opportunities which we feel may be of specific interest to you. If you would like us to tell you about these please tick this box. At no point will your information be passed on to any third party and any mailings would be from The Scholarship Hub.</sup>
+    </p>
+
+    <p class="degree_apprenticeship_wrapper">
+        <input name="rcp_degree_apprenticeship" id="rcp_degree_apprenticeship" type="checkbox" value="1" <?php checked( $degree_apprenticeship ); ?>/>
+        <label for="rcp_degree_apprenticeship"><?php _e( 'Degree Apprenticeship Interest', 'rcp' ); ?></label>
+        <sup class="description">If you would be interested in learning about degree apprenticeship opportunities that match your profile please tick this box.</sup>
     </p>
     
 	<?php
@@ -80,7 +87,7 @@ function pw_rcp_add_user_field_status() {
 	?>
 	<p id="rcp_status_wrapper">
 		<label for="rcp_status"><?php _e( 'Status', 'rcp' ); ?></label>
-		<select id="rcp_status" name="rcp_status">
+		<select id="rcp_status" name="rcp_status" tabindex="9">
             <option value="" <?php selected( $status, ''); ?>><?php _e( '- Select a value -', 'rcp' ); ?></option>
             <option value="Student in Secondary School" <?php selected( $status, 'Student in Secondary School'); ?>><?php _e( 'Student in Secondary School', 'rcp' ); ?></option>
             <option value="Student at University" <?php selected( $status, 'Student at University'); ?>><?php _e( 'Student at University', 'rcp' ); ?></option>
@@ -330,7 +337,8 @@ add_action( 'rcp_edit_member_after', 'pw_rcp_add_member_edit_fields' );
 function pw_rcp_validate_user_fields_on_register( $posted ) {
 	if ( is_user_logged_in() ) {
 	   return;
-    }
+        }
+    
 	if( empty( $posted['rcp_gender'] ) ) {
 		rcp_errors()->add( 'invalid_gender', __( 'Please enter your Gender', 'rcp' ), 'register' );
 	}
@@ -343,13 +351,13 @@ function pw_rcp_validate_user_fields_on_register( $posted ) {
 	if( empty( $posted['rcp_degree_type'] ) ) {
 		rcp_errors()->add( 'invalid_rcp_degree_type', __( 'Please enter your Degree Type', 'rcp' ), 'register' );
 	}
-	if( empty( $posted['rcp_subjects_of_interest'] ) ) {
+	if( empty( $posted['rcp_subjects_of_interest'] ) && $posted['rcp_status'] != 'Educator' ) {
 		rcp_errors()->add( 'invalid_rcp_subjects_of_interest', __( 'Please enter your Subjects of Interest', 'rcp' ), 'register' );
 	}
 	if( empty( $posted['rcp_field_anticipated_year_of_entry'] ) ) {
 		rcp_errors()->add( 'invalid_field_anticipated_year_of_entry', __( 'Please enter Year of Entry', 'rcp' ), 'register' );
 	}
-	if( empty( $posted['rcp_location_studies'] ) ) {
+	if( empty( $posted['rcp_location_studies'] ) && $posted['rcp_status'] != 'Educator' ) {
 		rcp_errors()->add( 'invalid_rcp_location_studies', __( 'Please enter your Location Studies', 'rcp' ), 'register' );
 	}
 }
@@ -368,6 +376,9 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 	}
 	if( ! empty( $posted['rcp_additional_opportunities'] ) ) {
 		update_user_meta( $user_id, 'rcp_additional_opportunities', sanitize_text_field( $posted['rcp_additional_opportunities'] ) );
+	}
+	if( ! empty( $posted['rcp_degree_apprenticeship'] ) ) {
+		update_user_meta( $user_id, 'rcp_degree_apprenticeship', sanitize_text_field( $posted['rcp_degree_apprenticeship'] ) );
 	}
 	if( ! empty( $posted['rcp_additional_newsletter'] ) ) {
 		update_user_meta( $user_id, 'rcp_additional_newsletter', sanitize_text_field( $posted['rcp_additional_newsletter'] ) );
