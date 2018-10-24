@@ -13,9 +13,7 @@ $options = get_option('TheScholarshipHub');
             <?php
                 while ( have_posts() ) :
                     the_post(); ?>
-                    <!--<section class="single_banner" style="background: #f6f6f6;">-->                        
-                        <?php // the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-                    <!--</section>-->
+            
                     <div class="container">
                             <div class="col-md-12">
                                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -51,7 +49,7 @@ $options = get_option('TheScholarshipHub');
                                                             <div class="tab tab4"><?php echo do_shortcode('[tsh_favorited_scholarship ids="'. implode(',', $arr_scholarship_ids) .'"]');?></div>
                                                         <?php }
                                                         if ($is_email_premium_tab) { ?>
-                                                            <div class="tab tab5">Test</div>
+                                                            <div class="tab tab5"><?php echo do_shortcode('[tsh_scholarship_email_options]');?></div>
                                                         <?php } ?>
                                                 </div>
                                         </div><!-- .entry-content -->
