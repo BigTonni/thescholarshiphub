@@ -48,4 +48,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
+echo tsh_edf_info();
 get_footer();

@@ -13,6 +13,7 @@
  */
 
 get_header();
+global $post;
 ?>
 
 	<div id="primary" class="content-area">
@@ -40,7 +41,14 @@ get_header();
                             </div>
                             
                             <div class="col-md-4 single_sidebar_wrap">
-                                <?php get_sidebar('page'); ?>
+                                <?php 
+                                    if(is_page('guide-to-uk-degree-apprenticeships') || $post->post_parent > 0){
+                                        get_sidebar('page-guide-to-uk-degree');
+                                    }
+                                    else{
+                                        get_sidebar('page');
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -48,4 +56,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
+echo tsh_edf_info();
 get_footer();

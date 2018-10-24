@@ -9,8 +9,7 @@
 
 get_header();
 ?>
-
-	<section id="primary" class="content-area">
+	<section id="primary" class="content-area post-listing">
 		<main id="main" class="site-main">
                     <div class="container">
                         <div class="row">
@@ -59,4 +58,5 @@ get_header();
 	</section><!-- #primary -->
 
 <?php
+echo tsh_edf_info();
 get_footer();

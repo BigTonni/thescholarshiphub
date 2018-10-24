@@ -17,7 +17,7 @@ $options = get_option('TheScholarshipHub');
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</section>
 		<div class="container">
-			<div class="col-md-8">
+			<div class="col-md-12">
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<div class="entry-content">
 						<div class="col-md-offset-1 col-md-10 calc_container">
@@ -155,9 +155,9 @@ $options = get_option('TheScholarshipHub');
 					</div><!-- .entry-content -->
 				</article><!-- #post-->
 			</div>
-                        <div class="col-md-4 single_sidebar_wrap">
-                            <?php get_sidebar('sidebar_single'); ?>
-                        </div>
+            <!--<div class="col-md-4 single_sidebar_wrap">
+                 <?php // get_sidebar('sidebar_single'); ?>
+            </div>-->
 		</div>
 		<?php
             endwhile; // End of the loop.
@@ -165,4 +165,4 @@ $options = get_option('TheScholarshipHub');
 	</main><!-- #main -->
 </div><!-- #primary -->
 <?php
-get_footer('without-edf');//edf = extra degree funding
+get_footer();

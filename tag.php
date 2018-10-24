@@ -51,4 +51,5 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	</div><!-- #primary -->
 
 <?php
+echo tsh_edf_info();
 get_footer();

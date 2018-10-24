@@ -16,6 +16,14 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+	<!-- Google Adsense -->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+		 (adsbygoogle = window.adsbygoogle || []).push({
+			  google_ad_client: "ca-pub-9269256409081540",
+			  enable_page_level_ads: true
+		 });
+	</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -34,7 +42,9 @@
                     </div><!-- .site-branding -->
 
                     <nav id="site-navigation" class="main-navigation">
-                            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', THEME_DOMAIN ); ?></button>
+                            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa fa-bars" aria-hidden="true"></i>
+                                <!-- <?php esc_html_e( 'Primary Menu', THEME_DOMAIN ); ?> -->
+                            </button>
                             <?php
                             wp_nav_menu( array(
                                     'theme_location' => 'primary',
@@ -45,7 +55,7 @@
                     <div class="searchicon">
                             <i class="fa fa-search"></i>
                     </div>
-                    <?php echo get_search_form( false ); ?>
+                    <?php echo get_search_form ( false ); ?>
             </header><!-- #masthead -->
         </div>
 

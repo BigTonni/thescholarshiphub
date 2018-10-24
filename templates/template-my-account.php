@@ -64,5 +64,4 @@ $options = get_option('TheScholarshipHub');
         </main><!-- #main -->
 </div><!-- #primary -->
 <?php
-echo tsh_edf_info();
 get_footer();

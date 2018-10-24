@@ -14,7 +14,6 @@
 
 get_header();
 ?>
-
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
@@ -56,4 +55,5 @@ get_header();
 
 <?php
 get_sidebar();
+echo tsh_edf_info();
 get_footer();

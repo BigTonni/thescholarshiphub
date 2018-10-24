@@ -242,14 +242,14 @@ get_header(); ?>
                                             <div class="item">
                                                 <div class="row">
                                                     
-                                                    <div class="col-lg-4 col-md-4 university_funding_thumb">
+                                                    <div class="col-sm-12 col-md-5 col-lg-4 university_funding_thumb">
                                                     <?php
                                                         if (has_post_thumbnail()) { ?>
                                                                 <?php the_post_thumbnail('post-thumbnail'); ?>                 
 
                                                         <?php } ?>
                                                     </div>
-                                                    <div class="col-lg-8 col-md-4">
+                                                    <div class="col-sm-12 col-md-7 col-lg-8">
                                                         <h4 class="university_funding_title clippingText_1"><?php echo $title; ?></h4>
                                                         <div class="university_funding_text"><?php echo get_the_excerpt();//wp_trim_words(get_the_content(), 15 ); ?></div>
                                                         <a class="university_funding_btn" href="<?php the_permalink(); ?>"><i class="fa fa-play" aria-hidden="true"></i><?php echo !empty($options['16']) ? $options['16'] : ''; ?></a>
@@ -266,7 +266,7 @@ get_header(); ?>
                             
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
                                         <?php
                                         if (!empty($options['13'])) {                                            
                                             $post_id = $options['13'];
@@ -288,7 +288,7 @@ get_header(); ?>
                                         <?php } ?>
                                     </div>
                                     
-                                    <div class="col-md-6">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
                                         <?php
                                         if (!empty($options['19'])) {
                                             if (!empty($options['18'])) { ?>
@@ -323,4 +323,6 @@ get_header(); ?>
         </section><!-- .home_content_wrap -->                
         
 </div><!-- #primary -->
-<?php get_footer();
+<?php
+echo tsh_edf_info();
+get_footer();

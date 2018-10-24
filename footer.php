@@ -8,39 +8,9 @@
  *
  * @package thescholarshiphub
  */
+
 $options = get_option('TheScholarshipHub');
-
-?>
-            <section id="extra_degree_funding">
-                <div class="container">
-                    <div class="row">                    
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="background_lady">
-                                        <img src="<?php echo THEME_DIR_URI ?>/assets/img/get-extra.png" alt="lady">
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-
-                                    <div class="wrap_extra_degree_contetnt">
-                                        <div class="extra_degree_contetnt">
-                                            <h2><?php echo !empty($options['21']) ? $options['21'] : ''; ?></h2>
-                                            <p class="extra_degree_contetnt_text"><?php echo !empty($options['22']) ? $options['22'] : ''; ?></p>
-                                        </div>
-                                        
-                                        <div class="extra_degree_btn">                                    
-                                            <a class="jumpButton" href="/plans"><i class="fa fa-play" aria-hidden="true"></i> <?php echo !empty($options['23']) ? $options['23'] : ''; ?></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><!-- #extra_degree_funding -->
+?>            
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">

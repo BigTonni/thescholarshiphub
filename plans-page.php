@@ -105,4 +105,4 @@ global $rcp_options, $rcp_levels_db, $rcp_register_form_atts;
 </div><!-- #primary -->
 
 <?php
-get_footer('without-edf');
+get_footer();

@@ -7,7 +7,6 @@
 
 get_header();
 ?>
-
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
                     
@@ -38,4 +37,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
+echo tsh_edf_info();
 get_footer();

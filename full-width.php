@@ -62,4 +62,4 @@ get_header(); ?>
 </div><!-- #primary -->
 
 <?php
-get_footer('without-edf');
+get_footer();
