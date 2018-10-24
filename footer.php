@@ -47,9 +47,9 @@ $options = get_option('TheScholarshipHub');
 		<div class="site-info">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-8">
-                                <div class="row">
-                                    <div class="col-md-7">
+                            <div class="col-lg-8 col-md-12">
+                                <div class="row first_title_footer_Wrap">
+                                    <div class="col-md-7 col-sm-7">
                                         <div class="first_title_footer">
                                             <?php dynamic_sidebar( 'tsh_footer_1' ); ?>
                                         </div>
@@ -72,20 +72,20 @@ $options = get_option('TheScholarshipHub');
                                             ?>
                                         </ul>
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-5 col-sm-5">
                                         <?php dynamic_sidebar( 'tsh_footer_2' ); ?>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="col-md-4">
+                            <div class="col-lg-4 col-md-12">
                                 <div class="row">
-                                    <div class="col-md-7"><?php dynamic_sidebar( 'tsh_footer_3' ); ?></div>
-                                    <div class="col-md-5"><?php dynamic_sidebar( 'tsh_footer_4' ); ?></div>
+                                    <div class="col-md-7 col-sm-7"><?php dynamic_sidebar( 'tsh_footer_3' ); ?></div>
+                                    <div class="col-md-5 col-sm-5"><?php dynamic_sidebar( 'tsh_footer_4' ); ?></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3"></div>                                    
-                                    <div class="col-md-9">
+                                    <!-- <div class="col-md-3"></div>                                     -->
+                                    <div class="col-md-12">
                                         <div class="phone_btn_link_wrap">
                                             <a class="phone_btn_link" href="#">
                                                 <span><?php echo !empty($options['51']) ? $options['51'] : ''; ?></span>

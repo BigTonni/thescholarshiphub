@@ -237,3 +237,31 @@ function thescholarshiphub_list_locations( $selected = '', $default = '', $with_
 function tsh_placeholder_cat_img_src() {
 	return THEME_DIR_URI.'/assets/img/default.png';
 }
+
+//edf = extra degree funding
+function tsh_edf_info() {
+    $options = get_option('TheScholarshipHub');  
+        
+    $html = '<section id="extra_degree_funding">';
+    $html .= '<div class="container"><div class="row">';
+    $html .= '<div class="col-md-12"><div class="row">';
+    $html .= '<div class="col-md-3"><div class="background_lady">';
+    $html .= '<img src="'. THEME_DIR_URI . '/assets/img/get-extra.png" alt="lady">';
+    $html .= '</div></div>';
+    $html .= '<div class="col-md-9">';
+    $html .= '<div class="wrap_extra_degree_contetnt"><div class="extra_degree_contetnt">';
+    $tmp = !empty($options['21']) ? $options['21'] : '';
+    $html .= '<h2>'. $tmp .'</h2>';
+    $tmp = !empty($options['22']) ? $options['22'] : '';
+    $html .= '<p class="extra_degree_contetnt_text">'. $tmp .'</p>';
+    $html .= '</div>';
+    $html .= '<div class="extra_degree_btn">';    
+    $tmp = !empty($options['23']) ? $options['23'] : '';
+    $html .= '<a class="jumpButton" href="/plans"><i class="fa fa-play" aria-hidden="true"></i> '. $tmp .'</a>';
+    $html .= '</div>';
+    $html .= '</div></div>';
+    $html .= '</div></div>';
+    $html .= '</div></div>';
+    $html .= '</section>';
+    return $html;
+}

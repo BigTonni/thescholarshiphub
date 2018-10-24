@@ -12,10 +12,10 @@ $options = get_option('TheScholarshipHub');
         <main id="main" class="site-main">
             <?php
                 while ( have_posts() ) :
-                        the_post(); ?>
-                    <section class="single_banner" style="background: #f6f6f6;">                        
-                        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-                    </section>
+                    the_post(); ?>
+                    <!--<section class="single_banner" style="background: #f6f6f6;">-->                        
+                        <?php // the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                    <!--</section>-->
                     <div class="container">
                             <div class="col-md-12">
                                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -24,9 +24,11 @@ $options = get_option('TheScholarshipHub');
                                                         <?php
                                                         $user = wp_get_current_user();
                                                         $arr_scholarship_ids = array();
-                                                        if ($user != false) {
+                                                        $is_email_premium_tab = false;
+                                                        if ($user != false && defined( 'RCP_PLUGIN_DIR' ) && rcp_get_subscription_id() >= 2) {
                                                             $arr_scholarship_ids = get_user_meta($user->ID, '_scholarship_selected', true);
                                                             $arr_scholarship_ids = $arr_scholarship_ids != false ? $arr_scholarship_ids : array();
+                                                            $is_email_premium_tab = rcp_get_subscription_id() == 3 ? true : false;
                                                         }
                                                         ?>
                                                         <ul class="nav nav-tabs">
@@ -35,7 +37,10 @@ $options = get_option('TheScholarshipHub');
                                                                 <li role="presentation" class="tab3" ><a data-tab="3" href="#">Billing</a></li>
                                                                 <?php
                                                                 if (!empty($arr_scholarship_ids)) { ?>
-                                                                    <li role="presentation" class="tab3" ><a data-tab="4" href="#">Favorited scholarship</a></li>
+                                                                    <li role="presentation" class="tab4" ><a data-tab="4" href="#">Favorited scholarship</a></li>
+                                                                <?php }
+                                                                if ($is_email_premium_tab) { ?>
+                                                                    <li role="presentation" class="tab5" ><a data-tab="5" href="#">Email alerts</a></li>                                                                    
                                                                 <?php } ?>
                                                         </ul>
                                                         <div class="tab tab1 active"><?php echo do_shortcode('[rcp_profile_editor]');?></div>
@@ -44,6 +49,9 @@ $options = get_option('TheScholarshipHub');
                                                         <?php
                                                         if (!empty($arr_scholarship_ids)) { ?>
                                                             <div class="tab tab4"><?php echo do_shortcode('[tsh_favorited_scholarship ids="'. implode(',', $arr_scholarship_ids) .'"]');?></div>
+                                                        <?php }
+                                                        if ($is_email_premium_tab) { ?>
+                                                            <div class="tab tab5">Test</div>
                                                         <?php } ?>
                                                 </div>
                                         </div><!-- .entry-content -->
@@ -56,4 +64,5 @@ $options = get_option('TheScholarshipHub');
         </main><!-- #main -->
 </div><!-- #primary -->
 <?php
-get_footer('without-edf');//edf = extra degree funding
+echo tsh_edf_info();
+get_footer();

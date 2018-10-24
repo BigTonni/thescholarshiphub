@@ -44,7 +44,13 @@ class WP_TSH_Widget_List_Post_Types extends WP_Widget {
                     $html = '<ul>';
                     foreach ($arr_ids as $key => $id) {
                         $post = get_post($id);
-                        $html .= '<li class="tsh_post_type_item"><a href="'. $post->guid .'">'. $post->post_title .'</a></li>';
+                        if(is_page('guide-to-uk-degree-apprenticeships') || $post->post_parent ){
+                        	$html .= '<li class="tsh_post_type_item"><a href="'. get_permalink($post->ID) .'">'. str_replace('Degree Apprenticeship', '', str_replace('Degree Apprenticeship in ','',str_replace ('Degree Apprenticeships in ','',$post->post_title))) .'</a></li>';
+                        }
+                        else{
+                        	$html .= '<li class="tsh_post_type_item"><a href="'. get_permalink($post->ID) .'">'. $post->post_title .'</a></li>';
+                        }
+                        
                     }
                     $html .= '</ul>';
                     echo $html;
