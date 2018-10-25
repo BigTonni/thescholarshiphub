@@ -37,7 +37,7 @@ $options = get_option('TheScholarshipHub');
                                                                 if (!empty($arr_scholarship_ids)) { ?>
                                                                     <li role="presentation" class="tab4" ><a data-tab="4" href="#">Favorited scholarship</a></li>
                                                                 <?php }
-                                                                if ($is_email_premium_tab) { ?>
+                                                                if ($is_email_premium_tab || current_user_can('administrator')) { ?>
                                                                     <li role="presentation" class="tab5" ><a data-tab="5" href="#">Email alerts</a></li>                                                                    
                                                                 <?php } ?>
                                                         </ul>
@@ -48,7 +48,7 @@ $options = get_option('TheScholarshipHub');
                                                         if (!empty($arr_scholarship_ids)) { ?>
                                                             <div class="tab tab4"><?php echo do_shortcode('[tsh_favorited_scholarship ids="'. implode(',', $arr_scholarship_ids) .'"]');?></div>
                                                         <?php }
-                                                        if ($is_email_premium_tab) { ?>
+                                                        if ($is_email_premium_tab || current_user_can('administrator')) { ?>
                                                             <div class="tab tab5"><?php echo do_shortcode('[tsh_scholarship_email_options]');?></div>
                                                         <?php } ?>
                                                 </div>
