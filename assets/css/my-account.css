@@ -3,9 +3,6 @@
 	margin-bottom: 0;
 	list-style: none;
 }
-/*.nav-tabs {*/
-/*border-bottom: 1px solid #ddd;*/
-/*}*/
 
 .nav>li {
 	position: relative;
@@ -15,8 +12,6 @@
 	float: left;
 	margin-bottom: -1px;
 }
-
-
 
 .nav>li>a {
 	position: relative;
@@ -329,6 +324,12 @@ label {
 
 .table-dark.table-hover tbody tr:hover {
 	background-color: rgba(255, 255, 255, 0.075);
+}
+
+.tabs_container .tab ul{
+    margin-left: 0px;
+    padding-left: 15px;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 575.98px) {
