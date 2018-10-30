@@ -46,7 +46,7 @@ $options = get_option('TheScholarshipHub');
                                                                     <li role="presentation" class="tab5" ><a data-tab="5" href="#">Member Benefits</a></li>                                                                    
                                                                 <?php }
                                                                 if ($is_email_premium_tab) { ?>
-                                                                    <li role="presentation" class="tab6" ><a data-tab="6" href="#">Subscription alerts</a></li>                                                                    
+                                                                    <li role="presentation" class="tab6" ><a data-tab="6" href="#">Email Alert</a></li>                                                                    
                                                                 <?php } ?>
                                                         </ul>
                                                         <div class="tab tab1 active"><?php echo do_shortcode('[rcp_profile_editor]');?></div>

@@ -97,4 +97,9 @@ jQuery(document).ready(function ($) {
         $('.video_modal').removeClass('active');
         e.preventDefault();
     });
+    
+    //On MyAccount-page
+    $('.label_tsh_tax').click(function(){
+        $('#'+ $(this).data('tax') ).toggle();
+    });
 });

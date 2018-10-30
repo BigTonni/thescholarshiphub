@@ -62,12 +62,20 @@ function tsh_scholarship_email_options_callback(){
     );
     $terms = get_terms( $args );
     
+    $args2 = array(
+            'taxonomy' => 'tsh_tax_institution',
+            'hide_empty' => false,
+    );
+    $terms_institution = get_terms( $args2 );    
+    
     $curr_user = wp_get_current_user();
     $arr_ids = array();
  
     if (!empty($_POST) && check_admin_referer('tsh_action','tsh__nonce_field')) {        
             $arr_tax_subject_ids = !empty($_POST['tsh_tax_subject']) ? $_POST['tsh_tax_subject'] : array();
+            $arr_tax_institution_ids = !empty($_POST['tsh_tax_institution']) ? $_POST['tsh_tax_institution'] : array();
             $arr_ids['tax_subject'] = $arr_tax_subject_ids;
+            $arr_ids['tax_institution'] = $arr_tax_institution_ids;
             update_user_meta($curr_user->ID, '_scholarship_email_options', $arr_ids);
 
             //Add email alert to table        
@@ -87,7 +95,8 @@ A scholarship has just been published with name [post_title]. You can view the f
 
 [post_permalink]';
                     $recipient = array('admin');
-                    $cats = array('include' => array_map('intval', $arr_tax_subject_ids));
+                    $arr_total = array_merge($arr_tax_subject_ids, $arr_tax_institution_ids);
+                    $cats = array('include' => array_map('intval', $arr_total));
 
                     //Is this record exists?
                     $res = $wpdb->get_var("SELECT COUNT(id) FROM {$_table} WHERE name = '{$alert_name}'");
@@ -124,6 +133,7 @@ A scholarship has just been published with name [post_title]. You can view the f
     $arr_ids = get_user_meta($curr_user->ID, '_scholarship_email_options', true);
     //Maybe these options will be not last
     $arr_tax_subject_ids = isset($arr_ids['tax_subject']) ? $arr_ids['tax_subject'] : array();
+    $arr_tax_institution_ids = isset($arr_ids['tax_institution']) ? $arr_ids['tax_institution'] : array();
     
     ob_start();
     ?>
@@ -135,26 +145,35 @@ A scholarship has just been published with name [post_title]. You can view the f
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-3">Courses:</div>
-                    <div class="col-md-9">
-                        <select class="form-control" name="tsh_tax_subject[]" multiple size="8">
-                        <?php
-                        
+                    <div class="col-md-12 label_tsh_tax" data-tax="subject"><h3>Courses:</h3></div>
+                    <div class="col-md-12" id="subject">
+                        <?php                        
                         if( !empty($terms) ){
                             foreach ($terms as $term) { ?>
-                                <option value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_subject_ids) ? 'selected' : '';?>><?php echo $term->name; ?></option>
+                                <input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_subject_ids) ? 'checked' : '';?>/>
+                                <?php echo ($term->parent !== 0) ? '--' : ''; ?><label><?php echo $term->name; ?></label><br/>
                             <?php }
                         }
                         ?>
-                    </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 label_tsh_tax" data-tax="institution"><h3>Institutions:</h3></div>
+                    <div class="col-md-12" id="institution">
+                        <?php                       
+                        if( !empty($terms_institution) ){
+                            foreach ($terms_institution as $term) { ?>
+                                <input type="checkbox" name="tsh_tax_institution[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_institution_ids) ? 'checked' : '';?>/>
+                                <?php echo ($term->parent !== 0) ? '--' : ''; ?><label><?php echo $term->name; ?></label><br/>
+                            <?php }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="row">
-                    <?php wp_nonce_field('tsh_action','tsh__nonce_field'); ?>
-                    <input type="submit" class="btn btn-primary" value="Submit"/>
-                </div>
+                <?php wp_nonce_field('tsh_action','tsh__nonce_field'); ?>
+                <input type="submit" class="btn btn-primary" value="Submit"/>
             </div>
         </div>
     </div>

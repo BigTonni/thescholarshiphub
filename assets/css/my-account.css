@@ -395,3 +395,8 @@ label {
 .table-responsive > .rcp-table {
 	border: 0;
 }
+
+.label_tsh_tax{border-bottom: 1px solid;}
+.label_tsh_tax h3{cursor: pointer;}
+/*.email_options #subject,.email_options #institution{display: none;}*/
+.email_options .btn-primary{margin-top: 10px;}
