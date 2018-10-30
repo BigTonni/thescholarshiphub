@@ -1,0 +1,14 @@
+<!-- facebook -->
+<a target="_blank" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink($post->ID);?>','facebook', 'height=500px,width=500px'); return false">
+ <!-- img  or link name -->
+</a>
+
+
+<!-- twitter -->
+<a href="#" target="_blank" onclick="window.open('https://twitter.com/share?url=<?php echo get_permalink($post->ID);?>', 'twitter', 'height=500px,width=500px'); return false">
+ <!-- img  or link name -->
+</a>
+
+or twitter  href = http://twitter.com/share?text=<TITLE>&url=<URL>
+
+G+  url: href="https://plus.google.com/share?url={URL}"
