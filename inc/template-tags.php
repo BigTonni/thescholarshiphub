@@ -219,16 +219,23 @@ function thescholarshiphub_advanced_bottom(){
 /**
  * Get locations.
  */
-function thescholarshiphub_list_locations( $selected = '', $default = '', $with_default = true  ){
+function thescholarshiphub_list_locations($selected = '', $default = '', $with_default = true)
+{
     global $wpdb;
     
     $locations = $wpdb->get_results("SELECT id, post_title FROM {$wpdb->posts} WHERE post_type='tsh_location' AND post_status='publish' ORDER BY post_title");
     
-    $html = $with_default ? '<option value="">--'. $default .'--</option>' : '';
+    if ($with_default)
+    {
+        $html = '<option value="">'. $default .'</option>';
+    }else{
+        $html = '';
+    }
     
-    if( !empty($locations) ){
+    if (!empty($locations))
+    {
             foreach ($locations as $key => $location) {
-                $html .= '<option value="'. $location->id .'" '. selected($selected, $location->post_title, false) .'>'. $location->post_title .'</option>';
+                $html .= '<option value="'. $location->id .'" '. selected($selected, $location->id, false) .'>'. $location->post_title .'</option>';
             }
     }
     return $html;
@@ -240,8 +247,8 @@ function tsh_placeholder_cat_img_src() {
 
 //edf = extra degree funding
 function tsh_edf_info() {
-    $options = get_option('TheScholarshipHub');  
-        
+    $options = get_option('TheScholarshipHub');                
+            
     $html = '<section id="extra_degree_funding">';
     $html .= '<div class="container"><div class="row">';
     $html .= '<div class="col-md-12"><div class="row">';
@@ -258,7 +265,6 @@ function tsh_edf_info() {
     $html .= '<div class="extra_degree_btn">';    
     $tmp = !empty($options['23']) ? $options['23'] : '';
     $html .= '<a class="jumpButton" href="/plans"><i class="fa fa-play" aria-hidden="true"></i> '. $tmp .'</a>';
-    $html .= '</div>';
     $html .= '</div></div>';
     $html .= '</div></div>';
     $html .= '</div></div>';

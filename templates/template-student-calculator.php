@@ -11,15 +11,18 @@ $options = get_option('TheScholarshipHub');
 <div id="primary" class="content-area">
 	<main id="main" class="site-main">
 		<?php
-                while ( have_posts() ) :
-                        the_post(); ?>
-		<section class="single_banner" style="background: #f6f6f6;">
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-		</section>
+            while ( have_posts() ) : the_post(); ?>
+            
 		<div class="container">
 			<div class="col-md-12">
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                                        <header class="entry-header col-md-offset-1">                                                        
+                                                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                                        </header><!-- .entry-header -->
 					<div class="entry-content">
+                                                <?php
+                                                the_content();
+                                                ?>
 						<div class="col-md-offset-1 col-md-10 calc_container">
 							<div class="left_part">
 								<div class="selects_container">

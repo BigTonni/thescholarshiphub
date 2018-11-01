@@ -88,10 +88,10 @@ class WP_TSH_Widget_Recent_Posts extends WP_Widget {
 				
 				?>
 				<li class="row">
-                                    <span class="col-md-4">
+                                    <span class="col-md-4 col-sm-12 col-xs-12">
                                         <?php echo get_the_post_thumbnail( $recent_post->ID, 'thumbnail'); ?>					
                                     </span>
-                                    <span class="col-md-8">
+                                    <span class="col-md-8 col-sm-12 col-xs-12">
                                         <span class="post_list_wrap">
                                             <a href="<?php the_permalink( $recent_post->ID ); ?>" class="post-title"><?php echo $title; ?></a><br />
                                             <?php if ( $show_date ) : ?>

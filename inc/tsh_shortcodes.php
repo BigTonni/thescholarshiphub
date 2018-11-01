@@ -17,7 +17,7 @@ function tsh_favorited_scholarship_callback( $atts ){
                     // The Loop
                     while ( $the_query->have_posts() ) { 
                             $the_query->the_post();
-                            $html .= '<p>' . get_the_title() . '</p>';
+                            $html .= '<p><a href="'. get_permalink() .'">' . get_the_title() . '</a></p>';
                     }
                     wp_reset_postdata();
             }
@@ -184,14 +184,17 @@ A scholarship has just been published with name [post_title]. You can view the f
 }
 add_shortcode('tsh_scholarship_email_options', 'tsh_scholarship_email_options_callback');
 
-function tsh_member_benefits_callback(){
-        $html = '<h1>Member Benefits</h1>';
-        
+function tsh_member_benefits_callback($atts){
+        $is_access_level = !empty($atts['is_access_level']) ? boolval($atts['is_access_level']) : false;
+
+        $html = '<h1>Member Benefits</h1>';        
         $html .= '<ul>';
         $html .= '<li>Download your members guide to finding scholarships <a href="/wp-content/uploads/2018/10/members_guide_to_find_funding.pdf">here</a></li>';
         $html .= '<li>Find out how set up your personalised subscriptions <a href="/setting-up-your-personalised-subscriptions/">here</a></li>';
         $html .= '<li>Find out about your premium features on the scholarships database <a href="/understanding-your-premium-membership-features/">here</a></li>';
-        $html .= '<li><a href="/search-the-database-of-educational-grants/">Search the Database of Educational Grants</a></li>';
+        if($is_access_level){
+            $html .= '<li><a href="/search-the-database-of-educational-grants/">Search the Database of Educational Grants</a></li>';
+        }
         $html .= '</ul>';
         return $html;
 }

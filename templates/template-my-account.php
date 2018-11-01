@@ -57,7 +57,7 @@ $options = get_option('TheScholarshipHub');
                                                             <div class="tab tab4"><?php echo do_shortcode('[tsh_favorited_scholarship ids="'. implode(',', $arr_scholarship_ids) .'"]');?></div>
                                                         <?php }
                                                         if ($is_member_benefits_tab) { ?>
-                                                            <div class="tab tab5"><?php echo do_shortcode('[tsh_member_benefits]');?></div>
+                                                            <div class="tab tab5"><?php echo do_shortcode('[tsh_member_benefits is_access_level="'. $is_email_premium_tab .'"]');?></div>
                                                         <?php }
                                                         if ($is_email_premium_tab) { ?>
                                                             <div class="tab tab6"><?php echo do_shortcode('[tsh_scholarship_email_options]');?></div>

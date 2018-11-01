@@ -52,7 +52,7 @@ class WP_TSH_Widget_Find_Scholarship extends WP_Widget {
                                             'hide_empty' => false,
                                     );
                                     $terms = get_terms( $args1 );
-                                    $html = '<option value="">--'. __('Study Location', THEME_DOMAIN) .'--</option>';
+                                    $html = '<option value="">--'. __('Study Subject', THEME_DOMAIN) .'--</option>';
     
                                     if( !empty($terms) ){
                                         if (!is_user_logged_in()) {
