@@ -10,11 +10,11 @@ function pw_rcp_add_user_field_gender() {
 	<p id="rcp_gender_wrapper">
 		<label for="rcp_gender"><?php _e( 'Gender', 'rcp' ); ?></label>
 		<select id="rcp_gender" name="rcp_gender" tabindex="5">
-            <option value="" <?php selected( $gender, ''); ?>><?php _e( '- Select a value -', 'rcp' ); ?></option>
-            <option value="Male" <?php selected( $gender, 'Male'); ?>><?php _e( 'Male', 'rcp' ); ?></option>
-            <option value="Female" <?php selected( $gender, 'Female'); ?>><?php _e( 'Female', 'rcp' ); ?></option>
-            <option value="Prefer Not to Say" <?php selected( $gender, 'Prefer Not to Say'); ?>><?php _e( 'Prefer Not to Say', 'rcp' ); ?></option>
-        </select>
+                    <option value="" <?php selected( $gender, ''); ?>><?php _e( '- Select a value -', 'rcp' ); ?></option>
+                    <option value="Male" <?php selected( $gender, 'Male'); ?>><?php _e( 'Male', 'rcp' ); ?></option>
+                    <option value="Female" <?php selected( $gender, 'Female'); ?>><?php _e( 'Female', 'rcp' ); ?></option>
+                    <option value="Prefer Not to Say" <?php selected( $gender, 'Prefer Not to Say'); ?>><?php _e( 'Prefer Not to Say', 'rcp' ); ?></option>
+                </select>
 	</p>
 	<?php
 }
@@ -97,45 +97,24 @@ function pw_rcp_add_user_field_status() {
 		<p id="rcp_degree_type_wrapper">
 			<label for="rcp_degree_type"><?php _e( 'Degree Type', 'rcp' ); ?></label>
 			<select id="rcp_degree_type" name="rcp_degree_type">
-	            <option value="" <?php selected( $degree_type, ''); ?>><?php _e( '- Select a value -', 'rcp' ); ?></option>
-	            <option value="Undergraduate" <?php selected( $degree_type, 'Undergraduate'); ?>><?php _e( 'Undergraduate', 'rcp' ); ?></option>
-	            <option value="Postgraduate" <?php selected( $degree_type, 'Postgraduate'); ?>><?php _e( 'Postgraduate', 'rcp' ); ?></option>
-	        </select>
+                            <?php
+                                echo thescholarshiphub_list_study_levels($degree_type, __('- Select a value -', 'rcp'));
+                            ?>
+                        </select>
 		</p>
 		<p id="rcp_subjects_of_interest_wrapper">
 			<label for="rcp_subjects_of_interest"><?php _e( 'Subjects of Interest', 'rcp' ); ?></label>
-			<select id="rcp_subjects_of_interest" name="rcp_subjects_of_interest" multiple="multiple">
-                            <option value="Architecture, building & planning" <?php selected( $subjects_of_interest, 'Architecture, building & planning'); ?>><?php _e( 'Architecture, building & planning', 'rcp' ); ?></option>
-                            <option value="Accounting/Finance" <?php selected( $subjects_of_interest, 'Accounting/Finance'); ?>><?php _e( 'Accounting/Finance', 'rcp' ); ?></option>
-                            <option value="Art & Design" <?php selected( $subjects_of_interest, 'Art & Design'); ?>><?php _e( 'Art & Design', 'rcp' ); ?></option>
-                            <option value="Biology" <?php selected( $subjects_of_interest, 'Biology'); ?>><?php _e( 'Biology', 'rcp' ); ?></option>
-                            <option value="Business related subjects" <?php selected( $subjects_of_interest, 'Business related subjects'); ?>><?php _e( 'Business related subjects', 'rcp' ); ?></option>
-                            <option value="Chemistry" <?php selected( $subjects_of_interest, 'Chemistry'); ?>><?php _e( 'Chemistry', 'rcp' ); ?></option>
-                            <option value="Computer Science" <?php selected( $subjects_of_interest, 'Computer Science'); ?>><?php _e( 'Computer Science', 'rcp' ); ?></option>
-                            <option value="Economics" <?php selected( $subjects_of_interest, 'Economics'); ?>><?php _e( 'Economics', 'rcp' ); ?></option>
-                            <option value="Education/teaching" <?php selected( $subjects_of_interest, 'Education/teaching'); ?>><?php _e( 'Education/teaching', 'rcp' ); ?></option>
-                            <option value="Engineering" <?php selected( $subjects_of_interest, 'Engineering'); ?>><?php _e( 'Engineering', 'rcp' ); ?></option>
-                            <option value="Geography" <?php selected( $subjects_of_interest, 'Geography'); ?>><?php _e( 'Geography', 'rcp' ); ?></option>
-                            <option value="History" <?php selected( $subjects_of_interest, 'History'); ?>><?php _e( 'History', 'rcp' ); ?></option>
-                            <option value="Journalism/Media" <?php selected( $subjects_of_interest, 'Journalism/Media'); ?>><?php _e( 'Journalism/Media', 'rcp' ); ?></option>
-                            <option value="Languages & Literature" <?php selected( $subjects_of_interest, 'Languages & Literature'); ?>><?php _e( 'Languages & Literature', 'rcp' ); ?></option>
-                            <option value="Law" <?php selected( $subjects_of_interest, 'Law'); ?>><?php _e( 'Law', 'rcp' ); ?></option>
-                            <option value="Maths" <?php selected( $subjects_of_interest, 'Maths'); ?>><?php _e( 'Maths', 'rcp' ); ?></option>
-                            <option value="Medicine & Dentistry" <?php selected( $subjects_of_interest, 'Medicine & Dentistry'); ?>><?php _e( 'Medicine & Dentistry', 'rcp' ); ?></option>
-                            <option value="Music" <?php selected( $subjects_of_interest, 'Music'); ?>><?php _e( 'Music', 'rcp' ); ?></option>
-                            <option value="Philosophy" <?php selected( $subjects_of_interest, 'Philosophy'); ?>><?php _e( 'Philosophy', 'rcp' ); ?></option>
-                            <option value="Physics" <?php selected( $subjects_of_interest, 'Physics'); ?>><?php _e( 'Physics', 'rcp' ); ?></option>
-                            <option value="Politics" <?php selected( $subjects_of_interest, 'Politics'); ?>><?php _e( 'Politics', 'rcp' ); ?></option>
-                            <option value="Psychology" <?php selected( $subjects_of_interest, 'Psychology'); ?>><?php _e( 'Psychology', 'rcp' ); ?></option>
-                            <option value="Sociology" <?php selected( $subjects_of_interest, 'Sociology'); ?>><?php _e( 'Sociology', 'rcp' ); ?></option>
-                            <option value="Sport & exercise science" <?php selected( $subjects_of_interest, 'Sport & exercise science'); ?>><?php _e( 'Sport & exercise science', 'rcp' ); ?></option>
+			<select id="rcp_subjects_of_interest" name="rcp_subjects_of_interest[]" multiple="multiple" style="width:69%;">
+                            <?php
+                                echo thescholarshiphub_list_subjects_multiple($subjects_of_interest, '', false);
+                            ?>
                         </select>
 		</p>
 		<p id="rcp_location_studies_wrapper">
 			<label for="rcp_location_studies"><?php _e( 'Location of Studies', 'rcp' ); ?></label>
-			<select id="rcp_location_studies" name="rcp_location_studies" multiple="multiple">
+			<select id="rcp_location_studies" name="rcp_location_studies[]" multiple="multiple">
                         <?php
-                            echo thescholarshiphub_list_locations($location_studies,'', false);
+                            echo thescholarshiphub_list_locations_multiple($location_studies,'', false);
                         ?>
 	        </select>
 		</p>
@@ -242,10 +221,10 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 			</th>
 			<td>
 				<select id="rcp_degree_type" name="rcp_degree_type">
-		            <option value="" <?php selected( $degree_type, ''); ?>><?php _e( '- Select a value -', 'rcp' ); ?></option>
-		            <option value="Undergraduate" <?php selected( $degree_type, 'Undergraduate'); ?>><?php _e( 'Undergraduate', 'rcp' ); ?></option>
-		            <option value="Postgraduate" <?php selected( $degree_type, 'Postgraduate'); ?>><?php _e( 'Postgraduate', 'rcp' ); ?></option>
-		        </select>				
+                                    <?php
+                                        echo thescholarshiphub_list_study_levels($degree_type, __('- Select a value -', 'rcp'));
+                                    ?>
+                                </select>				
 			<td>
 		</tr>
 		<tr valign="top">
@@ -253,32 +232,11 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 				<label for="rcp_subjects_of_interest"><?php _e( 'Subjects of Interest', 'rcp' ); ?></label>
 			</th>
 			<td>
-				<select id="rcp_subjects_of_interest" name="rcp_subjects_of_interest" multiple="multiple">
-		            <option value="Architecture, building & planning" <?php selected( $subjects_of_interest, 'Architecture, building & planning'); ?>><?php _e( 'Architecture, building & planning', 'rcp' ); ?></option>
-		            <option value="Accounting/Finance" <?php selected( $subjects_of_interest, 'Accounting/Finance'); ?>><?php _e( 'Accounting/Finance', 'rcp' ); ?></option>
-		            <option value="Art & Design" <?php selected( $subjects_of_interest, 'Art & Design'); ?>><?php _e( 'Art & Design', 'rcp' ); ?></option>
-		            <option value="Biology" <?php selected( $subjects_of_interest, 'Biology'); ?>><?php _e( 'Biology', 'rcp' ); ?></option>
-		            <option value="Business related subjects" <?php selected( $subjects_of_interest, 'Business related subjects'); ?>><?php _e( 'Business related subjects', 'rcp' ); ?></option>
-		            <option value="Chemistry" <?php selected( $subjects_of_interest, 'Chemistry'); ?>><?php _e( 'Chemistry', 'rcp' ); ?></option>
-		            <option value="Computer Science" <?php selected( $subjects_of_interest, 'Computer Science'); ?>><?php _e( 'Computer Science', 'rcp' ); ?></option>
-		            <option value="Economics" <?php selected( $subjects_of_interest, 'Economics'); ?>><?php _e( 'Economics', 'rcp' ); ?></option>
-		            <option value="Education/teaching" <?php selected( $subjects_of_interest, 'Education/teaching'); ?>><?php _e( 'Education/teaching', 'rcp' ); ?></option>
-		            <option value="Engineering" <?php selected( $subjects_of_interest, 'Engineering'); ?>><?php _e( 'Engineering', 'rcp' ); ?></option>
-		            <option value="Geography" <?php selected( $subjects_of_interest, 'Geography'); ?>><?php _e( 'Geography', 'rcp' ); ?></option>
-		            <option value="History" <?php selected( $subjects_of_interest, 'History'); ?>><?php _e( 'History', 'rcp' ); ?></option>
-		            <option value="Journalism/Media" <?php selected( $subjects_of_interest, 'Journalism/Media'); ?>><?php _e( 'Journalism/Media', 'rcp' ); ?></option>
-		            <option value="Languages & Literature" <?php selected( $subjects_of_interest, 'Languages & Literature'); ?>><?php _e( 'Languages & Literature', 'rcp' ); ?></option>
-		            <option value="Law" <?php selected( $subjects_of_interest, 'Law'); ?>><?php _e( 'Law', 'rcp' ); ?></option>
-		            <option value="Maths" <?php selected( $subjects_of_interest, 'Maths'); ?>><?php _e( 'Maths', 'rcp' ); ?></option>
-		            <option value="Medicine & Dentistry" <?php selected( $subjects_of_interest, 'Medicine & Dentistry'); ?>><?php _e( 'Medicine & Dentistry', 'rcp' ); ?></option>
-		            <option value="Music" <?php selected( $subjects_of_interest, 'Music'); ?>><?php _e( 'Music', 'rcp' ); ?></option>
-		            <option value="Philosophy" <?php selected( $subjects_of_interest, 'Philosophy'); ?>><?php _e( 'Philosophy', 'rcp' ); ?></option>
-		            <option value="Physics" <?php selected( $subjects_of_interest, 'Physics'); ?>><?php _e( 'Physics', 'rcp' ); ?></option>
-		            <option value="Politics" <?php selected( $subjects_of_interest, 'Politics'); ?>><?php _e( 'Politics', 'rcp' ); ?></option>
-		            <option value="Psychology" <?php selected( $subjects_of_interest, 'Psychology'); ?>><?php _e( 'Psychology', 'rcp' ); ?></option>
-		            <option value="Sociology" <?php selected( $subjects_of_interest, 'Sociology'); ?>><?php _e( 'Sociology', 'rcp' ); ?></option>
-		            <option value="Sport & exercise science" <?php selected( $subjects_of_interest, 'Sport & exercise science'); ?>><?php _e( 'Sport & exercise science', 'rcp' ); ?></option>
-		        </select>				
+				<select id="rcp_subjects_of_interest" name="rcp_subjects_of_interest[]" multiple="multiple" style="width:69%;">
+                                    <?php
+                                        echo thescholarshiphub_list_subjects_multiple($subjects_of_interest, '', false);
+                                    ?>
+                                </select>				
 			<td>
 		</tr>
 		<tr valign="top">
@@ -286,9 +244,9 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 				<label for="rcp_location_studies"><?php _e( 'Location of Studies', 'rcp' ); ?></label>
 			</th>
 			<td>
-				<select id="rcp_location_studies" name="rcp_location_studies" multiple="multiple">
+				<select id="rcp_location_studies" name="rcp_location_studies[]" multiple="multiple">
                                     <?php
-                                        echo thescholarshiphub_list_locations($location_studies,'', false);
+                                        echo thescholarshiphub_list_locations_multiple($location_studies,'', false);
                                     ?>
                                 </select>			
 			<td>
@@ -361,10 +319,10 @@ function pw_rcp_save_user_fields_on_register( $posted, $user_id ) {
 		update_user_meta( $user_id, 'rcp_degree_type', sanitize_text_field( $posted['rcp_degree_type'] ) );
 	}
 	if( ! empty( $posted['rcp_subjects_of_interest'] ) ) {
-		update_user_meta( $user_id, 'rcp_subjects_of_interest', sanitize_text_field( $posted['rcp_subjects_of_interest'] ) );
+		update_user_meta( $user_id, 'rcp_subjects_of_interest', $posted['rcp_subjects_of_interest'] );
 	}
 	if( ! empty( $posted['rcp_location_studies'] ) ) {
-		update_user_meta( $user_id, 'rcp_location_studies', sanitize_text_field( $posted['rcp_location_studies'] ) );
+		update_user_meta( $user_id, 'rcp_location_studies', $posted['rcp_location_studies'] );
 	}
 	if( ! empty( $posted['rcp_educator_role'] ) ) {
 		update_user_meta( $user_id, 'rcp_educator_role', sanitize_text_field( $posted['rcp_educator_role'] ) );
@@ -393,10 +351,10 @@ function pw_rcp_save_user_fields_on_profile_save( $user_id ) {
 		update_user_meta( $user_id, 'rcp_degree_type', sanitize_text_field( $_POST['rcp_degree_type'] ) );
 	}
 	if( ! empty( $_POST['rcp_subjects_of_interest'] ) ) {
-		update_user_meta( $user_id, 'rcp_subjects_of_interest', sanitize_text_field( $_POST['rcp_subjects_of_interest'] ) );
+		update_user_meta( $user_id, 'rcp_subjects_of_interest', $_POST['rcp_subjects_of_interest'] );
 	}
 	if( ! empty( $_POST['rcp_location_studies'] ) ) {
-		update_user_meta( $user_id, 'rcp_location_studies', sanitize_text_field( $_POST['rcp_location_studies'] ) );
+		update_user_meta( $user_id, 'rcp_location_studies', $_POST['rcp_location_studies'] );
 	}
 	if( ! empty( $_POST['rcp_educator_role'] ) ) {
 		update_user_meta( $user_id, 'rcp_educator_role', sanitize_text_field( $_POST['rcp_educator_role'] ) );

@@ -240,6 +240,89 @@ function thescholarshiphub_list_locations($selected = '', $default = '', $with_d
     }
     return $html;
 }
+//For multyselect
+function thescholarshiphub_list_locations_multiple($selected_arr = array(), $default = '', $with_default = true)
+{
+    global $wpdb;
+    
+    $locations = $wpdb->get_results("SELECT id, post_title FROM {$wpdb->posts} WHERE post_type='tsh_location' AND post_status='publish' ORDER BY post_title");
+    
+    if ($with_default)
+    {
+        $html = '<option value="">'. $default .'</option>';
+    }else{
+        $html = '';
+    }
+    
+    if (!empty($locations))
+    {
+            foreach ($locations as $key => $location)
+            {
+                $selected = in_array($location->id, $selected_arr) ? 'selected="selected"' : '';
+                $html .= '<option value="'. $location->id .'" '. $selected .'>'. $location->post_title .'</option>';
+            }
+    }
+    return $html;
+}
+
+/**
+ * Get study levels. 
+ */
+function thescholarshiphub_list_study_levels($selected = '', $default = '', $with_default = true)
+{
+    $args = array(
+            'taxonomy' => 'tsh_tax_study_level',
+            'hide_empty' => false,
+    );
+    $terms = get_terms( $args );
+    
+    if ($with_default)
+    {
+        $html = '<option value="">'. $default .'</option>';
+    }else{
+        $html = '';
+    }
+    
+    if (!empty($terms))
+    {
+        foreach ($terms as $term)
+        {
+            $html .= '<option value="'. $term->term_id .'" '. selected($selected, $term->term_id, false) .'>'. $term->name .'</option>';
+        }
+    }
+
+    return $html;
+}
+
+/**
+ * Get study subjects (for multyselect).
+ */
+function thescholarshiphub_list_subjects_multiple($selected_arr = array(), $default = '', $with_default = true)
+{        
+    $args = array(
+            'taxonomy' => 'tsh_tax_subject',
+            'hide_empty' => false,
+    );
+    $terms = get_terms( $args );
+    
+    if ($with_default)
+    {
+        $html = '<option value="">'. $default .'</option>';
+    }else{
+        $html = '';
+    }
+    
+    if (!empty($terms))
+    {
+        foreach ($terms as $term)
+        {
+            $selected = in_array($term->term_id, $selected_arr) ? 'selected="selected"' : '';
+            $html .= '<option value="'. $term->term_id .'" '. $selected .'>'. $term->name .'</option>';
+        }
+    }
+
+    return $html;
+}
 
 function tsh_placeholder_cat_img_src() {
 	return THEME_DIR_URI.'/assets/img/default.png';

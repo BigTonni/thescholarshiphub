@@ -43,10 +43,9 @@ jQuery(document).ready(function ($) {
         }
     }
     change_status_content($('#rcp_status').val());
+    
     $('#rcp_status').on('change',function(){
-        change_status_content($(this).val())
-        console.log( $('#others_role_wrapper p select :selected').val());
-        console.log( $('#others_role_wrapper p input').val());
+        change_status_content($(this).val());
     });
 
 
