@@ -78,70 +78,57 @@ function tsh_scholarship_email_options_callback(){
             $arr_ids['tax_institution'] = $arr_tax_institution_ids;
             update_user_meta($curr_user->ID, '_scholarship_email_options', $arr_ids);
 
-            $is_active_email_plugin = defined( 'ELP_URL' ) ? true : false;
+            //Add email alert to table        
+            global $wpdb;
+            $_table = $wpdb->prefix .'psn_rules';
+            $alert_name = 'New scholarship for User_id '.$curr_user->ID;
 
-            if ($is_active_email_plugin) {
-                
-                global $wpdb;
-                
-                $_table = $wpdb->prefix .'elp_sendsetting';
-                //Add new subscriber
-                $user_firstname = ($curr_user->user_firstname == "") ? $curr_user->user_login : $curr_user->user_firstname;
-                $user_mail = $curr_user->user_email;
-                $group = 'group_'.$curr_user->ID;
-                $inputdata = array($user_firstname, $user_mail, 'Confirmed', $group);
-                $res_new_subscriber = elp_cls_dbquery::elp_view_subscriber_ins($inputdata);
-                
-                if (!empty($arr_tax_subject_ids) || !empty($arr_tax_institution_ids)) {
+            if (!empty($arr_tax_subject_ids))
+            {        
+                    $alert_post_type = 'job_listing';
+                    $alert_status_before = 'anything';
+                    $alert_status_after = 'publish';
+                    $notification_subject = 'Published scholarship on [blog_name]';
+                    $notification_body = 'Hi, [current_user_display_name]
+
+A scholarship has just been published with name [post_title]. You can view the full article here:
+
+[post_permalink]';
+                    $recipient = array('admin');
                     $arr_total = array_merge($arr_tax_subject_ids, $arr_tax_institution_ids);
+                    $cats = array('include' => array_map('intval', $arr_total));
+
                     //Is this record exists?
-                    $elp_set_id = $wpdb->get_var("SELECT elp_set_id FROM {$_table} WHERE elp_set_emaillistgroup = '{$group}'");
-                    $form = array(
-                                'elp_set_name' => 'Send last scholarships for User '.$curr_user->ID,
-                                'elp_set_templid' => '10',
-                                'elp_set_totalsent' => 200,
-                                'elp_set_unsubscribelink' => 'YES',
-                                'elp_set_viewstatus' => 'YES',
-                                //Why 110? Because the mailing list can go after midnight.
-                                'elp_set_postcount' => 110,
-                                'elp_set_postcategory' => (count($arr_total) > 1) ? implode(",", $arr_total) : $arr_total[0],
-                                'elp_set_postorderby' => 'ID',
-                                'elp_set_postorder' => 'DESC',
-                                'elp_set_scheduleday' => '#0# -- #1# -- #2# -- #3# -- #4# -- #5# -- #6#',
-                                'elp_set_scheduletime' => '23:55:00',
-                                'elp_set_scheduletype' => 'Cron',
-                                'elp_set_status' => 'On',
-                                'elp_set_emaillistgroup' => $group,
-                                'elp_set_posttype' => 'job_listing',
-                                'elp_set_posttaxonomy' => 'tsh_tax_institution,tsh_tax_subject'
-                    );
-                    if ($elp_set_id != false) {
-                        //Yes - Update
-                        $inputdata = array($elp_set_id, $form['elp_set_name'], $form['elp_set_templid'], $form['elp_set_totalsent'], $form['elp_set_unsubscribelink'], 
-						 	$form['elp_set_viewstatus'],$form['elp_set_postcount'], $form['elp_set_postcategory'],$form['elp_set_postorderby'], $form['elp_set_postorder']
-							, $form['elp_set_scheduleday'], $form['elp_set_scheduletime'], $form['elp_set_scheduletype'], $form['elp_set_status'], $form['elp_set_emaillistgroup']
-                                                        , $form['elp_set_posttype'], $form['elp_set_posttaxonomy'] );
-                        
-                        elp_cls_dbquery::elp_configuration_ins("update", $inputdata);
-                    }else{
-                        $inputdata = array($form['elp_set_name'], $form['elp_set_templid'], $form['elp_set_totalsent'], $form['elp_set_unsubscribelink'], 
-						 	$form['elp_set_viewstatus'],$form['elp_set_postcount'], $form['elp_set_postcategory'],$form['elp_set_postorderby'], $form['elp_set_postorder']
-							, $form['elp_set_scheduleday'], $form['elp_set_scheduletime'], $form['elp_set_scheduletype'], $form['elp_set_status'], $form['elp_set_emaillistgroup']
-                                                        , $form['elp_set_posttype'], $form['elp_set_posttaxonomy'] );
-                        
-                        elp_cls_dbquery::elp_configuration_ins("insert", $inputdata);
-                    }                    
-       
-                } else {
-                        //Is exist these lines? No - Nothing
-                        $res = $wpdb->get_var("SELECT COUNT(elp_set_id) FROM {$_table} WHERE elp_set_emaillistgroup = '{$group}'");
-                        if ($res)
-                        {
-                           //Yes - Delete                                
-                            $wpdb->delete( $_table, array( 'elp_set_emaillistgroup' => $group ) );
-                        }
-                }
+                    $res = $wpdb->get_var("SELECT COUNT(id) FROM {$_table} WHERE name = '{$alert_name}'");
+                    if ($res)
+                    {
+                            //Yes - Update                                
+                             $wpdb->update( $_table,
+                                     array( 'categories' => serialize($cats) ),
+                                     array( 'name' => $alert_name )
+                             );
+                    }
+                    else
+                    {
+                            $wpdb->insert( $_table,
+                                    array( 'name' => $alert_name, 'posttype' => $alert_post_type, 'status_before' => $alert_status_before, 'status_after' => $alert_status_after,
+                                        'notification_subject' => $notification_subject, 'notification_body' => $notification_body, 'recipient' => serialize($recipient), 'categories' => serialize($cats),
+                                        'service_email' => 1, 'cc_select' => '', 'bcc_select'=>'', 'bcc'=>'',
+                                        'editor_restriction' => '', 'cc' => $curr_user->user_email),
+                                    array( '%s','%s','%s','%s', '%s','%s','%s','%s', '%d','%s','%s','%s', '%s','%s' )
+                            );
+                    }
             }
+            else
+            {
+                    //Is exist these lines? No - Nothing
+                    $res = $wpdb->get_var("SELECT COUNT(id) FROM {$_table} WHERE name = '{$alert_name}'");
+                    if ($res)
+                    {
+                       //Yes - Delete                                
+                        $wpdb->delete( $_table, array( 'name' => $alert_name ) );
+                    }
+            }        
     }
     $arr_ids = get_user_meta($curr_user->ID, '_scholarship_email_options', true);
     //Maybe these options will be not last
@@ -248,3 +235,4 @@ function tsh_member_benefits_callback($atts){
         return $html;
 }
 add_shortcode('tsh_member_benefits', 'tsh_member_benefits_callback');
+
