@@ -97,12 +97,12 @@ function tsh_scholarship_email_options_callback(){
                     //Is this record exists?
                     $elp_set_id = $wpdb->get_var("SELECT elp_set_id FROM {$_table} WHERE elp_set_emaillistgroup = '{$group}'");
                     $form = array(
-                                'elp_set_name' => 'Send last scholarships for User '.$curr_user->ID,
+                                'elp_set_name' => 'Send last scholarships',
                                 'elp_set_templid' => '10',
                                 'elp_set_totalsent' => 200,
                                 'elp_set_unsubscribelink' => 'YES',
                                 'elp_set_viewstatus' => 'YES',
-                                //Why 110? Because the mailing list can go after midnight.
+                                //Why 110? Because the mailing list can go after midnight and the mailing list will be after midnight.
                                 'elp_set_postcount' => 110,
                                 'elp_set_postcategory' => (count($arr_total) > 1) ? implode(",", $arr_total) : $arr_total[0],
                                 'elp_set_postorderby' => 'ID',
