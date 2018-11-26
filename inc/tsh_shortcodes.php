@@ -166,14 +166,14 @@ function tsh_scholarship_email_options_callback(){
                             foreach ( $parent_terms as $pterm ) {
                                 //Get the Parent terms
                                 ?>
-                                <input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $pterm->term_id; ?>" <?php echo in_array($pterm->term_id, $arr_tax_subject_ids) ? 'checked' : '';?>/>
+                                <input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $pterm->term_id; ?>" <?php echo in_array($pterm->term_id, $arr_tax_subject_ids) ? 'checked' : '';?> class="parent_terms"/>
                                 <label><?php echo $pterm->name; ?></label><br/>
                                 <?php
                                 $terms = get_terms( 'tsh_tax_subject', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
                                 //Get the Child terms
                                 foreach ( $terms as $term ) {
                                     ?>
-                                    <input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_subject_ids) ? 'checked' : '';?>/>
+                                    <input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_subject_ids) ? 'checked' : '';?> data-id="<?php echo $pterm->term_id; ?>"/>
                                     <label><?php echo '-- ' . $term->name; ?></label><br/>
                                     <?php
                                 }

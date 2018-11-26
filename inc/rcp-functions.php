@@ -73,7 +73,9 @@ function pw_rcp_add_user_field_status() {
 	$field_anticipated_year_of_entry = get_user_meta( $user_id, 'rcp_field_anticipated_year_of_entry', true );
 	$degree_type = get_user_meta( $user_id, 'rcp_degree_type', true );
 	$subjects_of_interest = get_user_meta( $user_id, 'rcp_subjects_of_interest', true );
+        $subjects_of_interest = $subjects_of_interest != false ? $subjects_of_interest : array();
 	$location_studies = get_user_meta( $user_id, 'rcp_location_studies', true );
+        $location_studies = $location_studies != false ? $location_studies : array();
 	$educator_role = get_user_meta( $user_id, 'rcp_educator_role', true );
 	?>
 	<p id="rcp_status_wrapper">
@@ -106,7 +108,7 @@ function pw_rcp_add_user_field_status() {
 			<label for="rcp_subjects_of_interest"><?php _e( 'Subjects of Interest', 'rcp' ); ?></label>
 			<select id="rcp_subjects_of_interest" name="rcp_subjects_of_interest[]" multiple="multiple" style="width:69%;">
                             <?php
-                                echo thescholarshiphub_list_subjects_multiple($subjects_of_interest, '', false);
+                                echo thescholarshiphub_list_subjects_multiple_new($subjects_of_interest);//thescholarshiphub_list_subjects_multiple($subjects_of_interest, '', false);
                             ?>
                         </select>
 		</p>
@@ -147,7 +149,9 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 	$field_anticipated_year_of_entry = get_user_meta( $user_id, 'rcp_field_anticipated_year_of_entry', true );
 	$degree_type = get_user_meta( $user_id, 'rcp_degree_type', true );
 	$subjects_of_interest = get_user_meta( $user_id, 'rcp_subjects_of_interest', true );
+        $subjects_of_interest = $subjects_of_interest != false ? $subjects_of_interest : array();
 	$location_studies = get_user_meta( $user_id, 'rcp_location_studies', true );
+        $location_studies = $location_studies != false ? $location_studies : array();
 	$educator_role = get_user_meta( $user_id, 'rcp_educator_role', true );
 	?>
 	<tr valign="top">
@@ -234,7 +238,7 @@ function pw_rcp_add_member_edit_fields( $user_id = 0 ) {
 			<td>
 				<select id="rcp_subjects_of_interest" name="rcp_subjects_of_interest[]" multiple="multiple" style="width:69%;">
                                     <?php
-                                        echo thescholarshiphub_list_subjects_multiple($subjects_of_interest, '', false);
+                                        echo thescholarshiphub_list_subjects_multiple_new($subjects_of_interest);//thescholarshiphub_list_subjects_multiple($subjects_of_interest, '', false);
                                     ?>
                                 </select>				
 			<td>

@@ -146,7 +146,9 @@ function thescholarshiphub_post_thumbnail() {
                 the_post_thumbnail( 'post-thumbnail', array(
                         'alt' => the_title_attribute( array(
                                 'echo' => false,
-                        ) ),
+                        )
+                        //'alt' => trim(strip_tags( $wp_postmeta->_wp_attachment_image_alt ))
+                         ),
                 ) );
                 ?>
         </a>
@@ -298,9 +300,10 @@ function thescholarshiphub_list_study_levels($selected = '', $default = '', $wit
  * Get study subjects (for multyselect).
  */
 function thescholarshiphub_list_subjects_multiple($selected_arr = array(), $default = '', $with_default = true)
-{        
+{      
     $args = array(
             'taxonomy' => 'tsh_tax_subject',
+            'number'        => 24, 
             'hide_empty' => false,
     );
     $terms = get_terms( $args );
@@ -319,6 +322,44 @@ function thescholarshiphub_list_subjects_multiple($selected_arr = array(), $defa
             $selected = in_array($term->term_id, $selected_arr) ? 'selected="selected"' : '';
             $html .= '<option value="'. $term->term_id .'" '. $selected .'>'. $term->name .'</option>';
         }
+    }
+
+    return $html;
+}
+
+function thescholarshiphub_list_subjects_multiple_new($selected_arr = array())
+{
+    $arr_subjects = array(
+        "Architecture_building_planning" =>'Architecture, building & planning',
+        "Accounting_Finance" => 'Accounting/Finance',
+        "Art_Design" => 'Art & Design',
+        "Biology" => 'Biology',
+        "Business_related_subjects" => 'Business related subjects',
+        "Chemistry" => 'Chemistry',
+        "Computer_Science" => 'Computer Science',
+        "Economics" => 'Economics',
+        "Education_teaching" => 'Education/teaching',
+        "Engineering" => 'Engineering',
+        "Geography" => 'Geography',
+        "History" => 'History',
+        "Journalism_Media" => 'Journalism/Media',
+        "Languages_Literature" => 'Languages & Literature',
+        "Law" => 'Law',
+        "Maths" => 'Maths',
+        "Medicine_Dentistry" => 'Medicine & Dentistry',
+        "Music" => 'Music',
+        "Philosophy" => 'Philosophy',
+        "Physics" => 'Physics',
+        "Politics" => 'Politics',
+        "Psychology" => 'Psychology',
+        "Sociology" => 'Sociology',
+        "Sport_exercise science" => 'Sport & exercise science'
+    );
+    
+    foreach ($arr_subjects as $key => $term)
+    {
+        $selected = in_array($key, $selected_arr) ? 'selected="selected"' : '';
+        $html .= '<option value="'. $key .'" '. $selected .'>'. $term .'</option>';
     }
 
     return $html;
