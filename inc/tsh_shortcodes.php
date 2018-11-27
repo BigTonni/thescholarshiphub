@@ -239,7 +239,9 @@ function tsh_member_benefits_callback($atts){
         $html = '<h1>Member Benefits</h1>';        
         $html .= '<ul>';
         $html .= '<li>Download your members guide to finding scholarships <a href="/wp-content/uploads/2018/10/members_guide_to_find_funding.pdf">here</a></li>';
-        $html .= '<li>Find out how set up your personalised subscriptions <a href="/setting-up-your-personalised-subscriptions/">here</a></li>';
+        if($is_access_level){
+            $html .= '<li>Find out how set up your personalised email alerts <a href="/setting-up-your-personalised-subscriptions/">here</a></li>';
+        }
         $html .= '<li>Find out about your premium features on the scholarships database <a href="/understanding-your-premium-membership-features/">here</a></li>';
         if($is_access_level){
             $html .= '<li><a href="/search-the-database-of-educational-grants/">Search the Database of Educational Grants</a></li>';
