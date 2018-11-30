@@ -98,7 +98,34 @@ jQuery(document).ready(function ($) {
     });
     
     //On MyAccount-page
-    $('.label_tsh_tax').click(function(){
-        $('#'+ $(this).data('tax') ).toggle();
+//    $('.label_tsh_tax').click(function(){
+//        $('#'+ $(this).data('tax') ).toggle();
+//    });
+
+    //Select all taxes
+    $(".tsh_tax_all_values .select_all").change(function(){  
+        $('.checkbox[data-tax_value="'+ $(this).data('tax') +'"').prop('checked', $(this).prop("checked"));
+    });
+
+    //Change individual checkbox
+    $('.checkbox').change(function(){
+        var tax_value = $(this).data('tax_value');
+        if(false == $(this).prop("checked")){
+            $('.select_all[data-tax="'+ tax_value +'"]').prop('checked', false);
+        }
+        //check "select all" if all checkbox items are checked
+        if ($('.checkbox[data-tax_value="'+ tax_value +'"]:checked').length == $('.checkbox[data-tax_value="'+ tax_value +'"]').length ){
+                $('.select_all[data-tax="'+ tax_value +'"]').prop('checked', true);
+        }
+    });
+
+    //Select/unselect all child taxes by parent tax value
+    $('.parent_terms').click(function(){
+        var parrent_id = $(this).val();
+        if(false == $(this).prop("checked")){
+            $('.checkbox[data-id="'+ parrent_id +'"]').prop('checked', false);
+        }else{
+            $('.checkbox[data-id="'+ parrent_id +'"]').prop('checked', true);
+        }
     });
 });

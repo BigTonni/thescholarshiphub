@@ -147,6 +147,8 @@ function tsh_scholarship_email_options_callback(){
     //Maybe these options will be not last
     $arr_tax_subject_ids = isset($arr_ids['tax_subject']) ? $arr_ids['tax_subject'] : array();
     $arr_tax_institution_ids = isset($arr_ids['tax_institution']) ? $arr_ids['tax_institution'] : array();
+    $on_off = '<input type="checkbox" name="tsh_tax_status" value="on"/>On<input type="checkbox" name="tsh_tax_status" value="off"/>Off';
+    $choices = '<select name="tsh_tax_choice"><option value="and">and</option><option value="or">or</option></select>';
     
     ob_start();
     ?>
@@ -154,69 +156,73 @@ function tsh_scholarship_email_options_callback(){
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Options for specific types of scholarships</h2>
+                <div id="email_options_header"><?php echo $on_off; ?> Please email me when new scholarships are added which match my course <?php echo $choices; ?> institution choices below.</div>
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-12 label_tsh_tax" data-tax="subject"><h3>Courses:</h3></div>
-                    <div class="col-md-12" id="subject">
-                        <?php                        
-                        $parent_terms = get_terms( 'tsh_tax_subject', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );   
-                        if( !empty($parent_terms) ){
-                            foreach ( $parent_terms as $pterm ) {
-                                //Get the Parent terms
-                                ?>
-                                <input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $pterm->term_id; ?>" <?php echo in_array($pterm->term_id, $arr_tax_subject_ids) ? 'checked' : '';?> class="parent_terms"/>
-                                <label><?php echo $pterm->name; ?></label><br/>
-                                <?php
-                                $terms = get_terms( 'tsh_tax_subject', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
-                                //Get the Child terms
-                                foreach ( $terms as $term ) {
+                    <div class="col-md-6 col-xs-12 label_tsh_tax">
+                        <h2>Courses</h2>
+                        <div id="subject">
+                            <?php                        
+                            $parent_terms = get_terms( 'tsh_tax_subject', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );   
+                            if( !empty($parent_terms) ){
+                                echo '<div class="tsh_tax_all_values"><input type="checkbox" class="select_all" name="tsh_tax_all_subjects" data-tax="subjects" value=""/><label>Subscription</label></div>';
+                                foreach ( $parent_terms as $pterm ) {
+                                    //Get the Parent terms
                                     ?>
-                                    <input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_subject_ids) ? 'checked' : '';?> data-id="<?php echo $pterm->term_id; ?>"/>
-                                    <label><?php echo '-- ' . $term->name; ?></label><br/>
+                                    <div><input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $pterm->term_id; ?>" <?php echo in_array($pterm->term_id, $arr_tax_subject_ids) ? 'checked' : '';?> data-tax_value="subjects" class="parent_terms checkbox"/>
+                                    <label><?php echo $pterm->name; ?></label></div>
                                     <?php
+                                    $terms = get_terms( 'tsh_tax_subject', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
+                                    //Get the Child terms
+                                    foreach ( $terms as $term ) {
+                                        ?>
+                                        <div><input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_subject_ids) ? 'checked' : '';?> data-id="<?php echo $pterm->term_id; ?>" data-tax_value="subjects" class="checkbox"/>
+                                        <label><?php echo '-- ' . $term->name; ?></label></div>
+                                        <?php
+                                    }
                                 }
                             }
-                        }
-                        /*if( !empty($terms) ){
-                            foreach ($terms as $term) { ?>
-                                <input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_subject_ids) ? 'checked' : '';?>/>
-                                <?php echo ($term->parent !== 0) ? '--' : ''; ?><label><?php echo $term->name; ?></label><br/>
-                            <?php }
-                        }*/
-                        ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 label_tsh_tax" data-tax="institution"><h3>Institutions:</h3></div>
-                    <div class="col-md-12" id="institution">
-                        <?php                       
-                        $parent_terms_institution = get_terms( 'tsh_tax_institution', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );   
-                        if( !empty($parent_terms_institution) ){
-                            foreach ( $parent_terms_institution as $pterm ) {
-                                //Get the Parent terms
-                                ?>
-                                <input type="checkbox" name="tsh_tax_institution[]" value="<?php echo $pterm->term_id; ?>" <?php echo in_array($pterm->term_id, $arr_tax_institution_ids) ? 'checked' : '';?>/>
-                                <label><?php echo $pterm->name; ?></label><br/>
-                                <?php
-                                $terms_institution = get_terms( 'tsh_tax_institution', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
-                                //Get the Child terms
-                                foreach ( $terms_institution as $term ) {
+                            /*if( !empty($terms) ){
+                                foreach ($terms as $term) { ?>
+                                    <input type="checkbox" name="tsh_tax_subject[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_subject_ids) ? 'checked' : '';?>/>
+                                    <?php echo ($term->parent !== 0) ? '--' : ''; ?><label><?php echo $term->name; ?></label><br/>
+                                <?php }
+                            }*/
+                            ?>
+                        </div>
+                    </div>                
+                    <div class="col-md-6 col-xs-12 label_tsh_tax">
+                        <h2>Institutions</h2>
+                        <div id="institution">
+                            <?php                       
+                            $parent_terms_institution = get_terms( 'tsh_tax_institution', array( 'parent' => 0, 'orderby' => 'slug', 'hide_empty' => false ) );   
+                            if( !empty($parent_terms_institution) ){
+                                echo '<div class="tsh_tax_all_values"><input type="checkbox" class="select_all" name="tsh_tax_all_institutions" data-tax="institutions" value=""/><label>Subscription</label></div>';
+                                foreach ( $parent_terms_institution as $pterm ) {
+                                    //Get the Parent terms
                                     ?>
+                                    <div><input type="checkbox" name="tsh_tax_institution[]" value="<?php echo $pterm->term_id; ?>" <?php echo in_array($pterm->term_id, $arr_tax_institution_ids) ? 'checked' : '';?> data-tax_value="institutions" class="parent_terms checkbox"/>
+                                    <label><?php echo $pterm->name; ?></label></div>
+                                    <?php
+                                    $terms_institution = get_terms( 'tsh_tax_institution', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
+                                    //Get the Child terms
+                                    foreach ( $terms_institution as $term ) {
+                                        ?>
+                                        <div><input type="checkbox" name="tsh_tax_institution[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_institution_ids) ? 'checked' : '';?> data-id="<?php echo $pterm->term_id; ?>" data-tax_value="institutions" class="checkbox"/>
+                                        <label><?php echo '-- ' . $term->name; ?></label></div>
+                                        <?php
+                                    }
+                                }
+                            }
+                            /*if( !empty($terms_institution) ){
+                                foreach ($terms_institution as $term) { ?>
                                     <input type="checkbox" name="tsh_tax_institution[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_institution_ids) ? 'checked' : '';?>/>
-                                    <label><?php echo '-- ' . $term->name; ?></label><br/>
-                                    <?php
-                                }
-                            }
-                        }
-                        /*if( !empty($terms_institution) ){
-                            foreach ($terms_institution as $term) { ?>
-                                <input type="checkbox" name="tsh_tax_institution[]" value="<?php echo $term->term_id; ?>" <?php echo in_array($term->term_id, $arr_tax_institution_ids) ? 'checked' : '';?>/>
-                                <?php echo ($term->parent !== 0) ? '--' : ''; ?><label><?php echo $term->name; ?></label><br/>
-                            <?php }
-                        }*/
-                        ?>
+                                    <?php echo ($term->parent !== 0) ? '--' : ''; ?><label><?php echo $term->name; ?></label><br/>
+                                <?php }
+                            }*/
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

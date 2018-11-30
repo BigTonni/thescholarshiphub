@@ -331,6 +331,35 @@ label {
     padding-left: 15px;
     margin-bottom: 10px;
 }
+.table-responsive {
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.table-responsive > .rcp-table {
+	border: 0;
+}
+
+.label_tsh_tax h3{
+    cursor: pointer;
+    border-bottom: 1px solid;
+}
+.email_options .btn-primary{margin-top: 10px;}
+.tsh_tax_all_values{
+    border-bottom: 2px solid grey;
+    font-weight: bold;
+}
+.tsh_tax_all_values label{
+    margin-left: 5px;
+}
+#subject div:not(.tsh_tax_all_values),
+#institution div:not(.tsh_tax_all_values){
+    background: #f4f4f4;
+    border-bottom: 1px solid #ccc;
+}
 
 @media (max-width: 575.98px) {
 	.table-responsive-sm {
@@ -383,20 +412,3 @@ label {
 		border: 0;
 	}
 }
-
-.table-responsive {
-	display: block;
-	width: 100%;
-	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
-	-ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-.table-responsive > .rcp-table {
-	border: 0;
-}
-
-.label_tsh_tax{border-bottom: 1px solid;}
-.label_tsh_tax h3{cursor: pointer;}
-/*.email_options #subject,.email_options #institution{display: none;}*/
-.email_options .btn-primary{margin-top: 10px;}
