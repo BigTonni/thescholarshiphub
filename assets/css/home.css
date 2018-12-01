@@ -1,3 +1,4 @@
+
 /*Section slider*/
 .slider_1 {
     position: relative;
@@ -21,7 +22,7 @@
     text-align: left;
 }
 .slider_1 .slider-text_mod {
-    max-width: 540px;
+    max-width: 580px;
     margin: 82px 0 110px;
     overflow: hidden;
     text-align: left;
@@ -32,7 +33,7 @@
     font-weight: bold;
     max-height: 270px;
     line-height: 1;
-    margin: 0;
+    margin: 5% 0 0 0;
     font-size: 60px;
     text-transform: uppercase;
 }
@@ -40,6 +41,7 @@
     max-height: 145px;
     /*font-family: "Montserrat-Regular";*/
     letter-spacing: 0.24px;
+    margin: 60px 0 110px;
     font-size: 16px;
     text-align: left;
     line-height: 25px;
@@ -147,7 +149,7 @@
 }
 /* Section user_status*/
 .user_status{
-    padding: 30px 0;
+    padding: 0;
     /*background: #f6f6f6;*/
 }
 .user_status .user_status_image img {
@@ -185,6 +187,7 @@
 }
 .user_status .user_status_text div{
     padding: 23px 0;
+    font-family: "Montserrat-Regular";
 }
 /* End section user_status*/
 /*Section university_funding*/
@@ -206,7 +209,7 @@
     -ms-flex-pack: center;
     justify-content: space-between;
     margin: 0 -15px 65px;
-    padding: 25px 0 0;
+    padding: 15px 0 0;
 }
 #university_funding .item {
     padding: 15px;
@@ -219,12 +222,15 @@
     margin-top: 17px;
     font-size: 16px;
     color: #00243f;
+    font-family: "Montserrat-Regular";
 }
 /*.university_funding_text{font-size: 16px;}*/
 .university_funding_text {
     color: #b0b0b0;
     font-family: "Montserrat-Regular";
     font-size: 16px;
+    overflow: hidden;
+    max-height: 72px;
 }
 
 .university_funding_btn {
@@ -234,6 +240,7 @@
     display: -o-flex;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     border-radius: 40px;
     color: #e55ec6;
     letter-spacing: 1.5px;
@@ -252,6 +259,7 @@
     background-color: #FFFFFF;
     width: 137px;
     margin: 39px 0 0 40%;
+    font-family: "Montserrat-Regular";
 }
 .university_funding_btn_mod {
     max-width: 225px;
@@ -259,6 +267,7 @@
     padding: 18px 38px;
     letter-spacing: 2px;
     margin: 39px auto 0;
+    font-family: "Montserrat-Regular";
 }
 .university_funding_btn_mod .fa {
     margin-right: 22px;
@@ -272,6 +281,7 @@
 .home .university_funding_btn:hover{
     background: #e55ec6;
     color: #FFFFFF;
+    text-decoration: none;
 }
 .home .university_funding_btn:hover .fa{
     color: #FFFFFF;
@@ -292,7 +302,7 @@
     /*padding: 45px 45px 0 45px;*/
 }
 .featured_post_image_mod img{
-    padding: 45px 45px 0 45px;
+     /*padding: 45px 45px 0 45px;*/
 }
 .featured_post_text{
     border: 1px solid #cbcbcb;
@@ -353,9 +363,7 @@
 /* End section home_content_wrap*/
 
 /*Home sidebar*/
-.home_sidebar_wrap{
-    padding-left: 25px;
-}
+
 /*End Home sidebar*/
 
 
@@ -365,7 +373,7 @@
     line-height: 19px;
     text-transform: uppercase;
     letter-spacing: 1.9px;
-    margin: 1.5em 0 3em;
+    margin: 1em 0;
     font-family: "Montserrat-Regular";
     font-weight: bold;
 }
@@ -375,7 +383,7 @@
     line-height: 19px;
     text-transform: uppercase;
     letter-spacing: 1.9px;
-    margin: 5.6em 0 1.5em;
+    margin: 25px 0 0;
     font-family: "Montserrat-Regular";
     font-weight: bold;
 }
@@ -383,6 +391,7 @@
     font-size: 16.2px !important;
     font-weight: bold;
     font-family: "Montserrat-Regular";
+    height: 32px;
 }
 
 .home .university_funding_thumb img {
@@ -402,8 +411,8 @@
     left: -133px;
 }
 
-@media only screen and (max-width: 2500px) {
+/*@media only screen and (max-width: 2500px) {
     .main-navigation .menu-item-has-children > a:after {
         display: none;
     }
-}
+}*/

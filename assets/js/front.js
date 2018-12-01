@@ -128,4 +128,47 @@ jQuery(document).ready(function ($) {
             $('.checkbox[data-id="'+ parrent_id +'"]').prop('checked', true);
         }
     });
+    
+    //Customize radio-button
+    $('#tsh_tax_status_btn a').on('click', function(){
+        var sel = $(this).data('title');
+        var tog = $(this).data('toggle');
+        $('#'+tog).prop('value', sel);
+
+        $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
+        $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
+    });
+    
+    //For "Search & Filter Pro" plugin. Custom selected two-level elements
+    $(document).on('change','.sf-input-select[multiple="multiple"]', function(){
+        var selectedValue = $(this).find(':selected');
+        var selectedValueDepth = selectedValue.data('sf-depth');
+
+        if(selectedValueDepth == '1'){
+            //Parent
+            selectedValue.prevAll('.sf-level-0').prop("selected", "selected");
+            //prev sister elements
+            if(selectedValue.prevUntil(".sf-level-0").length > 0){                
+                selectedValue.prevUntil(".sf-level-0").map(function() {
+                    $( this ).prop("selected", "selected");
+                });
+            }
+            //next sister elements
+            if(selectedValue.nextUntil(".sf-level-0").length > 0){                
+                selectedValue.nextUntil(".sf-level-0").map(function() {
+                    $( this ).prop("selected", "selected");
+                });
+            }
+            //this element
+            selectedValue.prop("selected", "selected");
+        }
+        
+        if(selectedValueDepth == '0'){
+            if(selectedValue.nextUntil(".sf-level-0").length > 0){
+                selectedValue.nextUntil(".sf-level-0").map(function() {
+                    $( this ).prop("selected", "selected");
+                });
+            }
+        }
+    });
 });
